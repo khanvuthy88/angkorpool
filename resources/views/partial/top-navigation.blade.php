@@ -2,7 +2,7 @@
     <div class="container">
         <div class="nav-left">
             <a class="nav-item is-brand" href="{{ url('/') }}">
-                <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox">
+                <img src="http://www.angkorpool.com/wp-content/uploads/2016/10/Angkor-Pool-logo-s-1.png">
             </a>
         </div>
 
