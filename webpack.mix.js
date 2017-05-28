@@ -11,7 +11,9 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.js('resources/assets/js/jquery.js', 'public/js')
+	.js('resources/assets/js/bulma.js', 'public/js')
+	.js('resources/assets/js/app.js', 'public/js')
 	.sass('resources/assets/sass/font.scss', 'public/css')
 	.sass('resources/assets/sass/bulma.scss', 'public/css')
 	.sass('resources/assets/sass/app.scss', 'public/css');

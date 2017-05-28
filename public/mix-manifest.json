@@ -2,5 +2,7 @@
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
   "/css/bulma.css": "/css/bulma.css",
-  "/css/font.css": "/css/font.css"
+  "/css/font.css": "/css/font.css",
+  "/js/bulma.js": "/js/bulma.js",
+  "/js/jquery.js": "/js/jquery.js"
 }

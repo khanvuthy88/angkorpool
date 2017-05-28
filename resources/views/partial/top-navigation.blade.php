@@ -14,8 +14,8 @@
 
         <div id="nav-menu" class="nav-right nav-menu">
             @if(auth()->check())
-                <div class="nav-item dropdown open">
-                    <a><img src="https://placehold.it/64x64" class="avatar-photo"></a>
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle"><img src="https://placehold.it/64x64" class="avatar-photo"></a></button>
                     <ul class="dropdown-options">
                         <li class="no-hover">
                             <article class="media is-flex-center-all">
