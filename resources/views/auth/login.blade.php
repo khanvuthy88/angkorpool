@@ -7,11 +7,10 @@
     		<p class="panel-heading">Login</p>
     		<div class="panel-block">
     			<form class="is-fullwidth" action="/user/login" method="POST">
-    			@if($errors->has('credential'))
-	    			
-	    				<p class="help has-text-centered is-danger">
-							{{ $errors->first('credential') }}
-						</p>
+    			@if($errors->has('credential'))	    			
+    				<p class="help has-text-centered is-danger">
+						{{ $errors->first('credential') }}
+					</p>
     			@endif
 	    			{{ csrf_field() }}
 	    			<div class="field is-horizontal">
