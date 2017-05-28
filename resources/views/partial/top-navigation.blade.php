@@ -2,7 +2,7 @@
     <div class="container">
         <div class="nav-left">
             <a class="nav-item is-brand" href="{{ url('/') }}">
-                <img src="http://www.angkorpool.com/wp-content/uploads/2016/10/Angkor-Pool-logo-s-1.png">
+                <img src="{{ url('storage/logo/Angkor-Pool-logo-s-1.png') }}">
             </a>
         </div>
 

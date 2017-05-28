@@ -22,7 +22,7 @@ class RegisterController extends Controller
 
         User::create($request->all());
 
-        return redirect('/');
+        return redirect('/user/login');
     }
 
     public function create()
