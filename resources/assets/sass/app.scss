@@ -78,3 +78,63 @@ form{
 		}
 	}
 }
+
+section.experience{
+	.box{
+		header{
+			display: flex;
+
+			.title{
+				flex: 1;
+				margin: 0;
+			    font-size: 17px;
+			    font-weight: 400;
+			}
+
+			.action{
+				.fa{
+					vertical-align: -moz-middle-with-baseline;
+					vertical-align: -webkit-baseline-middle;
+					color: #000;
+				}
+			}
+		}
+
+		ul{
+			li{
+				padding-top: 20px;
+
+				.el-logo{
+					position: relative;
+				    width: 64px;
+				    height: 64px;
+				    float: left;
+				}
+
+				.el-summary{
+					margin-left: 80px;
+
+					h1, h2, h3, h4, h5{
+						margin: 0;
+						line-height: 24px;
+						font-size: 15px;
+					}
+
+					.title{
+						font-size: 17px;
+						font-weight: 800;
+					}
+
+					.company{
+						font-weight: 600;
+					}
+				}
+
+				.el-detail{
+					margin-left: 80px;
+					margin-top: 13px;
+				}
+			}
+		}
+	}
+}

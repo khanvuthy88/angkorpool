@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use App\UserExperience;
 
 class User extends Authenticatable
 {
@@ -31,6 +32,7 @@ class User extends Authenticatable
     ];
 
 
+    /** Attribute */
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
@@ -39,5 +41,11 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return $this->surname . ' ' . $this->name;
+    }
+
+    /** Relationship */
+    public function experiences()
+    {
+        return $this->hasMany(UserExperience::class, 'user_id', 'id');
     }
 }

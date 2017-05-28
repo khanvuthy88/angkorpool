@@ -19,12 +19,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'surname' => $faker->lastName,
         'name' => $faker->firstName,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => $password ?: $password = 'secret',
         'gender' => $faker->randomElement(['M', 'F']),
-        'dob'=> $faker->dateTimeBetween('-30 years', $endDate = '-20 years'),
+        'dob'=> $faker->dateTimeBetween('-30 years', '-20 years'),
         'marital_status' => null,
         'phone_number' => $faker->phoneNumber,
         'address' => $faker->address,
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\UserExperience::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => function () { return factory(App\User::class)->create()->id; },
+        'title' => $faker->jobTitle,
+        'company_name' => $faker->company,
+        'from_date' => $faker->dateTimeBetween('-10 years'),
+        'to_date' => $faker->dateTimeBetween('now'),
+        'location' => $faker->address,
+        'extra_detail' => $faker->paragraph,
     ];
 });
