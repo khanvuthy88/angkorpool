@@ -35,4 +35,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    public function getFullNameAttribute()
+    {
+        return $this->surname . ' ' . $this->name;
+    }
 }

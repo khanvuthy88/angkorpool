@@ -13,9 +13,30 @@
         </span>
 
         <div id="nav-menu" class="nav-right nav-menu">
-            <a class="nav-item" href="{{ url('employer/post/job') }}">Post job</a>
-
-            @if(!auth()->check())
+            @if(auth()->check())
+                <div class="nav-item dropdown open">
+                    <a><img src="https://placehold.it/64x64" class="avatar-photo"></a>
+                    <ul class="dropdown-options">
+                        <li class="no-hover">
+                            <article class="media is-flex-center-all">
+                                <div class="media-left">
+                                    <figure class="image is-64x64">
+                                        <img src="http://bulma.io/images/placeholders/64x64.png" class="avatar-photo">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p><strong>{{ auth()->user()->fullname }}</strong></p>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{{ url('user/profile') }}">Profile</a></li>
+                        <li><a href="{{ url('user/logout') }}">Sign out</a></li>
+                    </ul>
+                </div>
+            @else
                 <div class="nav-item">
                     <div class="field is-grouped">
                         <p class="control">

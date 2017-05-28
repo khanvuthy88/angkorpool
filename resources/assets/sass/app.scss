@@ -8,6 +8,8 @@
 // // Bootstrap
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "./theme.scss";
+
 body{
 	padding: 0;
 	margin: 0;
@@ -16,5 +18,55 @@ body{
 form{
 	&.is-fullwidth{
 		width: 100% !important;
+	}
+}
+
+.dropdown{
+	ul.dropdown-options{
+		position: absolute;
+		display: none;
+		text-decoration: none;
+		top: 100%;
+		right: 0;
+		left: auto;
+		z-index: 1000;
+		background-color: #fff;
+		// margin: 8px 0 0;
+		background-clip: padding-box;
+		box-shadow: 0 4px 8px rgba(0,0,0,.15);
+		list-style: none;
+		text-align: left;
+
+		img{
+			max-height: none;
+			max-width: none;
+		}
+
+		li{	
+			padding: 3px 9px 3px 9px;
+
+			&:hover{
+				background-color: rgba(0,0,0,.1);
+			}
+
+			&.divider{
+				padding: 0;
+			    margin: 0;
+				height: 1px;
+			    overflow: hidden;
+			    background-color: #e5e5e5;
+			}
+
+			&.no-hover:hover{
+				background-color: inherit;
+			}
+		}
+
+	}
+
+	&.open{
+		.dropdown-options{
+			display: block;
+		}
 	}
 }
