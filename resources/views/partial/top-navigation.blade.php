@@ -21,7 +21,7 @@
                             <article class="media is-flex-center-all">
                                 <div class="media-left">
                                     <figure class="image is-64x64">
-                                        <img src="http://bulma.io/images/placeholders/64x64.png" class="avatar-photo">
+                                        <img src="{{ url('storage/images/64x64.png') }}" class="avatar-photo">
                                     </figure>
                                 </div>
                                 <div class="media-content">
