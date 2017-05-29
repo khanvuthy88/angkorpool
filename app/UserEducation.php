@@ -5,18 +5,16 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class UserExperience extends Model
+class UserEducation extends Model
 {
-    protected $table = 'user_experiences';
+    protected $table = 'user_educations';
 
     protected $fillable = [
-    	'user_id',
+		'user_id',
 		'title',
-		'company_id',
-		'company_name',
+		'college',
 		'from_date',
 		'to_date',
-		'location',
 		'extra_detail',
     ];
 

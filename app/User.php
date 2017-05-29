@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use App\UserExperience;
+use App\UserEducation;
 
 class User extends Authenticatable
 {
@@ -47,5 +48,10 @@ class User extends Authenticatable
     public function experiences()
     {
         return $this->hasMany(UserExperience::class, 'user_id', 'id');
+    }
+
+    public function educations()
+    {
+        return $this->hasMany(UserEducation::class, 'user_id', 'id');
     }
 }

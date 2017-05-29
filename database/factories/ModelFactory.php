@@ -40,3 +40,14 @@ $factory->define(App\UserExperience::class, function (Faker\Generator $faker) {
         'extra_detail' => $faker->paragraph,
     ];
 });
+
+$factory->define(App\UserEducation::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => function () { return factory(App\User::class)->create()->id; },
+        'title' => $faker->sentence,
+        'college' => $faker->randomElement(['Norton University', 'Panhasatra University']),
+        'from_date' => $faker->dateTimeBetween('-10 years', '-5 years'),
+        'to_date' => $faker->dateTimeBetween('-4 years'),
+        'extra_detail' => $faker->paragraph,
+    ];
+});

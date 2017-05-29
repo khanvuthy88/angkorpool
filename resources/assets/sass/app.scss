@@ -79,7 +79,10 @@ form{
 	}
 }
 
-section.experience{
+section.experience,
+section.education{
+	padding: 7px 0 0 0;
+
 	.box{
 		header{
 			display: flex;
@@ -125,7 +128,8 @@ section.experience{
 						font-weight: 800;
 					}
 
-					.company{
+					.company,
+					.college{
 						font-weight: 600;
 					}
 				}
