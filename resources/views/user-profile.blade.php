@@ -12,7 +12,7 @@
     			@foreach($experiences as $experience)
 	    			<li class="">
 	    				{{-- <div class="el-action"><span class="fa fa-pencil"></span></div> --}}
-	    				<div class="el-logo"><img src="http://bulma.io/images/placeholders/64x64.png"></div>
+	    				<div class="el-logo"><img src="{{ url('storage/images/64x64.png') }}"></div>
 	    				<div class="el-summary">
 	    					<h2 class="title">{{ $experience->title }}</h2>
 	    					<h3 class="company">{{ $experience->company_name }}</h3>
