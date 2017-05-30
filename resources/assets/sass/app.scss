@@ -80,9 +80,41 @@ form{
 }
 
 section.experience,
-section.education{
+section.education,
+section.profile{
 	padding: 7px 0 0 0;
+}
 
+section.profile{
+	.photo{
+		img{			
+			width: 160px;
+			height: 160px;
+		}
+	}
+
+	.summary{
+		padding-left: 13px;
+		line-height: 1.8em;
+
+		h1{
+			font-size: 1.3em;
+			font-weight: 800;
+		}
+
+		span{
+			font-size: 15px;
+			
+			.icon{
+				font-size: 15px;
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+section.experience,
+section.education{
 	.box{
 		header{
 			display: flex;

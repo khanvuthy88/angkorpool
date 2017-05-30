@@ -1,6 +1,24 @@
 @extends('layout.master')
 
 @section('content')
+<section class="section profile">
+	<div class="container">
+		<div class="box is-flex-important">
+			<div class="photo"><img src="{{ url('storage/images/64x64.png') }}"></div>
+			<div class="summary">
+				<h1 class="name">{{ $user->fullname }}</h1>
+				<span class="gender is-block {{ !is_null($user->gender) ?: 'hide' }}">
+					<i class="fa {{ $user->gender == 'F' ? 'fa-female' : 'fa-male' }} icon"></i>
+					{{ $user->gender_full }}
+				</span>
+				<span class="dob is-block {{ !is_null($user->dob) ?: 'hide' }}"><i class="fa fa-calendar icon"></i>{{ $user->dob }}</span>
+				<span class="phone-number is-block {{ !is_null($user->phone_number) ?: 'hide' }}"><i class="fa fa-phone icon"></i>{{ $user->phone_number }}</span>
+				<span class="email is-block"><i class="fa fa-envelope icon"></i>{{ $user->email }}</span>
+				<span class="address is-block {{ !is_null($user->address) ?: 'hide' }}"><i class="fa fa-user icon"></i>{{ $user->address }}</span>
+			</div>
+		</div>
+	</div>
+</section>
 <section class="section experience">
     <div class="container">
     	<div class="box">
@@ -9,7 +27,7 @@
     			<a href="" class="action is-flex"><span class="fa fa-plus"></span></a>
     		</header> 
     		<ul>
-    			@foreach($experiences as $experience)
+    			@foreach($user->experiences as $experience)
 	    			<li class="">
 	    				{{-- <div class="el-action"><span class="fa fa-pencil"></span></div> --}}
 	    				<div class="el-logo"><img src="{{ url('storage/images/64x64.png') }}"></div>
@@ -34,7 +52,7 @@
     			<a href="" class="action is-flex"><span class="fa fa-plus"></span></a>
     		</header> 
     		<ul>
-    			@foreach($educations as $education)
+    			@foreach($user->educations as $education)
 	    			<li class="">
 	    				{{-- <div class="el-action"><span class="fa fa-pencil"></span></div> --}}
 	    				<div class="el-logo"><img src="{{ url('storage/images/64x64.png') }}"></div>

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\UserExperience;
-use App\UserEducation;
+use App\User;
 
 class UserProfileController extends Controller
 {
     public function showProfile()
     {
-    	$experiences = UserExperience::where('user_id', auth()->user()->id)->latest()->get();
-    	$educations = UserEducation::where('user_id', auth()->user()->id)->latest()->get();
+    	$user = User::with(['experiences', 'educations'])
+    				->where('id', auth()->user()->id)
+    				->first();
 
-    	return view('user-profile')->with(compact('experiences', 'educations'));
+    	return view('user-profile')->with(compact('user'));
     }
 }

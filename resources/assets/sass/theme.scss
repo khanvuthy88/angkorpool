@@ -1,8 +1,20 @@
+.is-flex-important{
+	display: flex;
+}
+
 .is-flex-center-all{
 	justify-content: center;
 	align-items: center;
 }
 
+.is-block{
+	display: block !important;
+}
+
 .avatar-photo{
 	border-radius: 50%;
+}
+
+.hide{
+	display: none !important;
 }

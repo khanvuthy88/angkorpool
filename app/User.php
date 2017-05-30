@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->surname . ' ' . $this->name;
     }
 
+    public function getGenderFullAttribute()
+    {
+        return $this->gender == 'M' ? 'Male' : ($this->gender == 'F' ? 'Female' : null);
+    }
+
     /** Relationship */
     public function experiences()
     {
