@@ -52,11 +52,11 @@ class User extends Authenticatable
     /** Relationship */
     public function experiences()
     {
-        return $this->hasMany(UserExperience::class, 'user_id', 'id');
+        return $this->hasMany(UserExperience::class, 'user_id', 'id')->latest();
     }
 
     public function educations()
     {
-        return $this->hasMany(UserEducation::class, 'user_id', 'id');
+        return $this->hasMany(UserEducation::class, 'user_id', 'id')->latest();
     }
 }
