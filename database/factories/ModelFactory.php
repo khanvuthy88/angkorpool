@@ -51,3 +51,15 @@ $factory->define(App\UserEducation::class, function (Faker\Generator $faker) {
         'extra_detail' => $faker->paragraph,
     ];
 });
+
+$factory->define(App\Job::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => function () { return factory(App\User::class)->create()->id; },
+        'company_id' => null,
+        'title' => $faker->jobTitle,
+        'description' => $faker->paragraph(10),
+        'requirement' => $faker->paragraph(10),
+        'published_date' => Carbon\Carbon::now(),
+        'closing_date' => $faker->dateTimeBetween('now', '2 months'),
+    ];
+});

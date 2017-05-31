@@ -1,14 +1,6 @@
-.is-flex-important{
-	display: flex;
-}
-
 .is-flex-center-all{
 	justify-content: center;
 	align-items: center;
-}
-
-.is-block{
-	display: block !important;
 }
 
 .avatar-photo{
@@ -21,4 +13,18 @@
 
 .section{
 	background: transparent;
+}
+
+.box{
+	box-shadow: none;
+	border: solid 1px #dcdcdc;
+}
+
+.fs-17-fw-800{
+	font-size: 17px !important;
+    font-weight: 800 !important;
+}
+
+.text-muted{
+	color: #848484;
 }

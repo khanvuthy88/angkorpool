@@ -1,0 +1,21 @@
+.is-flex-important{
+	display: flex;
+}
+
+.is-block{
+	display: block !important;
+}
+
+.top-most-margin{
+	margin-top: 10px !important;
+}
+
+.no-padding{
+	padding: 0 !important;
+}
+
+.box{
+	.inner-wrapper{
+		padding: 18px;
+	}
+}
