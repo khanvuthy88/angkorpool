@@ -1,4 +1,4 @@
-<nav class="nav has-shadow">
+<nav class="nav">
     <div class="container">
         <div class="nav-left">
             <a class="nav-item is-brand" href="{{ url('/') }}">
@@ -14,6 +14,13 @@
 
         <div id="nav-menu" class="nav-right nav-menu">
             @if(auth()->check())
+                <div class="nav-item">
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <a class="button is-primary" href="{{ url('job/post') }}">Post job</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="nav-item dropdown">
                     <button class="dropdown-toggle"><img src="{{ url('storage/images/64x64.png') }}" class="avatar-photo"></a></button>
                     <ul class="dropdown-options">
@@ -57,3 +64,24 @@
         </div>
     </div>
 </nav>
+@if(auth()->check())
+    <div class="nav-menu menu-2">
+        <div class="container">
+            <div class="nav-left">
+                <ul class="menu-list">
+                    <li class="menu">
+                        <a href="#">Job</a>
+                        <ul>
+                            <li><a href="#">Search</a></li>
+                            <li><a href="#">Post job</a></li>
+                            <li><a href="#">Favourite</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu"><a href="#">Employee</a></li>
+                    <li class="menu"><a href="#">Company</a></li>
+                    <li class="menu"><a href="#">Setting</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+@endif

@@ -176,3 +176,46 @@ section.education{
 		}
 	}
 }
+
+.menu-2{
+	background-color: #4fb9d8;
+	box-shadow: 0 1px 1px rgba(10, 10, 10, 0.1);
+
+	.menu-list{
+		display: flex;
+
+		.menu{
+			a:hover{
+				background-color: #40c3e8;
+				color: #fff;
+			}	
+
+			&:hover{
+				ul{
+					display: block;
+				}
+			}
+
+		}
+
+		ul{
+			position: absolute;
+			display: none;
+		    z-index: 999;
+		    background: #72d0eb;
+		    min-width: 160px;
+		    margin: 0;
+		    border: none;
+		    box-shadow: 1px 3px 6px rgba(10, 10, 10, 0.1);
+		    padding: 0;
+		}	
+
+		a{
+			color: #fff;
+
+			&:hover{
+				border-radius: 0;
+			}
+		}	
+	}
+}
