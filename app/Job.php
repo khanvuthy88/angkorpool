@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Job extends Model
 {
@@ -19,4 +20,10 @@ class Job extends Model
 		'industry_id',
 		'function_id',
     ];
+
+    public function scopePublished($query)
+    {
+    	$query->where('published_date', '!=', null)
+    			->where('closing_date', '>', Carbon::now());
+    }
 }

@@ -23,6 +23,53 @@ form{
 	}
 }
 
+#kill-page-image{
+    height: 400px;
+    overflow: hidden;
+    background: url(http://127.0.0.1:8000/storage/images/home-slide.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    .call-to-action{
+    	padding-top: 65px;
+    	text-align: center;
+    }
+
+    .subject{
+    	display: block;
+    	font-size: 50px;
+	    font-weight: 800;
+	    color: #fff;
+	    margin-bottom: 18px;
+	    text-shadow: 0 4px 8px rgba(0,0,0,.64);
+    }
+
+    .call-to-action-input{
+    	input{
+		    width: 467px;
+		    padding: 12px;
+		    border-radius: 30px;
+		    outline: none;
+		    border: none;
+		    font-size: 18px;
+		    margin-right: 12px;
+		    border: solid 3px #af7f00;
+		    box-shadow: 0 4px 8px rgba(0,0,0,.64);
+    	}
+
+    	button{
+    		padding: 12px 40px 12px 40px;
+		    font-size: 18px;
+		    outline: none;
+		    border: none;
+		    background-color: #af7f00;
+		    color: #fff;
+		    box-shadow: 0 4px 8px rgba(0,0,0,.64);
+    	}
+    }
+}
+
 .dropdown{
 	.dropdown-toggle{
 		background: none;

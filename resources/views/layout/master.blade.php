@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ url('css/bulma.css') }}">
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
 </head>
-<body>
+<body class="{{ auth()->check() ?: 'bg-white'}}">
 @include('partial.top-navigation')
 @yield('content')
 
