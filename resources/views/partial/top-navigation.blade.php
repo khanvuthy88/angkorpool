@@ -40,6 +40,7 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="{{ url('user/profile') }}">Profile</a></li>
+                        <li><a href="{{ url('user/profile') }}">Change Password</a></li>
                         <li><a href="{{ url('user/logout') }}">Sign out</a></li>
                     </ul>
                 </div>
@@ -73,13 +74,20 @@
                         <a href="#">Job</a>
                         <ul>
                             <li><a href="#">Search</a></li>
-                            <li><a href="#">Post job</a></li>
+                            <li><a href="#">Post Job</a></li>
                             <li><a href="#">Favourite</a></li>
                         </ul>
                     </li>
                     <li class="menu"><a href="#">Employee</a></li>
                     <li class="menu"><a href="#">Company</a></li>
-                    <li class="menu"><a href="#">Setting</a></li>
+                    <li class="menu">
+                        <a href="#">Message</a>
+                        <ul>
+                            <li><a href="#">Inbox</a></li>
+                            <li><a href="#">Outbox</a></li>
+                            <li><a href="#">Draft</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
