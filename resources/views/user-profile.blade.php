@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<section class="section profile">
+<section class="section profile top-most-margin">
 	<div class="container">
 		<div class="box is-flex-important">
 			<div class="photo"><img src="{{ url('storage/images/64x64.png') }}"></div>
