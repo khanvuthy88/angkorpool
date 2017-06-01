@@ -22,6 +22,8 @@ class CreateJobsTable extends Migration
             $table->text('requirement');
             $table->timestamp('published_date')->nullable();
             $table->timestamp('closing_date')->nullable();
+            $table->integer('industry_id')->unsigned()->nullable();
+            $table->integer('function_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

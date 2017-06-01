@@ -61,5 +61,22 @@ $factory->define(App\Job::class, function (Faker\Generator $faker) {
         'requirement' => $faker->paragraph(10),
         'published_date' => Carbon\Carbon::now(),
         'closing_date' => $faker->dateTimeBetween('now', '2 months'),
+        'function_id' => 1,
+        'industry_id' => 1,
+    ];
+});
+
+$factory->define(App\JobIndustry::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'status' => true,
+    ];
+});
+
+$factory->define(App\JobFunction::class, function (Faker\Generator $faker) {
+    return [
+        'industry_id' => function () { return factory(App\JobIndustry::class)->create()->id; },
+        'name' => $faker->word,
+        'status' => true,
     ];
 });

@@ -16,5 +16,7 @@ class Job extends Model
 		'requirement',
 		'published_date',
 		'closing_date',
+		'industry_id',
+		'function_id',
     ];
 }
