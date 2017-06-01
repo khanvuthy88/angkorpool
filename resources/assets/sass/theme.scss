@@ -11,6 +11,10 @@
 	display: none !important;
 }
 
+.border-bottom{
+	border-bottom: solid 1px #dcdcdc;
+}
+
 .section{
 	background: transparent;
 }
@@ -27,4 +31,8 @@
 
 .text-muted{
 	color: #848484;
+}
+
+.rounded{
+	border-radius: 50%;
 }
