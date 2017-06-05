@@ -9,6 +9,7 @@
         "cmgmyr/messenger": "^2.14",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "mctekk/zohocrm": "dev-master",
         "spatie/laravel-permission": "^2.1"
     },
     "require-dev": {
