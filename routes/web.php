@@ -16,3 +16,6 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/user/job/post', 'JobController@create');
 	Route::post('/user/job/post', 'JobController@store');
 });
+
+
+Route::get('zoho', 'Test\ZohoController@fetchData');
