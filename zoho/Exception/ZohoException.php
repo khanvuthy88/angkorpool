@@ -2,7 +2,9 @@
 
 namespace Zoho\Exception;
 
-class ZohoException extends \Exception
+use Exception;
+
+class ZohoException extends Exception
 {
     protected $errorMessages = array(
         '0000' => 'Unknown error',
@@ -33,6 +35,7 @@ class ZohoException extends \Exception
         '4807' => 'Exceeded file size limit.',
         '4424' => 'Invalid File Type.',
         '4809' => 'Exceeded storage space limit.',
+        '9832' => 'Record(s) already exists.',
     );
 
     public function __construct($message, $code)
@@ -41,6 +44,6 @@ class ZohoException extends \Exception
             throw new \Exception("Unknown Zoho CRM error code: $code");
         }
 
-        parent::__construct($message . ' ' . $this->errorMessages[$code], $code);
+        parent::__construct($message, $code);
     }
 }
