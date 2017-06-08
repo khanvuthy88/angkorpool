@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use App\UserExperience;
 use App\UserEducation;
+use ZohoRecruit;
 
 class User extends Authenticatable
 {
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'surname', 'name', 'email', 'password', 
+        'surname', 'name', 'email', 'password',
         'gender', 'dob', 'marital_status', 'phone_number',
         'address', 'profile_photo',
     ];
@@ -32,6 +33,33 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($user) {
+            // Create a new user into Zoho recruit first before saving into local database.
+            ZohoRecruit::setModule('Candidates');
+            ZohoRecruit::insertRecords('
+                <Candidates>
+                    <row no="1">
+                        <FL val="Source"></FL>
+                        <FL val="Current employer"></FL>
+                        <FL val="First Name">' . $user->name . '</FL>
+                        <FL val="Last Name">' . $user->surname . '</FL>
+                        <FL val="Email">' . $user->email . '</FL>
+                        <FL val="Phone">' . $user->phone_number . '</FL>
+                        <FL val="Mobile">' . $user->phone_number . '</FL>
+                    </row>
+                </Candidates>
+            ');
+        });
+    }
 
     /** Attribute */
     public function setPasswordAttribute($password)
