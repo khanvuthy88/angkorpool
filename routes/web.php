@@ -20,3 +20,5 @@ Route::group(['middleware' => 'auth'], function(){
 
 Route::get('zoho', 'Test\ZohoController@fetchData');
 Route::get('zoho/insert', 'Test\ZohoController@insert');
+Route::get('zoho/job-opening', 'Test\ZohoController@fetchJobOpening');
+Route::get('zoho/job-opening/insert', 'Test\ZohoController@createJobOpening');
