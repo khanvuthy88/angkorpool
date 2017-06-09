@@ -99,7 +99,7 @@ form{
 			max-width: none;
 		}
 
-		li{	
+		li{
 			padding: 3px 9px 3px 9px;
 
 			&:hover{
@@ -136,7 +136,7 @@ section.profile{
 
 section.profile{
 	.photo{
-		img{			
+		img{
 			width: 160px;
 			height: 160px;
 		}
@@ -153,7 +153,7 @@ section.profile{
 
 		span{
 			font-size: 15px;
-			
+
 			.icon{
 				font-size: 15px;
 				margin-right: 5px;
@@ -230,12 +230,16 @@ section.education{
 
 	.menu-list{
 		display: flex;
+		line-height: 2.3;
 
 		.menu{
+			min-width: 86px;
+		    text-align: center;
+
 			a:hover{
 				background-color: #40c3e8;
 				color: #fff;
-			}	
+			}
 
 			&:hover{
 				ul{
@@ -255,7 +259,7 @@ section.education{
 		    border: none;
 		    box-shadow: 1px 3px 6px rgba(10, 10, 10, 0.1);
 		    padding: 0;
-		}	
+		}
 
 		a{
 			color: #fff;
@@ -263,6 +267,6 @@ section.education{
 			&:hover{
 				border-radius: 0;
 			}
-		}	
+		}
 	}
 }
