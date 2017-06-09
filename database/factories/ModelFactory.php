@@ -54,15 +54,19 @@ $factory->define(App\UserEducation::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Job::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => function () { return factory(App\User::class)->create()->id; },
-        'company_id' => null,
+        'emp_id' => function () { return factory(App\User::class)->create()->id; },
         'title' => $faker->jobTitle,
-        'description' => $faker->paragraph(10),
-        'requirement' => $faker->paragraph(10),
+        'description' => $faker->paragraph(100),
         'published_date' => Carbon\Carbon::now(),
         'closing_date' => $faker->dateTimeBetween('now', '2 months'),
-        'function_id' => 1,
         'industry_id' => 1,
+        'salary' => $faker->randomElement(['$300 - $500', '$500 - 1000$', '$1000+']),
+        'status' => 1,
+        'city' => 'Phnom Penh',
+        'province' => 'Phnom Penh',
+        'work_experience' => $faker->randomElement(['0-1 year', '1-3 years', '5+ years']),
+        'job_type' => 1,
+        'number_of_positions' => $faker->randomNumber(2),
     ];
 });
 
