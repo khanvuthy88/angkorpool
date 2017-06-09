@@ -14,10 +14,8 @@ class CreateJobIndustriesTable extends Migration
     public function up()
     {
         Schema::create('job_industries', function (Blueprint $table) {
-            $table->increments('id');            
-            $table->string('name');
-            $table->boolean('status')->default(true);
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('caption');
         });
     }
 

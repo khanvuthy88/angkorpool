@@ -13,7 +13,10 @@ class CreateJobTypeTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('job_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('caption');
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreateJobTypeTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('job_types');
     }
 }
