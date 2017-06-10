@@ -1,4 +1,4 @@
-<nav class="nav">
+{{-- <nav class="nav">
     <div class="container">
         <div class="nav-left">
             <a class="nav-item is-brand" href="{{ url('/') }}">
@@ -92,4 +92,46 @@
             </div>
         </div>
     </div>
-@endif
+@endif --}}
+
+
+<div class="hero">
+    <nav class="navbar navbar-toggleable-md navbar-light">
+        <div class="container">
+            <div class="row full-width">
+                <div class="col">
+                    <a href="{{ url('/') }}" class="navbar-brand">
+                        <img src="{{ url('storage/logo/Angkor-Pool-logo-s-1.png') }}">
+                    </a>
+                </div>
+                <div class="col">
+                    <button class="navbar-toggler navbar-toggler-right"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                          <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

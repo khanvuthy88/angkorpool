@@ -9,17 +9,14 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ url('css/font.css') }}">
-    <link rel="stylesheet" href="{{ url('css/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
 </head>
-<body class="{{ auth()->check() ?: 'bg-white'}}">
+<body>
 @include('partial.top-navigation')
-@yield('content')
+{{-- @yield('content') --}}
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ url('js/jquery.js') }}"></script>
-<script src="{{ url('js/bulma.js') }}"></script>
+<script src="{{ url('js/bootstrap.js') }}"></script>
 </body>
 </html>

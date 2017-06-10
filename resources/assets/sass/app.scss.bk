@@ -1,0 +1,272 @@
+
+// // Fonts
+// @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// // Variables
+// @import "variables";
+
+// // Bootstrap
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "./layout.scss";
+@import "./theme.scss";
+
+body{
+	padding: 0;
+	margin: 0;
+	background: #f3f3f3;
+}
+
+form{
+	&.is-fullwidth{
+		width: 100% !important;
+	}
+}
+
+#kill-page-image{
+    height: 400px;
+    overflow: hidden;
+    background: url(http://127.0.0.1:8000/storage/images/home-slide.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    .call-to-action{
+    	padding-top: 65px;
+    	text-align: center;
+    }
+
+    .subject{
+    	display: block;
+    	font-size: 50px;
+	    font-weight: 800;
+	    color: #fff;
+	    margin-bottom: 18px;
+	    text-shadow: 0 4px 8px rgba(0,0,0,.64);
+    }
+
+    .call-to-action-input{
+    	input{
+		    width: 467px;
+		    padding: 12px;
+		    border-radius: 30px;
+		    outline: none;
+		    border: none;
+		    font-size: 18px;
+		    margin-right: 12px;
+		    border: solid 3px #af7f00;
+		    box-shadow: 0 4px 8px rgba(0,0,0,.64);
+    	}
+
+    	button{
+    		padding: 12px 40px 12px 40px;
+		    font-size: 18px;
+		    outline: none;
+		    border: none;
+		    background-color: #af7f00;
+		    color: #fff;
+		    box-shadow: 0 4px 8px rgba(0,0,0,.64);
+    	}
+    }
+}
+
+.dropdown{
+	.dropdown-toggle{
+		background: none;
+		border: none;
+		cursor: pointer;
+		outline: none;
+	}
+
+	ul.dropdown-options{
+		position: absolute;
+		display: none;
+		text-decoration: none;
+		top: 100%;
+		right: 0;
+		left: auto;
+		z-index: 1000;
+		background-color: #fff;
+		// margin: 8px 0 0;
+		background-clip: padding-box;
+		box-shadow: 0 4px 8px rgba(0,0,0,.15);
+		list-style: none;
+		text-align: left;
+
+
+		img{
+			max-height: none;
+			max-width: none;
+		}
+
+		li{
+			padding: 3px 9px 3px 9px;
+
+			&:hover{
+				background-color: rgba(0,0,0,.1);
+			}
+
+			&.divider{
+				padding: 0;
+			    margin: 0;
+				height: 1px;
+			    overflow: hidden;
+			    background-color: #e5e5e5;
+			}
+
+			&.no-hover:hover{
+				background-color: inherit;
+			}
+		}
+
+	}
+
+	&.open{
+		.dropdown-options{
+			display: block;
+		}
+	}
+}
+
+section.experience,
+section.education,
+section.profile{
+	padding: 7px 0 0 0;
+}
+
+section.profile{
+	.photo{
+		img{
+			width: 160px;
+			height: 160px;
+		}
+	}
+
+	.summary{
+		padding-left: 13px;
+		line-height: 1.8em;
+
+		h1{
+			font-size: 1.3em;
+			font-weight: 800;
+		}
+
+		span{
+			font-size: 15px;
+
+			.icon{
+				font-size: 15px;
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+section.experience,
+section.education{
+	.box{
+		header{
+			display: flex;
+
+			.title{
+				flex: 1;
+				margin: 0;
+			    font-size: 17px;
+			    font-weight: 400;
+			}
+
+			.action{
+				.fa{
+					vertical-align: -moz-middle-with-baseline;
+					vertical-align: -webkit-baseline-middle;
+					color: #000;
+				}
+			}
+		}
+
+		ul{
+			li{
+				padding-top: 20px;
+
+				.el-logo{
+					position: relative;
+				    width: 64px;
+				    height: 64px;
+				    float: left;
+				}
+
+				.el-summary{
+					margin-left: 80px;
+
+					h1, h2, h3, h4, h5{
+						margin: 0;
+						line-height: 24px;
+						font-size: 15px;
+					}
+
+					.title{
+						font-size: 17px;
+						font-weight: 800;
+					}
+
+					.company,
+					.college{
+						font-weight: 600;
+					}
+				}
+
+				.el-detail{
+					margin-left: 80px;
+					margin-top: 13px;
+				}
+			}
+		}
+	}
+}
+
+.menu-2{
+	background-color: #4fb9d8;
+	box-shadow: 0 1px 1px rgba(10, 10, 10, 0.1);
+
+	.menu-list{
+		display: flex;
+		line-height: 2.3;
+
+		.menu{
+			min-width: 86px;
+		    text-align: center;
+
+			a:hover{
+				background-color: #40c3e8;
+				color: #fff;
+			}
+
+			&:hover{
+				ul{
+					display: block;
+				}
+			}
+
+		}
+
+		ul{
+			position: absolute;
+			display: none;
+		    z-index: 999;
+		    background: #72d0eb;
+		    min-width: 160px;
+		    margin: 0;
+		    border: none;
+		    box-shadow: 1px 3px 6px rgba(10, 10, 10, 0.1);
+		    padding: 0;
+		}
+
+		a{
+			color: #fff;
+
+			&:hover{
+				border-radius: 0;
+			}
+		}
+	}
+}
