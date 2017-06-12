@@ -34,6 +34,9 @@
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Message</a>
                                 </li>
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Resources</a>
+                                </li>
                             @endif
                         </ul>
                     </div>
