@@ -14,7 +14,7 @@
         <div class="card-block">
             <div class="tab-content">
                 <div class="tab-pane active" id="latest-jobs" role="tabpanel">
-                    <table class="table table-responsive">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>Title</th>
@@ -26,7 +26,7 @@
                             @foreach($jobs as $job)
                                 <tr>
                                     <td><a href="{{ url('job/1')}}">{{ $job->title }}</a></td>
-                                    <td>{{ $job->title }}</td>
+                                    <td>{{ $job->province }}</td>
                                     <td>{{ $job->closing_date }}</td>
                                 </tr>
                             @endforeach
