@@ -108,3 +108,15 @@
 .table th{
 	border-top: 0;
 }
+
+.nav-tabs{
+	.nav-link{
+		color: $nav-tabs-color;
+		opacity: 0.5;
+
+		&.active,
+		&:hover{
+			opacity: 1;
+		}
+	}
+}
