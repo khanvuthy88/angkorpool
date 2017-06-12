@@ -1,4 +1,6 @@
-$gray: #464a4c;
+@import "./node_modules/bootstrap/scss/_variables.scss";
+@import "./node_modules/bootstrap/scss/_custom.scss";
+
 $nav-tabs-color: $gray;
 
 @import "./layout.scss";
