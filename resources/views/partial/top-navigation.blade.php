@@ -99,7 +99,7 @@
     <nav class="navbar navbar-toggleable-md shadow20 z-index-1000">
         <div class="container">
             <div class="row full-width no-margin">
-                <div class="col">
+                <div class="col-lg-2 col-md-12">
                     <a href="{{ url('/') }}" class="navbar-brand">
                         <img src="{{ url('storage/logo/Angkor-Pool-logo-s-1.png') }}">
                     </a>
@@ -115,13 +115,30 @@
                         <span></span>
                     </button>
                 </div>
-                <div class="col hidden-md-down">
+                <div class="col-lg-8 hidden-md-down">
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav align-items-center">
+                            @if(auth()->check())
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Search Jobs</a>
+                                </li>
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Job Alerts</a>
+                                </li>
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">CV</a>
+                                </li>
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Message</a>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 hidden-md-down">
                     <div class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav align-items-center">
                             @if(auth()->check())
-                                <li class="nav-item">
-                                    <a class="btn btn-secondary" href="{{ url('job/post') }}">Post job</a>
-                                </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <img src="{{ url('storage/images/64x64.png') }}" class="rounded-circle img-32x32">
