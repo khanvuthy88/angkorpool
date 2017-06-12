@@ -14,7 +14,7 @@
 </head>
 <body>
 @include('partial.top-navigation')
-{{-- @yield('content') --}}
+@yield('content')
 
 <script src="{{ url('js/jquery.js') }}"></script>
 <script src="{{ url('js/bootstrap.js') }}"></script>
