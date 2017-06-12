@@ -90,3 +90,21 @@
 .z-index-1000{
 	z-index: 1000;
 }
+
+.border-top{
+	&-left-radius{
+		&-0{
+			border-top-left-radius: 0;
+		}
+	}
+
+	&-right-radius{
+		&-0{
+			border-top-right-radius: 0;
+		}
+	}
+}
+
+.table th{
+	border-top: 0;
+}

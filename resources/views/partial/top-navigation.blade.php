@@ -1,5 +1,5 @@
 <div class="hero mb-3">
-    <nav class="navbar navbar-toggleable-md shadow20 z-index-1000">
+    <nav class="navbar navbar-toggleable-md shadow20 zindex-navbar">
         <div class="container">
             <div class="row full-width no-margin">
                 <div class="col-lg-2 col-md-12">
