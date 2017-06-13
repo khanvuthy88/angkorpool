@@ -15,7 +15,7 @@
 <body>
 @include('partial.top-navigation')
 @yield('content')
-
+@include('partial.footer')
 <script src="{{ url('js/jquery.js') }}"></script>
 <script src="{{ url('js/bootstrap.js') }}"></script>
 </body>
