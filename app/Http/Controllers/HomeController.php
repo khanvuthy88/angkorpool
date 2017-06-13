@@ -14,7 +14,7 @@ class HomeController extends Controller
     				->limit(10)
     				->get();
 
-    	$homepage = auth()->check() ? 'home-user' : 'home';
+    	$homepage = auth()->check() ? 'dashboard' : 'home';
 
     	return view($homepage, compact('jobs'));
     }

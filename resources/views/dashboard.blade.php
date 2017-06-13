@@ -20,6 +20,7 @@
                                 <th>Title</th>
                                 <th>Location</th>
                                 <th>Closing Date</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,7 @@
                                     <td><a href="{{ url('job/1')}}">{{ $job->title }}</a></td>
                                     <td>{{ $job->province }}</td>
                                     <td>{{ $job->closing_date }}</td>
+                                    <td><a href="#" class="text-secondary" title="Apply"><i class="fa fa-paper-plane"></i></a></td>
                                 </tr>
                             @endforeach
                         </tbody>

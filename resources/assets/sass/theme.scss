@@ -124,3 +124,15 @@
 		}
 	}
 }
+
+.text-secondary{
+	color: $secondary-color !important;
+}
+
+a.text-secondary:hover{
+	color: darken($secondary-color, 15%) !important;
+}
+
+.text-gray{
+	color: $gray !important;
+}
