@@ -12,9 +12,10 @@ Route::get('user/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/user/profile', 'UserProfileController@showProfile');
 
-	Route::get('/user/jobs', 'JobController@index');
-	Route::get('/user/job/post', 'JobController@create');
-	Route::post('/user/job/post', 'JobController@store');
+	Route::get('/jobs', 'JobController@index')->name('jobs');
+    Route::get('/job/{job}', 'JobController@show')->name('job.show');
+	Route::get('/job/post', 'JobController@create')->name('job.post');
+	Route::post('/job/post', 'JobController@store')->name('job.post');
 });
 
 
