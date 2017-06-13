@@ -10,7 +10,7 @@
             <a class="nav-link" data-toggle="tab" href="#applied-jobs" role="tab">Applied Jobs</a>
         </li>
     </ul>
-    <div class="card border-top-0 border-top-left-radius-0 border-top-right-radius-0">
+    <div class="card border-top-0 border-radius-0">
         <div class="card-block">
             <div class="tab-content">
                 <div class="tab-pane active" id="latest-jobs" role="tabpanel">
