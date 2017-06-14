@@ -65,7 +65,7 @@ $factory->define(App\Job::class, function (Faker\Generator $faker) {
         'city' => 'Phnom Penh',
         'province' => 'Phnom Penh',
         'work_experience' => $faker->randomElement(['0-1 year', '1-3 years', '5+ years']),
-        'job_type' => 1,
+        'job_type_id' => 1,
         'number_of_positions' => $faker->randomNumber(2),
     ];
 });
@@ -73,7 +73,6 @@ $factory->define(App\Job::class, function (Faker\Generator $faker) {
 $factory->define(App\JobIndustry::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'status' => true,
     ];
 });
 

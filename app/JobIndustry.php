@@ -8,5 +8,7 @@ class JobIndustry extends Model
 {
     protected $table = 'job_industries';
 
-    protected $fillable = ['name', 'status'];
+    protected $fillable = ['name'];
+
+    public $timestamps = false;
 }

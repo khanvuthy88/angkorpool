@@ -23,7 +23,7 @@ class CreateJobsTable extends Migration
             $table->string('city')->nullable();
             $table->string('province')->nullable();
             $table->string('work_experience')->nullable();
-            $table->integer('job_type');
+            $table->integer('job_type_id');
             $table->integer('number_of_positions');
             $table->timestamp('published_date')->nullable();
             $table->date('closing_date')->nullable();
