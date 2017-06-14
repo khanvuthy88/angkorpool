@@ -151,7 +151,7 @@ class LoginController extends Controller
         }
 
         return redirect()->back()
-            ->withInput($request->only($this->username(), 'remember'))
+            ->withInput($request->only($this->username(), 'remember', 'login_as'))
             ->withErrors($errors);
     }
 
@@ -189,6 +189,8 @@ class LoginController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard();
+        return Auth::guard(
+            'web.' . (! is_null(request('login_as')) ? request('login_as') : 'employees')
+        );
     }
 }
