@@ -148,3 +148,9 @@ a.text-secondary:hover{
 		}
 	}
 }
+
+.font-weight{
+	&-600{
+		font-weight: 600 !important;
+	}
+}
