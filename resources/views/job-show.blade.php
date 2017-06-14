@@ -11,27 +11,27 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <td class="font-weight-bold">Job Type</td>
+                        <td class="font-weight-bold width-min-200">Job Type</td>
                         <td><p class="card-text">{{ $job->job_type }}</p></td>
                     </tr>
                     <tr>
-                        <td class="font-weight-bold">No. Of Positions</td>
+                        <td class="font-weight-bold width-min-200">No. Of Positions</td>
                         <td><p class="card-text">{{ $job->number_of_positions }}</p></td>
                     </tr>
                     <tr>
-                        <td class="font-weight-bold">Location</td>
+                        <td class="font-weight-bold width-min-200">Location</td>
                         <td><p class="card-text">{{ $job->province }}</p></td>
                     </tr>
                     <tr>
-                        <td class="font-weight-bold">Industry</td>
+                        <td class="font-weight-bold width-min-200">Industry</td>
                         <td><p class="card-text">{{ $job->industry }}</p></td>
                     </tr>
                     <tr>
-                        <td class="font-weight-bold">Experience</td>
+                        <td class="font-weight-bold width-min-200">Experience</td>
                         <td><p class="card-text">{{ $job->work_experience }}</p></td>
                     </tr>
                     <tr>
-                        <td class="font-weight-bold">Job Description</td>
+                        <td class="font-weight-bold width-min-200">Job Description</td>
                         <td><p class="card-text">{{ $job->description }}</p></td>
                     </tr>
                 </tbody>

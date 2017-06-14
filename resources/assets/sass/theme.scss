@@ -140,3 +140,11 @@ a.text-secondary:hover{
 .text-gray{
 	color: $gray !important;
 }
+
+.width{
+	&-min{
+		&-200{
+			min-width: 200px !important;
+		}
+	}
+}
