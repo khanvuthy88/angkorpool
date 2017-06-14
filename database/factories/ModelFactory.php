@@ -83,7 +83,7 @@ $factory->define(App\Employer::class, function (Faker\Generator $faker) {
         'fax' => $faker->phoneNumber,
         'industry_id' => 1,
         'website' => $faker->domainName,
-        'about' => $faker->paragrahp,
+        'about' => $faker->paragraph,
         'street' => $faker->streetAddress,
         'city' => null,
         'province' => 'Phnom Penh',
