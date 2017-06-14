@@ -54,7 +54,7 @@ $factory->define(App\UserEducation::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Job::class, function (Faker\Generator $faker) {
     return [
-        'emp_id' => function () { return factory(App\User::class)->create()->id; },
+        'emp_id' => function () { return factory(App\Employer::class)->create()->id; },
         'title' => $faker->jobTitle,
         'description' => $faker->paragraph(100),
         'published_date' => Carbon\Carbon::now(),
@@ -76,10 +76,17 @@ $factory->define(App\JobIndustry::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\JobFunction::class, function (Faker\Generator $faker) {
+$factory->define(App\Employer::class, function (Faker\Generator $faker) {
     return [
-        'industry_id' => function () { return factory(App\JobIndustry::class)->create()->id; },
-        'name' => $faker->word,
-        'status' => true,
+        'name' => $faker->name,
+        'contact_number' => $faker->phoneNumber,
+        'fax' => $faker->phoneNumber,
+        'industry_id' => 1,
+        'website' => $faker->domainName,
+        'about' => $faker->paragrahp,
+        'street' => $faker->streetAddress,
+        'city' => null,
+        'province' => 'Phnom Penh',
+        'post_code' => $faker->postcode,
     ];
 });
