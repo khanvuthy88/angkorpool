@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Employee::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -29,7 +29,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\UserExperience::class, function (Faker\Generator $faker) {
+$factory->define(App\EmployeeExperience::class, function (Faker\Generator $faker) {
     return [
         'user_id' => function () { return factory(App\User::class)->create()->id; },
         'title' => $faker->jobTitle,
@@ -41,7 +41,7 @@ $factory->define(App\UserExperience::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\UserEducation::class, function (Faker\Generator $faker) {
+$factory->define(App\EmployeeEducation::class, function (Faker\Generator $faker) {
     return [
         'user_id' => function () { return factory(App\User::class)->create()->id; },
         'title' => $faker->sentence,
