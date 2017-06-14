@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Employee;
 
-class DatabaseSeeder extends Seeder
+class EmployeeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(EmployeeTableSeeder::class);
-        $this->call(JobTableSeeder::class);
+        Employee::truncate();
+
+        factory(Employee::class, 5)->create();
     }
 }
