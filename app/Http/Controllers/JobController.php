@@ -21,8 +21,10 @@ class JobController extends Controller
     	return view('job-create');
     }
 
-    public function show(Job $job)
+    public function show($id)
     {
+        $job = Job::with('type')->find($id);
+
         return view('job-show', compact('job'));
     }
 }

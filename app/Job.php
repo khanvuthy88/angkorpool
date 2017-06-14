@@ -23,6 +23,17 @@ class Job extends Model
 		'function_id',
     ];
 
+    public function type()
+    {
+        return $this->hasOne(JobType::class, 'id', 'job_type_id');
+    }
+
+    public function industry()
+    {
+        return $this->hasOne(JobIndustry::class, 'id', 'industry_id');
+    }
+
+
     public function scopePublished($query)
     {
     	$query->where('published_date', '!=', null)
@@ -31,11 +42,13 @@ class Job extends Model
 
     public function getJobTypeAttribute()
     {
-        return $this->hasOne(JobType::class, 'id', 'job_type_id')->first()->caption;
+        $job_type = $this->type;
+        return ! is_null($job_type) ? $job_type->caption : null;
     }
 
-    public function getIndustryAttribute()
+    public function getIndustryNameAttribute()
     {
-        return $this->hasOne(JobIndustry::class, 'id', 'industry_id')->first()->name;
+        $industry = $this->industry;
+        return ! is_null($industry) ? $industry->name : null;
     }
 }

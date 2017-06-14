@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <td class="font-weight-600 width-min-200">Industry</td>
-                        <td><p class="card-text">{{ $job->industry }}</p></td>
+                        <td><p class="card-text">{{ $job->industry_name }}</p></td>
                     </tr>
                     <tr>
                         <td class="font-weight-600 width-min-200">Experience</td>
@@ -58,7 +58,7 @@
             </dl>
             <dl class="mt-4">
                 <dt class="font-weight-600">Industry</dt><hr class="mt-1 mb-1">
-                <dd><p class="card-text">{{ $job->industry }}</p></dd>
+                <dd><p class="card-text">{{ $job->industry_name }}</p></dd>
             </dl>
             <dl class="mt-4">
                 <dt class="font-weight-600">Experience</dt><hr class="mt-1 mb-1">
