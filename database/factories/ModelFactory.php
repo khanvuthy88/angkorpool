@@ -78,6 +78,8 @@ $factory->define(App\JobIndustry::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Employer::class, function (Faker\Generator $faker) {
     return [
+        'email' => $faker->unique()->safeEmail,
+        'password' => 'secret',
         'name' => $faker->name,
         'contact_number' => $faker->phoneNumber,
         'fax' => $faker->phoneNumber,

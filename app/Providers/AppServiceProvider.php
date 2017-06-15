@@ -15,6 +15,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        // \View::composer('*', function ($view) {
+        //     $guard = explode('_', collect(session('login_web'))->keys()->first())[0];
+        //     $view->with('guard', 'web.' . $guard);
+        // });
+
+        // \View::share('company_profile', $company_profile);
     }
 
     /**

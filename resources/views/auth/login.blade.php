@@ -11,7 +11,7 @@
                         @if($errors->has('credential'))
                             <div class="alert alert-danger" id="alert">{{ $errors->first('credential') }}</div>
                         @endif
-                        <form action="/user/login" method="POST">
+                        <form action="/login" method="POST">
                             {{ csrf_field() }}
                             <div class="form-group row {{ ! $errors->has('email') ?: 'has-danger' }}">
                               <label for="email" class="col-sm-12 col-md-3 col-form-label">Email</label>

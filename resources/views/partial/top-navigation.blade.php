@@ -21,7 +21,7 @@
                 <div class="col-lg-7 hidden-md-down">
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav align-items-center">
-                            @if(auth()->check())
+                            @if(auth()->guard('web.employees')->check())
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Search Jobs</a>
                                 </li>
@@ -37,6 +37,19 @@
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Resources</a>
                                 </li>
+                            @elseif(auth()->guard('web.employers')->check())
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Post Job</a>
+                                </li>
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Candidates</a>
+                                </li>
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Message</a>
+                                </li>
+                                <li class="nav-item mr-3">
+                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Resources</a>
+                                </li>
                             @endif
                         </ul>
                     </div>
@@ -44,7 +57,18 @@
                 <div class="col-lg-3 hidden-md-down pr-lg-0">
                     <div class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav align-items-center">
-                            @if(auth()->check())
+                            @if(auth()->guard('web.employees')->check())
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-gray" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="{{ url('storage/images/64x64.png') }}" class="rounded-circle img-32x32">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                            @elseif(auth()->guard('web.employers')->check())
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-gray" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <img src="{{ url('storage/images/64x64.png') }}" class="rounded-circle img-32x32">
@@ -57,10 +81,10 @@
                                 </li>
                             @else
                                 <li class="nav-item mr-1">
-                                    <a class="nav-link" href="{{ url('user/login') }}"><i class="fa fa-key mr-1"></i>Login</a>
+                                    <a class="nav-link" href="{{ url('login') }}"><i class="fa fa-key mr-1"></i>Login</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('user/register') }}"><i class="fa fa-user mr-1"></i>Register</a>
+                                    <a class="nav-link" href="{{ url('register') }}"><i class="fa fa-user mr-1"></i>Register</a>
                                 </li>
                             @endif
                         </ul>

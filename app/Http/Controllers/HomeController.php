@@ -7,6 +7,11 @@ use App\Job;
 
 class HomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     public function index()
     {
     	$jobs = Job::published()
@@ -14,8 +19,6 @@ class HomeController extends Controller
     				->limit(10)
     				->get();
 
-    	$homepage = auth()->check() ? 'dashboard' : 'home';
-
-    	return view($homepage, compact('jobs'));
+    	return view('home', compact('jobs'));
     }
 }

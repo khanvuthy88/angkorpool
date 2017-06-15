@@ -12,6 +12,8 @@ class LoginController extends Controller
 {
     use RedirectsUsers, ThrottlesLogins;
 
+    protected $guard;
+
     /**
      * Where to redirect users after login.
      *
@@ -26,7 +28,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware(['guest:web.employers', 'guest:web.employees'])->except('logout');
     }
 
     /**
@@ -189,8 +191,8 @@ class LoginController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard(
-            'web.' . (! is_null(request('login_as')) ? request('login_as') : 'employees')
-        );
+        $this->guard = 'web.' . (! is_null(request('login_as')) ? request('login_as') : 'employees');
+
+        return Auth::guard($this->guard);
     }
 }

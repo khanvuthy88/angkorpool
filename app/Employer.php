@@ -13,6 +13,8 @@ class Employer extends Authenticatable
     protected $table = 'employers';
 
     protected $fillable = [
+        'email',
+        'password',
         'name',
         'contact_number',
         'fax',
@@ -24,4 +26,13 @@ class Employer extends Authenticatable
         'province',
         'post_code',
     ];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 }

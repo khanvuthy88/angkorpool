@@ -8,7 +8,7 @@
             	<div class="card">
             		<h5 class="card-header"><i class="fa fa-user mr-2"></i>Register</h5>
             		<div class="card-block">
-            			<form action="/user/register" method="POST">
+            			<form action="/register" method="POST">
             				{{ csrf_field() }}
                             <div class="form-group row {{ ! $errors->has('surname') ?: 'has-danger' }}">
                                 <label for="surname" class="col-sm-12 col-md-3 col-form-label">Surname</label>

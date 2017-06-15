@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware(['guest:web.employers', 'guest:web.employees']);
     }
 
     public function store(Request $request)
