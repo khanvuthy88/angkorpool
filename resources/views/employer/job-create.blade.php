@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card">
         <div class="card-block">
-            <form action="{{ route('job.post') }}" method="POST">
+            <form action="{{ route('employer.job.post') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="form-group row {{ ! $errors->has('title') ?: 'has-danger' }}">
                     <label for="title" class="col-sm-12 col-md-3 col-form-label">Job Title</label>
@@ -94,9 +94,12 @@
                     <label for="location" class="col-sm-12 col-md-3 col-form-label">Location</label>
                     <div class="col-sm-12 col-md-9">
                         <select class="form-control" id="location" name="location">
-                            <option value="1" {{ old('location') == 1 ? 'selected' : '' }}>Phnom Penh</option>
-                            <option value="2" {{ old('location') == 2 ? 'selected' : '' }}>Kandal</option>
-                            <option value="3" {{ old('location') == 3 ? 'selected' : '' }}>Kampong Chhnang</option>
+                            <option value="">--Select--</option>
+                            @foreach($provinces as $province)
+                                <option value="{{ $province->code }}" {{ old('location') == $province->code ? 'selected' : '' }}>
+                                    {{ $province->name }}
+                                </option>
+                            @endforeach
                         </select>
                         @if ($errors->has('location'))
                             <div class="form-control-feedback"><small>{{ $errors->first('location') }}</small></div>
@@ -124,7 +127,7 @@
                 <div class="form-group row mb-0">
                     <div class="col-sm-12 col-md-9 offset-md-3 d-flex flex-column flex-md-row">
                         <button class="btn btn-secondary mb-1 mb-md-0 mr-md-1">Save</button>
-                        <button class="btn btn-secondary">Save and Publish</button>
+                        <button class="btn btn-secondary">Save & Publish</button>
                     </div>
                 </div>
             </form>

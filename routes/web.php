@@ -3,9 +3,10 @@ Route::group(['middleware' => 'auth:web.employees'], function(){
 	// Route::get('/profile', 'UserProfileController@showProfile');
 });
 
-Route::group([ 'middleware' => 'auth:web.employers'], function(){
-    Route::get('/job/post', 'JobController@create')->name('job.post');
-    Route::post('/job/post', 'JobController@store')->name('job.post');
+Route::group(['prefix' => 'employer', 'middleware' => 'auth:web.employers'], function(){
+    Route::get('/job/post', 'Employer\JobController@create')->name('employer.job.post');
+    Route::post('/job/post', 'Employer\JobController@store');
+    Route::get('/job/{id}', 'Employer\JobController@show')->name('employer.job.show');
 });
 
 Route::get('/jobs', 'JobController@index')->name('jobs');

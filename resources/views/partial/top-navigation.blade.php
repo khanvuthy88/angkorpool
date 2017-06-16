@@ -39,7 +39,7 @@
                                 </li>
                             @elseif(auth()->guard('web.employers')->check())
                                 <li class="nav-item mr-3">
-                                    <a class="nav-link text-uppercase" href="{{ route('job.post') }}">Post Job</a>
+                                    <a class="nav-link text-uppercase" href="{{ route('employer.job.post') }}">Post Job</a>
                                 </li>
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Candidates</a>
