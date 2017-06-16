@@ -21,7 +21,7 @@ class CreateJobsTable extends Migration
             $table->string('salary')->nullable();
             $table->integer('status');
             $table->string('city')->nullable();
-            $table->string('province')->nullable();
+            $table->string('province_code')->nullable();
             $table->string('work_experience')->nullable();
             $table->integer('job_type_id');
             $table->integer('number_of_positions');

@@ -19,7 +19,7 @@ class Job extends Model
         'salary',
         'status',
         'city',
-        'province',
+        'province_code',
         'work_experience',
         'job_type_id',
         'number_of_positions',
@@ -41,6 +41,11 @@ class Job extends Model
     public function industry()
     {
         return $this->hasOne(JobIndustry::class, 'id', 'industry_id');
+    }
+
+    public function province()
+    {
+        return $this->hasOne(Province::class, 'code', 'province_code');
     }
 
 
@@ -69,9 +74,8 @@ class Job extends Model
 
     public function getLocationAttribute()
     {
-        return Province::select('name')
-                        ->where('code', $this->province)
-                        ->first()
-                        ->name;
+        if(is_null($this->province)) return null;
+
+        return $this->province->name;
     }
 }

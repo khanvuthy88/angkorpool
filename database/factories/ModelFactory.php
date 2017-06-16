@@ -63,7 +63,7 @@ $factory->define(App\Job::class, function (Faker\Generator $faker) {
         'salary' => $faker->randomElement(['$300 - $500', '$500 - 1000$', '$1000+']),
         'status' => 1,
         'city' => 'Phnom Penh',
-        'province' => 'Phnom Penh',
+        'province_code' => 'PNP',
         'work_experience' => $faker->randomElement(['0-1 year', '1-3 years', '5+ years']),
         'job_type_id' => 1,
         'number_of_positions' => $faker->randomNumber(2),

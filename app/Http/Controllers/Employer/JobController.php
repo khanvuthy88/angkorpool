@@ -65,7 +65,7 @@ class JobController extends Controller
 
     public function publish($id)
     {
-        $job = Job::with('type')
+        $job = Job::with(['type', 'province'])
                     ->where('id', $id)
                     ->where('emp_id', auth()->user()->id)
                     ->firstOrFail();
