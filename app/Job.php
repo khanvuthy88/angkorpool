@@ -27,6 +27,11 @@ class Job extends Model
         'industry_id',
     ];
 
+    protected $dates = [
+        'published_date',
+        'closing_date',
+    ];
+
     public function type()
     {
         return $this->hasOne(JobType::class, 'id', 'job_type_id');
@@ -54,5 +59,10 @@ class Job extends Model
     {
         $industry = $this->industry;
         return ! is_null($industry) ? $industry->name : null;
+    }
+
+    public function getIsPublishedAttribute()
+    {
+        return ! is_null($this->published_date);
     }
 }
