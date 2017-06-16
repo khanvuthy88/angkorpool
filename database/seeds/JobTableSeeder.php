@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Job;
 use App\JobType;
 use App\JobIndustry;
+use App\JobOpeningStatus;
 
 class JobTableSeeder extends Seeder
 {
@@ -14,24 +15,33 @@ class JobTableSeeder extends Seeder
      */
     public function run()
     {
-        JobIndustry::truncate();
         JobType::truncate();
+        JobOpeningStatus::truncate();
+        JobIndustry::truncate();
         Job::truncate();
 
         JobType::insert([
-            [ 'caption' => 'Full time'],
-            [ 'caption' => 'Part time'],
-            [ 'caption' => 'Contract'],
-            [ 'caption' => 'Temporary'],
+            [ 'caption' => 'Full time' ],
+            [ 'caption' => 'Part time' ],
+            [ 'caption' => 'Contract' ],
+            [ 'caption' => 'Temporary' ],
+        ]);
+
+        JobOpeningStatus::insert([
+            [ 'caption' => 'In-progress'],
+            [ 'caption' => 'Cancelled'],
+            [ 'caption' => 'Declined'],
+            [ 'caption' => 'Inactive'],
         ]);
 
         JobIndustry::insert([
-            [ 'name' => 'IT Service'],
-            [ 'name' => 'Education'],
-            [ 'name' => 'Pharma'],
-            [ 'name' => 'Real Estate'],
-            [ 'name' => 'Manufacturing'],
+            [ 'name' => 'IT Service' ],
+            [ 'name' => 'Education' ],
+            [ 'name' => 'Pharma' ],
+            [ 'name' => 'Real Estate' ],
+            [ 'name' => 'Manufacturing' ],
         ]);
+
         factory(Job::class, 20)->create();
     }
 }
