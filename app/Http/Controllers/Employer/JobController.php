@@ -44,7 +44,7 @@ class JobController extends Controller
             'salary' => $request->get('salary'),
             'status' => $request->get('job-opening-status'),
             'city' => $request->get('city'),
-            'province' => $request->get('location'),
+            'province_code' => $request->get('location'),
             'work_experience' => $request->get('work-experience'),
             'job_type_id' => $request->get('job-type'),
             'number_of_positions' => $request->get('number-of-position'),
