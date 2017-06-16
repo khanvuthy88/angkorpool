@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employer;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\Job;
 use App\JobIndustry;
 use App\JobType;
@@ -60,5 +61,18 @@ class JobController extends Controller
                     ->firstOrFail();
 
         return view('employer.job-show', compact('job'));
+    }
+
+    public function publish($id)
+    {
+        $job = Job::with('type')
+                    ->where('id', $id)
+                    ->where('emp_id', auth()->user()->id)
+                    ->firstOrFail();
+
+        $job->published_date = Carbon::now();
+        $job->save();
+
+        return redirect()->back();
     }
 }

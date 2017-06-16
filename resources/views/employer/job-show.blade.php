@@ -44,7 +44,7 @@
             </table>
             <div class="pull-right">
                 @if(!$job->is_published)
-                    <a href="#" class="btn btn-secondary text-uppercase mr-1">Publish</a>
+                    <a href="{{ route('employer.job.publish', [ 'id' => $job->id ]) }}" class="btn btn-secondary text-uppercase mr-1">Publish</a>
                 @endif
                 <a href="#" class="btn btn-secondary text-uppercase">Edit</a>
             </div>
