@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\JobType;
 use App\JobIndustry;
+use App\Province;
 
 class Job extends Model
 {
@@ -64,5 +65,13 @@ class Job extends Model
     public function getIsPublishedAttribute()
     {
         return ! is_null($this->published_date);
+    }
+
+    public function getLocationAttribute()
+    {
+        return Province::select('name')
+                        ->where('code', $this->province)
+                        ->first()
+                        ->name;
     }
 }

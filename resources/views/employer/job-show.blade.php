@@ -34,7 +34,7 @@
                     </tr>
                     <tr>
                         <td class="font-weight-600 width-min-200">Location</td>
-                        <td><p class="card-text">{{ $job->province }}</p></td>
+                        <td><p class="card-text">{{ $job->location }}</p></td>
                     </tr>
                     <tr>
                         <td class="font-weight-600 width-min-200">Job Description</td>
@@ -79,7 +79,7 @@
             </dl>
             <dl class="mt-4">
                 <dt class="font-weight-600">Location</dt><hr class="mt-1 mb-1">
-                <dd><p class="card-text">{{ $job->province }}</p></dd>
+                <dd><p class="card-text">{{ $job->location }}</p></dd>
             </dl>
             <dl class="mt-4">
                 <dt class="font-weight-600">Job Description</dt><hr class="mt-1 mb-1">
