@@ -19,10 +19,12 @@
                     <label for="job-opening-status" class="col-sm-12 col-md-3 col-form-label">Job Opening Status</label>
                     <div class="col-sm-12 col-md-9">
                         <select class="form-control" id="job-opening-status" name="job-opening-status">
-                            <option value="1" {{ old('job-opening-status') == 1 ? 'selected' : '' }}>In-progress</option>
-                            <option value="2" {{ old('job-opening-status') == 2 ? 'selected' : '' }}>Cancelled</option>
-                            <option value="3" {{ old('job-opening-status') == 3 ? 'selected' : '' }}>Declined</option>
-                            <option value="4" {{ old('job-opening-status') == 4 ? 'selected' : '' }}>Inactive</option>
+                            <option value="">--Select--</option>
+                            @foreach($job_opening_statuses as $job_opening_status)
+                                <option value="{{ $job_opening_status->id }}" {{ old('job-opening-status') == $job_opening_status->id ? 'selected' : '' }}>
+                                    {{ $job_opening_status->caption }}
+                                </option>
+                            @endforeach
                         </select>
                         @if ($errors->has('job-opening-status'))
                             <div class="form-control-feedback"><small>{{ $errors->first('job-opening-status') }}</small></div>
@@ -33,9 +35,12 @@
                     <label for="job-type" class="col-sm-12 col-md-3 col-form-label">Job Type</label>
                     <div class="col-sm-12 col-md-9">
                         <select class="form-control" id="job-type" name="job-type">
-                            <option value="1" {{ old('job-type') == 1 ? 'selected' : '' }}>Full time</option>
-                            <option value="2" {{ old('job-type') == 2 ? 'selected' : '' }}>Part time</option>
-                            <option value="3" {{ old('job-type') == 3 ? 'selected' : '' }}>Contract</option>
+                            <option value="">--Select--</option>
+                            @foreach($job_types as $job_type)
+                                <option value="{{ $job_type->id }}" {{ old('job-type') == $job_type->id ? 'selected' : '' }}>
+                                    {{ $job_type->caption }}
+                                </option>
+                            @endforeach
                         </select>
                         @if ($errors->has('job-type'))
                             <div class="form-control-feedback"><small>{{ $errors->first('job-type') }}</small></div>
@@ -54,18 +59,25 @@
                 <div class="form-group row {{ ! $errors->has('industry') ?: 'has-danger' }}">
                     <label for="industry" class="col-sm-12 col-md-3 col-form-label">Industry</label>
                     <div class="col-sm-12 col-md-9">
-                        <input class="form-control" type="text" id="industry" name="industry" value="{{ old('industry') }}">
+                        <select class="form-control" id="industry" name="industry">
+                            <option value="">--Select--</option>
+                            @foreach($industries as $industry)
+                                <option value="{{ $industry->id }}" {{ old('industry') == $industry->id ? 'selected' : '' }}>
+                                    {{ $industry->name }}
+                                </option>
+                            @endforeach
+                        </select>
                         @if ($errors->has('industry'))
                             <div class="form-control-feedback"><small>{{ $errors->first('industry') }}</small></div>
                         @endif
                     </div>
                 </div>
-                <div class="form-group row {{ ! $errors->has('year-experience') ?: 'has-danger' }}">
-                    <label for="year-experience" class="col-sm-12 col-md-3 col-form-label">Year Experience</label>
+                <div class="form-group row {{ ! $errors->has('work-experience') ?: 'has-danger' }}">
+                    <label for="work-experience" class="col-sm-12 col-md-3 col-form-label">Work Experience</label>
                     <div class="col-sm-12 col-md-9">
-                        <input class="form-control" type="text" id="year-experience" name="year-experience" value="{{ old('year-experience') }}">
-                        @if ($errors->has('year-experience'))
-                            <div class="form-control-feedback"><small>{{ $errors->first('year-experience') }}</small></div>
+                        <input class="form-control" type="text" id="work-experience" name="work-experience" value="{{ old('work-experience') }}">
+                        @if ($errors->has('work-experience'))
+                            <div class="form-control-feedback"><small>{{ $errors->first('work-experience') }}</small></div>
                         @endif
                     </div>
                 </div>
