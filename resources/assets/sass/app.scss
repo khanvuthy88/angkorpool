@@ -50,6 +50,12 @@ $nav-tabs-color: $gray;
     }
 }
 
+.middle-wrapper{
+    > .content-wrapper{
+        flex: 1;
+    }
+}
+
 .collapse-menu{
     background-color: #fff;
 }
