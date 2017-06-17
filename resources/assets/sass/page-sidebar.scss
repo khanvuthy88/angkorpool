@@ -1,9 +1,18 @@
 .page-sidebar{
+    min-width: 235px;
+    background-color: #364150 !important;
+    order: 1;
+
     .nav-item{
+        border-top: solid 1px lighten(#364150, 6%);
 
         a.nav-link{
             color: #fff;
-            border-top: solid 1px #ccc;
+            padding: 15px 10px 15px 14px;
+
+            &:hover{
+                background-color: lighten(#364150, 4%);
+            }
 
             > .fa{
                 display: inline-block;
@@ -20,14 +29,13 @@
         }
 
         &:first-child{
-            a.nav-link{
-                border: none;
-            }
+            border: none;
         }
 
         .sub-menu{
-            padding-left: 56px;
+            padding: 0;
             display: none;
+            background-color: darken(#364150, 2%);
 
             &.open{
                 display: block;
@@ -35,8 +43,14 @@
 
             a.nav-link{
                 border: none;
+                padding: 11px 0 11px 66px;
             }
         }
     }
+}
 
+@media (max-width: 960px){
+    .page-sidebar{
+        order: 0;
+    }
 }

@@ -15,12 +15,8 @@
 </head>
 <body>
 @include('partial.top-navigation')
-<div class="d-flex">
-    <div class="content p-3" style="flex: 1;">
-        @yield('content')
-        @include('partial.footer')
-    </div>
-    <div class="page-sidebar collapse-menu p-3" style="min-width: 235px; background-color: #364150;">
+<div class="d-flex flex-column flex-lg-row">
+    <div class="page-sidebar collapse-menu">
         <ul class="navbar-nav">
           <li class="nav-item active">
             <a class="nav-link" href="#"><i class="fa fa-search"></i><span>Search Jobs</span></a>
@@ -56,6 +52,10 @@
             <a class="nav-link" href="#"><i class="fa fa-sign-out"></i><span>Logout</span></a>
           </li>
         </ul>
+    </div>
+    <div class="content p-3" style="flex: 1;">
+        @yield('content')
+        @include('partial.footer')
     </div>
 </div>
 <script src="{{ url('js/jquery.js') }}"></script>
