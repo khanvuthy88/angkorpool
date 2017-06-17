@@ -118,7 +118,11 @@
                 <div class="form-group row {{ ! $errors->has('closing-date') ?: 'has-danger' }}">
                     <label for="closing-date" class="col-sm-12 col-md-3 col-form-label">Closing Date</label>
                     <div class="col-sm-12 col-md-9">
-                        <input class="form-control" type="text" id="closing-date" name="closing-date" value="{{ old('closing-date') }}">
+                        <input class="form-control date"
+                            type="text" id="closing-date"
+                            name="closing-date"
+                            placeholder="yyyy-mm-dd"
+                            value="{{ old('closing-date') }}">
                         @if ($errors->has('closing-date'))
                             <div class="form-control-feedback"><small>{{ $errors->first('closing-date') }}</small></div>
                         @endif

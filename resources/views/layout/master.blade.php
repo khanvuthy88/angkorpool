@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ url('css/font.css') }}">
     <link rel="stylesheet" href="{{ url('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url('css/bootstrap-datepicker.min.css') }}">
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
 </head>
 <body>
@@ -18,5 +19,13 @@
 @include('partial.footer')
 <script src="{{ url('js/jquery.js') }}"></script>
 <script src="{{ url('js/bootstrap.js') }}"></script>
+<script src="{{ url('js/bootstrap-datepicker.min.js') }}"></script>
+<script>
+    $('.date').datepicker({
+        autoclose: true,
+        todayHighlight: true,
+        format: 'yyyy-mm-dd'
+    });
+</script>
 </body>
 </html>
