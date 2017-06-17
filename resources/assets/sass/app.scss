@@ -5,6 +5,7 @@ $nav-tabs-color: $gray;
 
 @import "./layout.scss";
 @import "./theme.scss";
+@import "./page-sidebar.scss";
 
 @media (min-width: 0) and (max-width: 575px){
     .container {
@@ -54,10 +55,7 @@ $nav-tabs-color: $gray;
 }
 
 footer{
-    min-height: 100px;
-    height: 100px;
     margin-top: 14px;
-    // background-color: $secondary-color;
 }
 
 .alert {

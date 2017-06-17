@@ -1,4 +1,4 @@
-<div class="hero mb-3">
+<div class="hero">
     <nav class="navbar navbar-toggleable-md shadow20 zindex-navbar">
         <div class="container">
             <div class="row full-width no-margin">
@@ -93,7 +93,9 @@
             </div>
         </div>
     </nav>
-    <div class="collapse-menu full-width no-margin hidden-lg-up">
+</div>
+
+{{-- <div class="page-sidebar collapse-menu">
         <div class="container">
             <div class="col">
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -114,5 +116,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div> --}}
