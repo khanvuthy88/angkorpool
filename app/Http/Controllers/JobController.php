@@ -9,9 +9,7 @@ class JobController extends Controller
 {
 	public function index()
 	{
-		$jobs = Job::where('user_id', auth()->user()->id)
-					->latest()
-					->get();
+		$jobs = Job::latest()->get();
 
 		return view('job', compact('jobs'));
 	}
