@@ -7,6 +7,14 @@ $nav-tabs-color: $gray;
 @import "./theme.scss";
 @import "./page-sidebar.scss";
 
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+}
+
 @media (min-width: 0) and (max-width: 575px){
     .container {
         width: 540px;
@@ -51,6 +59,8 @@ $nav-tabs-color: $gray;
 }
 
 .middle-wrapper{
+    //height: inherit;
+
     > .content-wrapper{
         flex: 1;
     }

@@ -148,10 +148,20 @@ a.text-secondary:hover{
 			min-width: 200px !important;
 		}
 	}
+
+	&-200{
+		width: 200px !important;
+	}
 }
 
 .font-weight{
 	&-600{
 		font-weight: 600 !important;
+	}
+}
+
+.fs{
+	&-17{
+		font-size: 17px !important;
 	}
 }

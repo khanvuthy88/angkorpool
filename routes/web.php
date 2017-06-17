@@ -4,6 +4,7 @@ Route::group(['middleware' => 'auth:web.employees'], function(){
 });
 
 Route::group(['prefix' => 'employer', 'middleware' => 'auth:web.employers'], function(){
+    Route::get('/jobs', 'Employer\JobController@index')->name('employer.jobs');
     Route::get('/job/post', 'Employer\JobController@create')->name('employer.job.post');
     Route::post('/job/post', 'Employer\JobController@store');
     Route::get('/job/{id}', 'Employer\JobController@show')->name('employer.job.show');

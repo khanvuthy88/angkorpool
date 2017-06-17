@@ -12,7 +12,7 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td class="font-weight-600 width-min-200">Job Type</td>
+                    <td class="font-weight-600 width-200">Job Type</td>
                     <td><p class="card-text">{{ $job->job_type }}</p></td>
                 </tr>
                 <tr>

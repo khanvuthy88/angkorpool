@@ -13,6 +13,15 @@ use App\Province;
 
 class JobController extends Controller
 {
+    public function index()
+    {
+        $jobs = Job::where('emp_id', auth()->user()->id)->latest()->paginate(4);
+
+        // dd($jobs->toArray());
+
+        return view('employer.jobs-posted', compact('jobs'));
+    }
+
     public function create()
     {
         $industries = JobIndustry::all();

@@ -37,7 +37,7 @@
 @elseif(auth()->guard('web.employers')->check())
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="#"><i class="fa fa-bolt"></i><span>Jobs Posted</span></a>
+            <a class="nav-link" href="{{ route('employer.jobs') }}"><i class="fa fa-bolt"></i><span>Jobs Posted</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="fa fa-file-o"></i><span>Applied Candidates</span></a>
