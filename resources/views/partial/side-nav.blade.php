@@ -31,7 +31,7 @@
             <a class="nav-link" href="#"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-sign-out"></i><span>Logout</span></a>
+            <a class="nav-link" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i><span>Logout</span></a>
         </li>
     </ul>
 @elseif(auth()->guard('web.employers')->check())
@@ -49,7 +49,7 @@
             <a class="nav-link" href="#"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-sign-out"></i><span>Logout</span></a>
+            <a class="nav-link" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i><span>Logout</span></a>
         </li>
     </ul>
 @endif

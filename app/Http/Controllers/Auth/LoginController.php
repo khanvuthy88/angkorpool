@@ -175,13 +175,22 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->guard()->logout();
+        if(auth('web.employers')->check())
+        {
+            $guard = 'web.employers';
+        }
+        elseif(auth('web.employees')->check())
+        {
+            $guard = 'web.employees';
+        }
+
+        $this->guard($guard)->logout();
 
         $request->session()->flush();
 
         $request->session()->regenerate();
 
-        return redirect('/');
+        return redirect('/login');
     }
 
     /**
