@@ -11,7 +11,7 @@
             <p class="text-muted-50">{{ Str::limit($job->description, 300) }}</p>
             <div class="columns button-action-area">
                 <div class="column text-muted fs-14">
-                    Closing date: {{ $job->closing_date->format('Y-m-d') }}
+                    <span class="badge badge-default"><i class="fa fa-calendar-times-o"></i> {{ $job->closing_date->format('Y-m-d') }}</span>
                 </div>
             </div>
         </div>
