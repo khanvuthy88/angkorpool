@@ -17,8 +17,6 @@ class JobController extends Controller
     {
         $jobs = Job::where('emp_id', auth()->user()->id)->latest()->paginate(4);
 
-        // dd($jobs->toArray());
-
         return view('employer.jobs-posted', compact('jobs'));
     }
 
