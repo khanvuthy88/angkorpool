@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Validator;
@@ -20,14 +20,14 @@ class RegisterController extends Controller
         $this->validate($request, [
             'surname' => 'required|string',
             'name' => 'required|string',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:employees',
             'password' => 'required|string|min:8',
             'password_confirmation' => 'same:password',
         ]);
 
-        User::create($request->all());
+        Employee::create($request->all());
 
-        return redirect('/user/login');
+        return redirect('/login');
     }
 
     public function create()
