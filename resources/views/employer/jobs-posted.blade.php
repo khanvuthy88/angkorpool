@@ -9,10 +9,10 @@
         <div class="inner-wrapper border-bottom is-clearfix">
             <h2 class="fs-17 font-weight-600"><a href="{{ route('employer.job.show', [ 'id' => $job->id ]) }}">{{ $job->title }}</a></h2>
             <p class="text-muted-50">{{ Str::limit($job->description, 300) }}</p>
-            <div class="columns button-action-area">
-                <div class="column text-muted fs-14">
-                    <span class="badge badge-default"><i class="fa fa-calendar-times-o"></i> {{ $job->closing_date->format('Y-m-d') }}</span>
-                </div>
+            <div class="d-flex mt-2">
+                <span class="badge text-muted fs-14 mr-1" title="Industry"><i class="fa fa-industry mr-1"></i>{{ $job->industry_name }}</span>
+                <span class="badge text-muted fs-14 mr-1" title="Job Type"><i class="fa fa-bolt mr-1"></i>{{ $job->job_type }}</span>
+                <span class="badge text-muted fs-14" title="Closing Date"><i class="fa fa-calendar-times-o mr-1"></i>{{ $job->closing_date->format('Y-m-d') }}</span>
             </div>
         </div>
     @endforeach
