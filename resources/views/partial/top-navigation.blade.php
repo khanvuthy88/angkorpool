@@ -23,7 +23,7 @@
                         <ul class="navbar-nav align-items-center">
                             @if(auth()->guard('web.employees')->check())
                                 <li class="nav-item mr-3">
-                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Search Jobs</a>
+                                    <a class="nav-link text-uppercase" href="{{ route('employee.job.search')}}">Search Jobs</a>
                                 </li>
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Job Alerts</a>

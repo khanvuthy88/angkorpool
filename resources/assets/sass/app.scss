@@ -144,4 +144,25 @@ a.btn:focus.btn-secondary{
     .aside{
         width: 150px;
     }
+    .box-result{
+        .inner-wrapper{
+            position: relative;
+
+            .title{
+                font-size: 1.2rem;
+            }
+
+            .description{
+                font-size: 0.9rem;
+            }
+
+            .btn-apply{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+        }
+    }
 }
