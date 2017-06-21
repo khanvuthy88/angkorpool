@@ -1,30 +1,48 @@
 @extends('layout.master')
 
 @section('content')
-<div id="job-search" class="row">
-    <div class="col-md-3 pr-md-0">
-        <div class="card mb-3">
-            <span class="card-header"><i class="fa fa-industry mr-2"></i>Industry</span>
-            <ul class="list-group list-group-flush">
-                @foreach($industries as $industry)
-                    <li class="list-group-item no-border pt-1 pb-1">
-                        <input type="checkbox" class="mr-2" name="remember">{{ $industry->name }}
-                    </li>
-                @endforeach
-            </ul>
+<div id="job-search" class="d-flex flex-row">
+    <div class="filter pr-md-3">
+        <div id="accordion-industry" role="tablist" class="mb-3">
+            <div class="card no-border">
+                <span class="card-header">
+                    <a data-toggle="collapse" data-parent="#accordion-industry" href="#collapse-industry">
+                        <span class="flex-1"><i class="fa fa-industry mr-2"></i>Industry</span>
+                        <span class="btn-collapse fa fa-chevron-down"></span>
+                    </a>
+                </span>
+                <div id="collapse-industry" class="collapse show" role="tabpanel">
+                    <ul class="list-group">
+                        @foreach($industries as $industry)
+                            <li class="list-group-item no-border pt-1 pb-1">
+                                <input type="checkbox" class="mr-2" name="remember">{{ $industry->name }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="card mb-3">
-            <span class="card-header"><i class="fa fa-clock-o mr-2"></i>Job Type</span>
-            <ul class="list-group list-group-flush">
-                @foreach($job_types as $job_type)
-                    <li class="list-group-item no-border pt-1 pb-1">
-                        <input type="checkbox" class="mr-2" name="remember">{{ $job_type->caption }}
-                    </li>
-                @endforeach
-            </ul>
+        <div id="accordion-job-type" role="tablist" class="mb-3">
+            <div class="card">
+                <span class="card-header">
+                    <a data-toggle="collapse" data-parent="#accordion-job-type" href="#collapse-job-type">
+                        <span class="flex-1"><i class="fa fa-clock-o mr-2"></i>Job Type</span>
+                        <span class="btn-collapse fa fa-chevron-down"></span>
+                    </a>
+                </span>
+                <div id="collapse-job-type" class="collapse show" role="tabpanel">
+                    <ul class="list-group">
+                        @foreach($job_types as $job_type)
+                            <li class="list-group-item no-border pt-1 pb-1">
+                                <input type="checkbox" class="mr-2" name="remember">{{ $job_type->caption }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="result">
         <section class="d-flex flex-column justify-content-center align-items-center mb-3">
             <div class="action-input full-width">
                 <form action="{{ route('employee.job.search')}}" method="GET">

@@ -141,8 +141,46 @@ a.btn:focus.btn-secondary{
 
 
 #job-search{
-    .aside{
-        width: 150px;
+    .filter{
+        max-width: 270px;
+        width: 270px;
+
+        .card{
+            border: none;
+            background-color: transparent;
+            border-top: solid 1px #ccc;
+            border-radius: 0;
+
+            .card-header{
+                position: relative;
+                background-color: transparent;
+                border: none;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .list-group-item{
+                background-color: transparent;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            a{
+                color: $body_color;
+                font-weight: 600;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+
+                .flex-1 {
+                    flex: 1;
+                }
+
+                .btn-collapse{
+                    font-size: 12px;
+                }
+            }
+        }
     }
     .box-result{
         .inner-wrapper{
