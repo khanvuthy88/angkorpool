@@ -74,21 +74,42 @@
         </ul>
     </div>
 @elseif(auth()->guard('web.employers')->check())
-    <ul class="navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ route('employer.jobs') }}"><i class="fa fa-bolt"></i><span>Jobs Posted</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-file-o"></i><span>Applied Candidates</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i><span>Logout</span></a>
-        </li>
-    </ul>
+    <div class="page-sidebar collapse-menu desktop hidden-md-down">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('employer.jobs') }}"><i class="fa fa-bolt"></i><span>Jobs Posted</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-file-o"></i><span>Applied Candidates</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i><span>Logout</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="page-sidebar collapse-menu mobile hidden-lg-up">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('employer.jobs') }}"><i class="fa fa-bolt"></i><span>Jobs Posted</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-file-o"></i><span>Applied Candidates</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i><span>Logout</span></a>
+            </li>
+        </ul>
+    </div>
 @endif
