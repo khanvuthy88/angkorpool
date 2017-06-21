@@ -3,12 +3,12 @@
 @section('content')
 <div id="job-search" class="d-flex flex-column flex-lg-row">
     <div class="filter pr-md-3">
-        <div id="accordion-industry" role="tablist" class="mb-4">
+        <div id="accordion-industry" role="tablist" class="accordion mb-4">
             <div class="card no-border">
                 <span class="card-header">
                     <a data-toggle="collapse" data-parent="#accordion-industry" href="#collapse-industry">
                         <span class="flex-1"><i class="fa fa-industry mr-2"></i>Industry</span>
-                        <span class="btn-collapse fa fa-chevron-down"></span>
+                        <span class="icon-collapse fa fa-chevron-up"></span>
                     </a>
                 </span>
                 <div id="collapse-industry" class="collapse show" role="tabpanel">
@@ -22,12 +22,12 @@
                 </div>
             </div>
         </div>
-        <div id="accordion-job-type" role="tablist" class="mb-4">
+        <div id="accordion-job-type" role="tablist" class="accordion mb-4">
             <div class="card">
                 <span class="card-header">
                     <a data-toggle="collapse" data-parent="#accordion-job-type" href="#collapse-job-type">
                         <span class="flex-1"><i class="fa fa-clock-o mr-2"></i>Job Type</span>
-                        <span class="btn-collapse fa fa-chevron-down"></span>
+                        <span class="icon-collapse fa fa-chevron-up"></span>
                     </a>
                 </span>
                 <div id="collapse-job-type" class="collapse show" role="tabpanel">
@@ -41,12 +41,12 @@
                 </div>
             </div>
         </div>
-        <div id="accordion-job-location" role="tablist" class="mb-4">
+        <div id="accordion-job-location" role="tablist" class="accordion mb-4">
             <div class="card">
                 <span class="card-header">
                     <a data-toggle="collapse" data-parent="#accordion-job-location" href="#collapse-job-location">
                         <span class="flex-1"><i class="fa fa-map-marker mr-2"></i>Location</span>
-                        <span class="btn-collapse fa fa-chevron-down"></span>
+                        <span class="icon-collapse fa fa-chevron-up"></span>
                     </a>
                 </span>
                 <div id="collapse-job-location" class="collapse show" role="tabpanel">
@@ -103,4 +103,20 @@
         </div>
     </div>
 </div>
+@stop
+
+
+@section('script')
+<script type="text/javascript">
+    $('#job-search .accordion a').on('click', function(){
+        var icon_collapse = $(this).find('.icon-collapse');
+        if($(this).hasClass('collapsed')){
+            $(icon_collapse).removeClass('fa-chevron-down');
+            $(icon_collapse).addClass('fa-chevron-up');
+        }else{
+            $(icon_collapse).removeClass('fa-chevron-up');
+            $(icon_collapse).addClass('fa-chevron-down');
+        }
+    });
+</script>
 @stop
