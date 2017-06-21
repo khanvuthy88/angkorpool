@@ -1,9 +1,9 @@
 @extends('layout.master')
 
 @section('content')
-<div id="job-search" class="d-flex flex-row">
+<div id="job-search" class="d-flex flex-column flex-lg-row">
     <div class="filter pr-md-3">
-        <div id="accordion-industry" role="tablist" class="mb-3">
+        <div id="accordion-industry" role="tablist" class="mb-4">
             <div class="card no-border">
                 <span class="card-header">
                     <a data-toggle="collapse" data-parent="#accordion-industry" href="#collapse-industry">
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div id="accordion-job-type" role="tablist" class="mb-3">
+        <div id="accordion-job-type" role="tablist" class="mb-4">
             <div class="card">
                 <span class="card-header">
                     <a data-toggle="collapse" data-parent="#accordion-job-type" href="#collapse-job-type">
@@ -38,6 +38,33 @@
                             </li>
                         @endforeach
                     </ul>
+                </div>
+            </div>
+        </div>
+        <div id="accordion-job-location" role="tablist" class="mb-4">
+            <div class="card">
+                <span class="card-header">
+                    <a data-toggle="collapse" data-parent="#accordion-job-location" href="#collapse-job-location">
+                        <span class="flex-1"><i class="fa fa-map-marker mr-2"></i>Location</span>
+                        <span class="btn-collapse fa fa-chevron-down"></span>
+                    </a>
+                </span>
+                <div id="collapse-job-location" class="collapse show" role="tabpanel">
+                    {{-- <ul class="list-group">
+                        @foreach($provinces as $province)
+                            <li class="list-group-item no-border pt-1 pb-1">
+                                <input type="checkbox" class="mr-2" name="remember">{{ $job_type->caption }}
+                            </li>
+                        @endforeach
+                    </ul> --}}
+                    <div class="form-group">
+                        <select class="form-control form-control-sm" name="location">
+                            <option value="">--Select--</option>
+                            @foreach($provinces as $province)
+                                <option value="{{ $province->code }}">{{ $province->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,7 +92,7 @@
                         <p class="description">{{ Str::limit($job->description, 300) }}</p>
                         <div class="d-flex mt-4">
                             <span class="badge text-muted fs-14 font-weight-600 mr-1" title="Industry"><i class="fa fa-industry mr-1"></i>{{ $job->industry_name }}</span>
-                            <span class="badge text-muted fs-14 font-weight-600 mr-1" title="Job Type"><i class="fa fa-bolt mr-1"></i>{{ $job->job_type }}</span>
+                            <span class="badge text-muted fs-14 font-weight-600 mr-1" title="Job Type"><i class="fa fa-clock-o mr-1"></i>{{ $job->job_type }}</span>
                             <span class="badge text-muted fs-14 font-weight-600 mr-1" title="Closing Date"><i class="fa fa-calendar-times-o mr-1"></i>{{ $job->closing_date->format('Y-m-d') }}</span>
                             <span class="badge text-muted fs-14 font-weight-600" title="Closing Date"><i class="fa fa-map-marker mr-1"></i>{{ $job->location }}</span>
                         </div>
