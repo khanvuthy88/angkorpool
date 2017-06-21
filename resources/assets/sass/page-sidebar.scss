@@ -1,7 +1,28 @@
 .page-sidebar{
-    min-width: 235px;
     background-color: #364150 !important;
     order: 1;
+
+    &.desktop{
+        order: 1;
+        width: 235px;
+        margin-right: -235px;
+        transition: margin 300ms ease-in-out;
+
+        &.open{
+            margin-right: 0;
+        }
+    }
+
+    &.mobile{
+        order: 0;
+        height: 0;
+        overflow: hidden;
+        transition: height 300ms ease-in-out;
+
+        // &.open{
+        //     height: 100%;
+        // }
+    }
 
     .nav-item{
         border-top: solid 1px lighten(#364150, 6%);
@@ -46,11 +67,5 @@
                 padding: 11px 0 11px 66px;
             }
         }
-    }
-}
-
-@media (max-width: 960px){
-    .page-sidebar{
-        order: 0;
     }
 }

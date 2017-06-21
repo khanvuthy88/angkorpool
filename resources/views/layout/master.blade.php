@@ -16,9 +16,7 @@
 <body>
 @include('partial.top-navigation')
 <div class="middle-wrapper d-flex flex-column flex-lg-row">
-    <div class="page-sidebar collapse-menu">
-        @include('partial.side-nav')
-    </div>
+    @include('partial.side-nav')
     <div class="content-wrapper p-3">
         @yield('content')
         @include('partial.footer')
@@ -34,5 +32,6 @@
         format: 'yyyy-mm-dd'
     });
 </script>
+@yield('script')
 </body>
 </html>

@@ -6,7 +6,7 @@
                     <a href="{{ url('/') }}" class="navbar-brand">
                         <img src="{{ url('storage/logo/Angkor-Pool-logo-s-1.png') }}">
                     </a>
-                    <button class="navbar-toggler navbar-toggler-right"
+                    <button class="navbar-toggler navbar-toggler-right mobile"
                         type="button"
                         data-toggle="collapse"
                         data-target="#navbarNav"
@@ -56,38 +56,17 @@
                 </div>
                 <div class="col-lg-3 hidden-md-down pr-lg-0">
                     <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav align-items-center">
-                            @if(auth()->guard('web.employees')->check())
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-gray" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img src="{{ url('storage/images/64x64.png') }}" class="rounded-circle img-32x32">
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                            @elseif(auth()->guard('web.employers')->check())
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-gray" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img src="{{ url('storage/images/64x64.png') }}" class="rounded-circle img-32x32">
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                            @else
-                                <li class="nav-item mr-1">
-                                    <a class="nav-link" href="{{ url('login') }}"><i class="fa fa-key mr-1"></i>Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('register') }}"><i class="fa fa-user mr-1"></i>Register</a>
-                                </li>
-                            @endif
-                        </ul>
+                        <button class="navbar-toggler navbar-toggler-right desktop" style="display: block;"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#navbarNav"
+                            aria-controls="navbarNav"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -95,25 +74,20 @@
     </nav>
 </div>
 
-{{-- <div class="page-sidebar collapse-menu">
-        <div class="container">
-            <div class="col">
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                      </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+@section('script')
+<script type="text/javascript">
+    $('.navbar-toggler.desktop').on('click', function(){
+        $('.page-sidebar.desktop').toggleClass('open');
+    });
+
+    $('.navbar-toggler.mobile').on('click', function(){
+        var sidebar = $('.page-sidebar.mobile');
+        $(sidebar).toggleClass('open')
+        if($(sidebar).hasClass('open')){
+            $(sidebar).css('height', $('.page-sidebar.mobile ul').height() + 'px');
+        }else{
+            $(sidebar).css('height', 0);
+        }
+    });
+</script>
+@stop
