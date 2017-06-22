@@ -23,6 +23,10 @@
     .nav-item{
         border-top: solid 1px lighten(#364150, 6%);
 
+        &.active .nav-link, &:hover.active .nav-link{
+            background-color: $secondary-color;
+        }
+
         a.nav-link{
             color: #fff;
             padding: 15px 10px 15px 14px;
