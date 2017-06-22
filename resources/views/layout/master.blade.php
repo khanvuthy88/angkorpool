@@ -47,7 +47,15 @@
     });
 
     $('.page-sidebar .navbar-nav > .nav-item').on('click', function(e){
+        e.preventDefault();
         $(this).find('.sub-menu').toggleClass('open');
+        if($(this).find('.sub-menu').hasClass('open')){
+            $(this).find('.nav-link .arrow i').removeClass('fa-chevron-down');
+            $(this).find('.nav-link .arrow i').addClass('fa-chevron-up');
+        }else{
+            $(this).find('.nav-link .arrow i').removeClass('fa-chevron-up');
+            $(this).find('.nav-link .arrow i').addClass('fa-chevron-down');
+        }
     });
 </script>
 @yield('script')

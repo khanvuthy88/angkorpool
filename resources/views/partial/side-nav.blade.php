@@ -14,7 +14,7 @@
                 <a class="nav-link clearfix" href="#">
                     <i class="fa fa-user"></i>
                     <span>My Profile</span>
-                    <span class="arrow"><i class="fa fa-chevron-right"></i></span>
+                    <span class="arrow"><i class="fa fa-chevron-down"></i></span>
                 </a>
                 <ul class="sub-menu nav">
                     <li class="nav-item"><a href="#" class="nav-link ">CV</a></li>
@@ -49,7 +49,7 @@
                 <a class="nav-link clearfix" href="#">
                     <i class="fa fa-user"></i>
                     <span>My Profile</span>
-                    <span class="arrow"><i class="fa fa-chevron-right"></i></span>
+                    <span class="arrow"><i class="fa fa-chevron-down"></i></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item"><a href="#" class="nav-link ">CV</a></li>
