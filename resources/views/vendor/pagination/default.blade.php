@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
     <ul class="pagination">
         {{-- Previous Page Link --}}
-        <li class="page-item {{ $paginator->onFirstPage() ? 'disabled' : '' }}"><a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">Previous</a></li>
+        <li class="page-item {{ $paginator->onFirstPage() ? 'disabled' : '' }}"><a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">@lang('pagination.previous')</a></li>
 
         {{-- Pagination Elements --}}
         @foreach ($elements as $element)
@@ -23,6 +23,6 @@
         @endforeach
 
         {{-- Next Page Link --}}
-        <li class="page-item {{ ! $paginator->hasMorePages() ? 'disabled' : '' }}"><a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">Next</a></li>
+        <li class="page-item {{ ! $paginator->hasMorePages() ? 'disabled' : '' }}"><a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">@lang('pagination.next')</a></li>
     </ul>
 @endif
