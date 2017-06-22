@@ -46,7 +46,7 @@
         }
     });
 
-    $('.page-sidebar .navbar-nav > .nav-item').on('click', function(e){
+    $('.page-sidebar .navbar-nav > .nav-item.expand').on('click', function(e){
         e.preventDefault();
         $(this).find('.sub-menu').toggleClass('open');
         if($(this).find('.sub-menu').hasClass('open')){

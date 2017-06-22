@@ -10,7 +10,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Daily Job alerts</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item expand">
                 <a class="nav-link clearfix" href="#">
                     <i class="fa fa-user"></i>
                     <span>My Profile</span>
