@@ -1,10 +1,10 @@
 @extends('layout.master')
 
 @section('content')
-<div class="card hidden-sm-down">
+<div class="card hidden-sm-down border-radius-0">
     <div class="card-block">
         <h4 class="card-title">{{ $job->title }}</h4>
-        <h6 class="card-subtitle mb-2 text-muted font-italic">Posted on {{ \Carbon\Carbon::parse($job->published_date)->format('Y-m-d') }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted font-italic">Posted on {{ $job->published_date->format('Y-m-d') }}</h6>
     </div>
     <div class="card-block clearfix">
         <table class="table">
@@ -35,13 +35,13 @@
                 </tr>
             </tbody>
         </table>
-        <a href="#" class="btn btn-secondary text-uppercase pull-right">Apply</a>
+        <a href="#" class="btn btn-secondary text-uppercase pull-right pt-3 pb-3 pl-5 pr-5">Apply Now</a>
     </div>
 </div>
-<div class="card hidden-md-up">
+<div class="card hidden-md-up border-radius-0">
     <div class="card-block">
         <h4 class="card-title">{{ $job->title }}</h4>
-        <h6 class="card-subtitle mb-2 text-muted font-italic">Posted on {{ \Carbon\Carbon::parse($job->published_date)->format('Y-m-d') }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted font-italic">Posted on {{ $job->published_date->format('Y-m-d') }}</h6>
 
         <dl class="mt-4">
             <dt class="font-weight-600">Job Type</dt><hr class="mt-1 mb-1">
@@ -69,7 +69,7 @@
         </dl>
     </div>
     <div class="card-block">
-        <a href="#" class="btn btn-secondary text-uppercase full-width">Apply</a>
+        <a href="#" class="btn btn-secondary text-uppercase full-width pt-3 pb-3 pl-5 pr-5">Apply Now</a>
     </div>
 </div>
 @stop

@@ -51,6 +51,6 @@ class JobController extends Controller
     {
         $job = Job::with('type')->find($id);
 
-        return view('job-show', compact('job'));
+        return view('employee.job-show', compact('job'));
     }
 }
