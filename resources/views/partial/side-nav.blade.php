@@ -1,5 +1,5 @@
 @if(auth()->guard('web.employees')->check())
-    <div class="page-sidebar collapse-menu desktop hidden-md-down">
+    <div class="page-sidebar collapse-menu desktop hidden-md-down open">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="#"><i class="fa fa-search"></i><span>Search Jobs</span></a>

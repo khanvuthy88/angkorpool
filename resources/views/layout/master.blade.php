@@ -31,6 +31,20 @@
         todayHighlight: true,
         format: 'yyyy-mm-dd'
     });
+
+    $('.navbar-toggler.desktop').on('click', function(){
+        $('.page-sidebar.desktop').toggleClass('open');
+    });
+
+    $('.navbar-toggler.mobile').on('click', function(){
+        var sidebar = $('.page-sidebar.mobile');
+        $(sidebar).toggleClass('open')
+        if($(sidebar).hasClass('open')){
+            $(sidebar).css('height', $('.page-sidebar.mobile ul').height() + 'px');
+        }else{
+            $(sidebar).css('height', 0);
+        }
+    });
 </script>
 @yield('script')
 </body>
