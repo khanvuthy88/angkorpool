@@ -16,8 +16,7 @@ class JobController extends Controller
         $jobs = Job::where(function($query) use ($request){
                     if($title = $request->input('title'))
                     {
-                        is_array($title) ? $query->whereIn('title', $title)
-                                            : $query->where('title', $title);
+                        $query->where('title', 'like', '%' . $title . '%');
                     }
 
                     if($industries = $request->input('industries'))
