@@ -2,7 +2,6 @@
 
 @section('content')
 <form action="{{ route('employee.job.search')}}" method="GET" class="hidden-lg-down">
-    {{ csrf_field() }}
     <div id="job-search" class="d-flex flex-column flex-lg-row">
         <div class="filter pr-md-3 hidden-lg-down">
             <div id="accordion-industry" role="tablist" class="accordion mb-4">
@@ -111,7 +110,13 @@
                     @endforeach
                 </div>
                 <div class="d-flex justify-content-center align-items-center p-3">
-                    {{ $jobs->appends(['sort' => old('location')])->links() }}
+                    {{
+                        $jobs->appends([
+                            'industries' => isset($old_input['industries']) ? $old_input['industries'] : null,
+                            'job_types' => isset($old_input['job_types']) ? $old_input['job_types'] : null,
+                            'location' => isset($old_input['location']) ? $old_input['location'] : null,
+                        ])->links()
+                    }}
                 </div>
             @endif
         </div>
@@ -119,7 +124,6 @@
 </form>
 
 <form action="{{ route('employee.job.search')}}" method="GET" class="hidden-xl-up">
-    {{ csrf_field() }}
     <div id="job-search" class="d-flex flex-column">
         <section class="d-flex flex-column justify-content-center align-items-center mb-3">
             <div class="action-input full-width clearfix">
@@ -189,6 +193,9 @@
                             <a class="btn-apply btn-secondary fs-14 p-2" href="#">Quick Apply<i class="fa fa-arrow-right ml-2"></i></a>
                         </div>
                     @endforeach
+                </div>
+                <div class="d-flex justify-content-center align-items-center p-3">
+                    @include('vendor.pagination.simple-default', $paginator = $jobs)
                 </div>
             @endif
         </div>
