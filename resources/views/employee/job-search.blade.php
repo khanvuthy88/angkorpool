@@ -15,9 +15,14 @@
                     </span>
                     <div id="collapse-industry" class="collapse show" role="tabpanel">
                         <ul class="list-group">
-                            @foreach($industries as $industry)
+                            @foreach($industries as $key => $industry)
                                 <li class="list-group-item no-border pt-1 pb-1">
-                                    <input type="checkbox" class="mr-2" name="industries[]" value="{{ $industry->id }}">{{ $industry->name }}
+                                    <input type="checkbox"
+                                            class="mr-2"
+                                            name="industries[]"
+                                            value="{{ $industry->id }}"
+                                            {{ inputValueExist($old_input, 'industries', $industry->id) ? 'checked' : '' }}>
+                                    {{ $industry->name }}
                                 </li>
                             @endforeach
                         </ul>
@@ -36,7 +41,12 @@
                         <ul class="list-group">
                             @foreach($job_types as $job_type)
                                 <li class="list-group-item no-border pt-1 pb-1">
-                                    <input type="checkbox" class="mr-2" name="job_types[]" value="{{ $job_type->id }}">{{ $job_type->caption }}
+                                    <input type="checkbox"
+                                        class="mr-2"
+                                        name="job_types[]"
+                                        value="{{ $job_type->id }}"
+                                        {{ inputValueExist($old_input, 'job_types', $job_type->id) ? 'checked' : '' }}>
+                                        {{ $job_type->caption }}
                                 </li>
                             @endforeach
                         </ul>
@@ -56,7 +66,9 @@
                             <select class="form-control form-control-sm" name="location">
                                 <option value="">--Select--</option>
                                 @foreach($provinces as $province)
-                                    <option value="{{ $province->code }}">{{ $province->name }}</option>
+                                    <option value="{{ $province->code }}" {{ inputValueExist($old_input, 'location', $province->code) ? 'selected' : '' }}>
+                                        {{ $province->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -68,7 +80,11 @@
             <section class="d-flex flex-column justify-content-center align-items-center mb-3">
                 <div class="action-input full-width clearfix">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="job-title" placeholder="What job are you looking?">
+                        <input type="text"
+                                class="form-control"
+                                name="title"
+                                placeholder="What job are you looking?"
+                                value="{{ isset($old_input['title']) ? $old_input['title'] : '' }}">
                         <span class="input-group-btn">
                             <button class="btn btn-secondary pl-5 pr-5"><i class="fa fa-search"></i></button>
                         </span>
@@ -94,6 +110,9 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="d-flex justify-content-center align-items-center p-3">
+                    {{ $jobs->appends(['sort' => old('location')])->links() }}
+                </div>
             @endif
         </div>
     </div>
@@ -105,7 +124,11 @@
         <section class="d-flex flex-column justify-content-center align-items-center mb-3">
             <div class="action-input full-width clearfix">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="job-title" placeholder="What job are you looking?">
+                    <input type="text"
+                            class="form-control"
+                            name="title"
+                            placeholder="What job are you looking?"
+                            value="{{ isset($old_input['title']) ? $old_input['title'] : '' }}">
                     <span class="input-group-btn">
                         <button class="btn btn-secondary pl-5 pr-5"><i class="fa fa-search"></i></button>
                     </span>
@@ -118,7 +141,9 @@
                         <select class="form-control" name="industries">
                             <option value="">--Industry--</option>
                             @foreach($industries as $industry)
-                                <option value="{{ $industry->id }}">{{ $industry->name }}</option>
+                                <option value="{{ $industry->id }}" {{ inputValueExist($old_input, 'industries', $industry->id) ? 'selected' : '' }}>
+                                    {{ $industry->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -126,7 +151,9 @@
                         <select class="form-control" name="job_types">
                             <option value="">--Job Type--</option>
                             @foreach($job_types as $job_type)
-                                <option value="{{ $job_type->id }}">{{ $job_type->caption }}</option>
+                                <option value="{{ $job_type->id }}" {{ inputValueExist($old_input, 'job_types', $job_type->id) ? 'selected' : '' }}>
+                                    {{ $job_type->caption }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -134,7 +161,9 @@
                         <select class="form-control" name="location">
                             <option value="">--Location--</option>
                             @foreach($provinces as $province)
-                                <option value="{{ $province->code }}">{{ $province->name }}</option>
+                                <option value="{{ $province->code }}" {{ inputValueExist($old_input, 'location', $province->code) ? 'selected' : '' }}>
+                                    {{ $province->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>

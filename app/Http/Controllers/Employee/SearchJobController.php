@@ -14,19 +14,25 @@ class SearchJobController extends Controller
     public function search(Request $request)
     {
         $jobs = Job::where(function($query) use ($request){
-                    if($industries = $request->get('industries'))
+                    if($title = $request->input('title'))
+                    {
+                        is_array($title) ? $query->whereIn('title', $title)
+                                            : $query->where('title', $title);
+                    }
+
+                    if($industries = $request->input('industries'))
                     {
                         is_array($industries) ? $query->whereIn('industry_id', $industries)
                                             : $query->where('industry_id', $industries);
                     }
 
-                    if($job_types = $request->get('job_types'))
+                    if($job_types = $request->input('job_types'))
                     {
                         is_array($job_types) ? $query->whereIn('job_type_id', $job_types)
                                             : $query->where('job_type_id', $job_types);
                     }
 
-                    if($location = $request->get('location'))
+                    if($location = $request->input('location'))
                     {
                         is_array($location) ? $query->whereIn('province_code', $location)
                                             : $query->where('province_code', $location);
@@ -37,6 +43,7 @@ class SearchJobController extends Controller
         $job_types = JobType::all();
         $provinces = Province::all();
 
-        return view('employee.job-search', compact('jobs', 'industries', 'job_types', 'provinces'));
+        return view('employee.job-search',compact('jobs', 'industries', 'job_types', 'provinces'))
+                ->with(['old_input' => $request->all()]);
     }
 }
