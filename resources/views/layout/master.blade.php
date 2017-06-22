@@ -45,6 +45,10 @@
             $(sidebar).css('height', 0);
         }
     });
+
+    $('.page-sidebar .navbar-nav > .nav-item').on('click', function(e){
+        $(this).find('.sub-menu').toggleClass('open');
+    });
 </script>
 @yield('script')
 </body>

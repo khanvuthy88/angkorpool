@@ -16,13 +16,11 @@
                     <span>My Profile</span>
                     <span class="arrow"><i class="fa fa-chevron-right"></i></span>
                 </a>
-                <ul class="sub-menu">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">CV</a>
-                        <a href="#" class="nav-link ">Education</a>
-                        <a href="#" class="nav-link ">Experience</a>
-                        <a href="#" class="nav-link ">Change Password</a>
-                    </li>
+                <ul class="sub-menu nav">
+                    <li class="nav-item"><a href="#" class="nav-link ">CV</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link ">Education</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link ">Experience</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link ">Change Password</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -54,12 +52,10 @@
                     <span class="arrow"><i class="fa fa-chevron-right"></i></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">CV</a>
-                        <a href="#" class="nav-link ">Education</a>
-                        <a href="#" class="nav-link ">Experience</a>
-                        <a href="#" class="nav-link ">Change Password</a>
-                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link ">CV</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link ">Education</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link ">Experience</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link ">Change Password</a></li>
                 </ul>
             </li>
             <li class="nav-item">
