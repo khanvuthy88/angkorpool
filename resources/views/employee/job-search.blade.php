@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<form action="{{ route('employee.job.search')}}" method="GET" class="hidden-lg-down">
+<form action="{{ route('job.search')}}" method="GET" class="hidden-lg-down">
     <div id="job-search" class="d-flex flex-column flex-lg-row">
         <div class="filter pr-md-3 hidden-lg-down">
             <div id="accordion-industry" role="tablist" class="accordion mb-4">
@@ -123,7 +123,7 @@
     </div>
 </form>
 
-<form action="{{ route('employee.job.search')}}" method="GET" class="hidden-xl-up">
+<form action="{{ route('job.search')}}" method="GET" class="hidden-xl-up">
     <div id="job-search" class="d-flex flex-column">
         <section class="d-flex flex-column justify-content-center align-items-center mb-3">
             <div class="action-input full-width clearfix">

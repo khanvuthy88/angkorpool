@@ -2,7 +2,7 @@
     <div class="page-sidebar collapse-menu desktop hidden-md-down open">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fa fa-search"></i><span>Search Jobs</span></a>
+                <a class="nav-link" href="{{ route('job.search') }}"><i class="fa fa-search"></i><span>Search Jobs</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-file-o"></i><span>Applied Jobs</span></a>
@@ -37,7 +37,7 @@
     <div class="page-sidebar collapse-menu mobile hidden-lg-up">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fa fa-search"></i><span>Search Jobs</span></a>
+                <a class="nav-link" href="{{ route('job.search') }}"><i class="fa fa-search"></i><span>Search Jobs</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-file-o"></i><span>Applied Jobs</span></a>

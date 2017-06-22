@@ -9,7 +9,7 @@ use App\JobIndustry;
 use App\JobType;
 use App\Province;
 
-class SearchJobController extends Controller
+class JobController extends Controller
 {
     public function search(Request $request)
     {
@@ -45,5 +45,12 @@ class SearchJobController extends Controller
 
         return view('employee.job-search',compact('jobs', 'industries', 'job_types', 'provinces'))
                 ->with(['old_input' => $request->all()]);
+    }
+
+    public function show($id)
+    {
+        $job = Job::with('type')->find($id);
+
+        return view('job-show', compact('job'));
     }
 }

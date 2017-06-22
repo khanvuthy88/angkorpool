@@ -1,10 +1,4 @@
 <?php
-Route::group(['prefix' => 'employee', 'middleware' => 'auth:web.employees'], function(){
-	// Route::get('/profile', 'UserProfileController@showProfile');
-    Route::get('/dashboard', 'Employee\DashboardController@index')->name('employee.dashboard');
-
-    Route::get('/job/search', 'Employee\SearchJobController@search')->name('employee.job.search');
-});
 
 Route::group(['prefix' => 'employer', 'middleware' => 'auth:web.employers'], function(){
     Route::get('/jobs', 'Employer\JobController@index')->name('employer.jobs');
@@ -14,8 +8,14 @@ Route::group(['prefix' => 'employer', 'middleware' => 'auth:web.employers'], fun
     Route::get('/job/{id}/publish', 'Employer\JobController@publish')->name('employer.job.publish');
 });
 
+Route::group(['middleware' => 'auth:web.employees'], function(){
+	Route::get('/profile', 'UserProfileController@showProfile');
+    Route::get('/dashboard', 'Employee\DashboardController@index')->name('employee.dashboard');
+});
+
 Route::get('/jobs', 'JobController@index')->name('jobs');
-Route::get('/job/{id}', 'JobController@show')->name('job.show');
+Route::get('/job/search', 'Employee\JobController@search')->name('job.search');
+Route::get('/job/{id}', 'Employee\JobController@show')->name('job.show');
 
 
 Route::get('/', 'HomeController@index');
