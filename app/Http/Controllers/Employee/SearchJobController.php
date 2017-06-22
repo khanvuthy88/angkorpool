@@ -11,9 +11,28 @@ use App\Province;
 
 class SearchJobController extends Controller
 {
-    public function index()
+    public function search(Request $request)
     {
-        $jobs = Job::latest()->get();
+        $jobs = Job::where(function($query) use ($request){
+                    if($industries = $request->get('industries'))
+                    {
+                        is_array($industries) ? $query->whereIn('industry_id', $industries)
+                                            : $query->where('industry_id', $industries);
+                    }
+
+                    if($job_types = $request->get('job_types'))
+                    {
+                        is_array($job_types) ? $query->whereIn('job_type_id', $job_types)
+                                            : $query->where('job_type_id', $job_types);
+                    }
+
+                    if($location = $request->get('location'))
+                    {
+                        is_array($location) ? $query->whereIn('province_code', $location)
+                                            : $query->where('province_code', $location);
+                    }
+                })->paginate(10);
+
         $industries = JobIndustry::all();
         $job_types = JobType::all();
         $provinces = Province::all();

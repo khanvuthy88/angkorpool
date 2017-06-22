@@ -183,9 +183,19 @@ a.btn:focus.btn-secondary{
             }
         }
     }
+
+    .result{
+        flex: 1;
+    }
+
     .box-result{
         .inner-wrapper{
             position: relative;
+            border-bottom: 1px solid #dbdbdb;
+
+            &:last-child{
+                border-bottom: none;
+            }
 
             .title{
                 font-size: 1.2rem;
