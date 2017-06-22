@@ -6,10 +6,10 @@
         Find you dream job
     </h1>
     <div class="action-input">
-        <form action="{{ route('employee.job.search')}}" method="GET">
+        <form action="{{ route('job.search')}}" method="GET">
             {{ csrf_field() }}
             <div class="input-group">
-              <input type="text" class="form-control" name="job-title" placeholder="What job are you looking?">
+              <input type="text" class="form-control" name="title" placeholder="What job are you looking?">
               <span class="input-group-btn">
                 <button class="btn btn-secondary"><i class="fa fa-search"></i></button>
               </span>
