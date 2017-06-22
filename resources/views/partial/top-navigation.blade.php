@@ -56,38 +56,32 @@
                 </div>
                 <div class="col-lg-3 hidden-md-down pr-lg-0">
                     <div class="collapse navbar-collapse justify-content-end">
-                        <button class="navbar-toggler navbar-toggler-right desktop" style="display: block;"
-                            type="button"
-                            data-toggle="collapse"
-                            data-target="#navbarNav"
-                            aria-controls="navbarNav"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
+                        @if(auth()->guard('web.employees')->check() ||
+                            auth()->guard('web.employers')->check())
+                            <button class="navbar-toggler navbar-toggler-right desktop" style="display: block;"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#navbarNav"
+                                aria-controls="navbarNav"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        @else
+                            <ul class="navbar-nav align-items-center">
+                                <li class="nav-item mr-1">
+                                    <a class="nav-link" href="{{ url('login') }}"><i class="fa fa-key mr-1"></i>Login</a>
+                                </li>
+                                <li class="nav-item">
+                                   <a class="nav-link" href="{{ url('register') }}"><i class="fa fa-user mr-1"></i>Register</a>
+                                </li>
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 </div>
-
-@section('script')
-<script type="text/javascript">
-    $('.navbar-toggler.desktop').on('click', function(){
-        $('.page-sidebar.desktop').toggleClass('open');
-    });
-
-    $('.navbar-toggler.mobile').on('click', function(){
-        var sidebar = $('.page-sidebar.mobile');
-        $(sidebar).toggleClass('open')
-        if($(sidebar).hasClass('open')){
-            $(sidebar).css('height', $('.page-sidebar.mobile ul').height() + 'px');
-        }else{
-            $(sidebar).css('height', 0);
-        }
-    });
-</script>
-@stop
