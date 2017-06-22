@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $jobs = Job::latest()->get();
+        $jobs = Job::published()->latest()->take(20)->get();
 
         return view('employee.dashboard', compact('jobs'));
     }
