@@ -20,7 +20,7 @@
 	<div class="card p-3">
 		<header class="d-flex mb-4">
 			<h2 class="title flex-grow-1 font-weight-400">Experience</h2>
-			<a href="" class="action is-flex"><span class="fa fa-plus"></span></a>
+			<a href="#" class="action text-secondary"><span class="fa fa-plus"></span></a>
 		</header>
 		<ul class="list-style-none p-0">
 			@foreach($user->experiences as $experience)
@@ -41,22 +41,23 @@
 	</div>
 </section>
 <section class="section education mt-2">
-	<div class="box">
-		<header>
-			<h2 class="title">Education</h2>
-			<a href="" class="action is-flex"><span class="fa fa-plus"></span></a>
+	<div class="card p-3">
+		<header class="d-flex mb-4">
+			<h2 class="title flex-grow-1 font-weight-400">Education</h2>
+			<a href="#" class="action text-secondary"><span class="fa fa-plus"></span></a>
 		</header>
-		<ul>
+		<ul class="list-style-none p-0">
 			@foreach($user->educations as $education)
-    			<li class="">
-    				{{-- <div class="el-action"><span class="fa fa-pencil"></span></div> --}}
-    				<div class="el-logo"><img src="{{ url('storage/images/64x64.png') }}"></div>
-    				<div class="el-summary">
-    					<h2 class="title">{{ $education->title }}</h2>
-    					<h3 class="college">{{ $education->college }}</h3>
-    					<h4 class="period">{{ $education->from_date_m_y }} - {{ $education->to_date_m_y }}</h4>
-    				</div>
-    				<div class="el-detail">{{ $education->extra_detail }}</div>
+    			<li>
+                    <div class="media inner-wrapper">
+                        <img class="d-flex mr-3" src="{{ url('storage/images/64x64.png') }}">
+                        <div class="media-body">
+                            <h2 class="title">{{ $education->title }}</h2>
+                            <h3 class="college">{{ $education->college }}</h3>
+                            <h4 class="period">{{ $education->from_date_m_y }} - {{ $education->to_date_m_y }}</h4>
+                            <p class="el-detail mt-3 text-muted-50">{{ $education->extra_detail }}</p>
+                        </div>
+                    </div>
     			</li>
     		@endforeach
 		</ul>
