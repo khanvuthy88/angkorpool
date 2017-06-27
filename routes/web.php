@@ -9,7 +9,7 @@ Route::group(['prefix' => 'employer', 'middleware' => 'auth:web.employers'], fun
 });
 
 Route::group(['middleware' => 'auth:web.employees'], function(){
-	Route::get('/profile', 'UserProfileController@showProfile');
+	Route::get('/profile', 'Employee\ProfileController@showProfile');
     Route::get('/dashboard', 'Employee\DashboardController@index')->name('employee.dashboard');
 });
 

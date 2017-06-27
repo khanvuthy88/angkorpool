@@ -1,0 +1,46 @@
+.profile{
+    .photo{
+        height: 172px;
+        width: 172px;
+    }
+
+    .summary{
+        padding: 12px;
+        line-height: 1.5rem;
+
+        h1{
+            line-height: 3rem;
+        }
+
+        span{
+            i{
+                width: 30px;
+            }
+        }
+    }
+}
+
+.experience{
+    .title{
+        font-size: 21px;
+        font-weight: 600;
+    }
+
+    .company{
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .period, .location{
+        font-size: inherit;
+        font-weight: 400;
+    }
+
+    ul li{
+        margin-bottom: 15px;
+
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}

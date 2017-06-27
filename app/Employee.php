@@ -44,20 +44,20 @@ class Employee extends Authenticatable
 
         static::saving(function ($user) {
             // Create a new user into Zoho recruit first before saving into local database.
-            ZohoRecruit::setModule('Candidates');
-            ZohoRecruit::insertRecords('
-                <Candidates>
-                    <row no="1">
-                        <FL val="Source"></FL>
-                        <FL val="Current employer"></FL>
-                        <FL val="First Name">' . $user->name . '</FL>
-                        <FL val="Last Name">' . $user->surname . '</FL>
-                        <FL val="Email">' . $user->email . '</FL>
-                        <FL val="Phone">' . $user->phone_number . '</FL>
-                        <FL val="Mobile">' . $user->phone_number . '</FL>
-                    </row>
-                </Candidates>
-            ');
+            // ZohoRecruit::setModule('Candidates');
+            // ZohoRecruit::insertRecords('
+            //     <Candidates>
+            //         <row no="1">
+            //             <FL val="Source"></FL>
+            //             <FL val="Current employer"></FL>
+            //             <FL val="First Name">' . $user->name . '</FL>
+            //             <FL val="Last Name">' . $user->surname . '</FL>
+            //             <FL val="Email">' . $user->email . '</FL>
+            //             <FL val="Phone">' . $user->phone_number . '</FL>
+            //             <FL val="Mobile">' . $user->phone_number . '</FL>
+            //         </row>
+            //     </Candidates>
+            // ');
         });
     }
 

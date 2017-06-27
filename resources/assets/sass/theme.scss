@@ -159,6 +159,10 @@ a.text-secondary:hover{
 }
 
 .font-weight{
+	&-800{
+		font-weight: 800 !important;
+	}
+
 	&-600{
 		font-weight: 600 !important;
 	}
@@ -172,4 +176,12 @@ a.text-secondary:hover{
 	&-17{
 		font-size: 17px !important;
 	}
+}
+
+.no-text-decoration{
+	text-decoration: none;
+}
+
+.list-style-none{
+	list-style: none;
 }
