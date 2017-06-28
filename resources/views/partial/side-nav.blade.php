@@ -10,24 +10,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Daily Job alerts</span></a>
             </li>
-            <li class="nav-item expand">
-                <a class="nav-link clearfix" href="#">
-                    <i class="fa fa-user"></i>
-                    <span>My Profile</span>
-                    <span class="arrow"><i class="fa fa-chevron-down"></i></span>
-                </a>
-                <ul class="sub-menu nav">
-                    <li class="nav-item"><a href="#" class="nav-link ">CV</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Education</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Experience</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Change Password</a></li>
-                </ul>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
+            </li>
+            <li class="nav-item expand">
+                <a class="nav-link clearfix" href="#">
+                    <i class="fa fa-cog"></i>
+                    <span>Setting</span>
+                    <span class="arrow"><i class="fa fa-chevron-down"></i></span>
+                </a>
+                <ul class="sub-menu nav">
+                    <li class="nav-item"><a href="#" class="nav-link ">Profile</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link ">Change Password</a></li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i><span>Logout</span></a>
@@ -46,23 +44,21 @@
                 <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Daily Job alerts</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link clearfix" href="#">
-                    <i class="fa fa-user"></i>
-                    <span>My Profile</span>
-                    <span class="arrow"><i class="fa fa-chevron-down"></i></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item"><a href="#" class="nav-link ">CV</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Education</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Experience</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link ">Change Password</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
+            </li>
+            <li class="nav-item expand">
+                <a class="nav-link clearfix" href="#">
+                    <i class="fa fa-cog"></i>
+                    <span>Setting</span>
+                    <span class="arrow"><i class="fa fa-chevron-down"></i></span>
+                </a>
+                <ul class="sub-menu nav">
+                    <li class="nav-item"><a href="#" class="nav-link ">Profile</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link ">Change Password</a></li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i><span>Logout</span></a>
