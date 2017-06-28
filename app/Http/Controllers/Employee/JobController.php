@@ -8,6 +8,7 @@ use App\Job;
 use App\JobIndustry;
 use App\JobType;
 use App\Province;
+use App\Employee;
 
 class JobController extends Controller
 {
@@ -51,5 +52,19 @@ class JobController extends Controller
         $job = Job::with('type')->find($id);
 
         return view('employee.job-show', compact('job'));
+    }
+
+    public function apply(Job $job)
+    {
+        auth()->user()->jobs()->attach($job->id);
+
+        return redirect()->route('employee.applied.jobs');
+    }
+
+    public function appliedJobs()
+    {
+        $applied_jobs = auth()->user()->jobs()->get();
+
+        return view('employee.applied-jobs', compact('applied_jobs'));
     }
 }

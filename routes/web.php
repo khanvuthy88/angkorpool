@@ -11,6 +11,8 @@ Route::group(['prefix' => 'employer', 'middleware' => 'auth:web.employers'], fun
 Route::group(['middleware' => 'auth:web.employees'], function(){
 	Route::get('/profile', 'Employee\ProfileController@showProfile');
     Route::get('/dashboard', 'Employee\DashboardController@index')->name('employee.dashboard');
+    Route::post('/apply/{job}', 'Employee\JobController@apply')->name('employee.apply.job');
+    Route::get('/applied/jobs', 'Employee\JobController@appliedJobs')->name('employee.applied.jobs');
 });
 
 Route::get('/jobs', 'JobController@index')->name('jobs');

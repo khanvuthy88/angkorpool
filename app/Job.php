@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\JobType;
 use App\JobIndustry;
 use App\Province;
+use App\Employee;
 use ZohoRecruit;
 
 class Job extends Model
@@ -79,6 +80,11 @@ class Job extends Model
     public function province()
     {
         return $this->hasOne(Province::class, 'code', 'province_code');
+    }
+
+    public function employees()
+    {
+        return $this->belongsToMany(Employee::class, 'employee_job_applies')->withTimestamps();
     }
 
 

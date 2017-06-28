@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use App\EmployeeExperience;
 use App\EmployeeEducation;
+use App\Job;
 use ZohoRecruit;
 
 class Employee extends Authenticatable
@@ -86,5 +87,10 @@ class Employee extends Authenticatable
     public function educations()
     {
         return $this->hasMany(EmployeeEducation::class, 'user_id', 'id')->latest();
+    }
+
+    public function jobs()
+    {
+        return $this->belongsToMany(Job::class, 'employee_job_applies')->withTimestamps();
     }
 }
