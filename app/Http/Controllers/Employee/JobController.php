@@ -63,8 +63,22 @@ class JobController extends Controller
 
     public function appliedJobs()
     {
-        $applied_jobs = auth()->user()->jobs()->get();
+        $jobs = auth()->user()->jobs()->get();
 
-        return view('employee.applied-jobs', compact('applied_jobs'));
+        return view('employee.applied-jobs', compact('jobs'));
+    }
+
+    public function alert()
+    {
+        //return view
+    }
+
+    public function alertCreate()
+    {
+        $industries = JobIndustry::all();
+        $job_types = JobType::all();
+        $provinces = Province::all();
+
+        return view('employee.job-alert-create', compact('industries', 'job_types', 'provinces'));
     }
 }
