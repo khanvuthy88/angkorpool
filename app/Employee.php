@@ -91,6 +91,6 @@ class Employee extends Authenticatable
 
     public function jobs()
     {
-        return $this->belongsToMany(Job::class, 'employee_job_applies')->withTimestamps();
+        return $this->belongsToMany(Job::class, 'employee_job_applies')->withPivot('applied_date');
     }
 }

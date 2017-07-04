@@ -84,7 +84,7 @@ class Job extends Model
 
     public function employees()
     {
-        return $this->belongsToMany(Employee::class, 'employee_job_applies')->withTimestamps();
+        return $this->belongsToMany(Employee::class, 'employee_job_applies')->withPivot('applied_date');
     }
 
 

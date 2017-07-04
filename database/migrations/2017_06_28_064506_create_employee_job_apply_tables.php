@@ -16,7 +16,7 @@ class CreateEmployeeJobApplyTables extends Migration
         Schema::create('employee_job_applies', function (Blueprint $table) {
             $table->integer('employee_id')->unsigned();
             $table->integer('job_id')->unsigned();
-            $table->timestamps();
+            $table->timestamp('applied_date')->useCurrent();
 
             $table->primary(['employee_id', 'job_id']);
         });

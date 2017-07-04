@@ -5,10 +5,10 @@
                 <a class="nav-link" href="{{ route('job.search') }}"><i class="fa fa-search"></i><span>Search Jobs</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-file-o"></i><span>Applied Jobs</span></a>
+                <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Job alerts</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Daily Job alerts</span></a>
+                <a class="nav-link" href="{{ route('employee.applied.jobs') }}"><i class="fa fa-file-o"></i><span>Application History</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a>
@@ -23,7 +23,7 @@
                     <span class="arrow"><i class="fa fa-chevron-down"></i></span>
                 </a>
                 <ul class="sub-menu nav">
-                    <li class="nav-item"><a href="#" class="nav-link ">Profile</a></li>
+                    <li class="nav-item"><a href="{{ route('employee.profile') }}" class="nav-link ">Profile</a></li>
                     <li class="nav-item"><a href="#" class="nav-link ">Change Password</a></li>
                 </ul>
             </li>
@@ -38,10 +38,10 @@
                 <a class="nav-link" href="{{ route('job.search') }}"><i class="fa fa-search"></i><span>Search Jobs</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-file-o"></i><span>Applied Jobs</span></a>
+                <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Job alerts</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Daily Job alerts</span></a>
+                <a class="nav-link" href="{{ route('employee.applied.jobs') }}"><i class="fa fa-file-o"></i><span>Application History</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-envelope-o"></i><span>Messages</span></a>
@@ -56,7 +56,7 @@
                     <span class="arrow"><i class="fa fa-chevron-down"></i></span>
                 </a>
                 <ul class="sub-menu nav">
-                    <li class="nav-item"><a href="#" class="nav-link ">Profile</a></li>
+                    <li class="nav-item"><a href="{{ route('employee.profile') }}" class="nav-link ">Profile</a></li>
                     <li class="nav-item"><a href="#" class="nav-link ">Change Password</a></li>
                 </ul>
             </li>
