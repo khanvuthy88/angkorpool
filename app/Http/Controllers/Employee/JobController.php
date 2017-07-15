@@ -81,4 +81,11 @@ class JobController extends Controller
 
         return view('employee.job-alert-create', compact('industries', 'job_types', 'provinces'));
     }
+
+    public function alertSave(Request $request)
+    {
+        JobAlert::create($request->all());
+
+        return direct()->back();
+    }
 }

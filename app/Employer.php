@@ -8,7 +8,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Employer extends Authenticatable
 {
-    use Notifiable, HasRoles;
+    use Notifiable; //HasRoles;
 
     protected $table = 'employers';
 

@@ -12,7 +12,7 @@ use ZohoRecruit;
 
 class Employee extends Authenticatable
 {
-    use Notifiable, HasRoles;
+    use Notifiable; //HasRoles;
 
     /**
      * The attributes that are mass assignable.

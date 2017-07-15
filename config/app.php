@@ -178,8 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-        Spatie\Permission\PermissionServiceProvider::class,
-        App\Providers\ZohoServiceProvider::class,
+        // Spatie\Permission\PermissionServiceProvider::class,
+        // App\Providers\ZohoServiceProvider::class,
     ],
 
     /*

@@ -92,3 +92,15 @@ $factory->define(App\Employer::class, function (Faker\Generator $faker) {
         'post_code' => $faker->postcode,
     ];
 });
+
+$factory->define(App\JobAlert::class, function (Faker\Generator $faker) {
+    return [
+        'employee_id' => function () { return factory(App\Employee::class)->create()->id; },
+        'keyword' => $faker->word,
+        'industry' => null,
+        'job_type' => null,
+        'province' => null,
+        'mail_frequency' => 'Daily',
+        'is_paused' => false,
+    ];
+});

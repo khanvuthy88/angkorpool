@@ -8,6 +8,7 @@ use App\JobType;
 use App\JobIndustry;
 use App\Province;
 use App\Employee;
+use App\JobAlert;
 use ZohoRecruit;
 
 class Job extends Model
@@ -45,25 +46,25 @@ class Job extends Model
         parent::boot();
 
         static::saving(function ($job) {
-            // Create a new job into Zoho recruit first before saving into local database.
-            ZohoRecruit::setModule('JobOpenings');
-            ZohoRecruit::insertRecords('
-                <JobOpenings>
-                    <row no="1">
-                        <FL val="Posting Title">' . $job->title . '</FL>
-                        <FL val="Date Opened">' . $job->published_date . '</FL>
-                        <FL val="Target Date">' . $job->closing_date . '</FL>
-                        <FL val="Job Type">' . JobType::find($job->job_type_id)->caption . '</FL>
-                        <FL val="City">' . $job->city . '</FL>
-                        <FL val="Province">' . Province::where('code', $job->province_code)->first()->name . '</FL>
-                        <FL val="Salary">' . $job->salary . '</FL>
-                        <FL val="Work Experience">' . $job->work_experience . '</FL>
-                        <FL val="Industry">' . JobIndustry::find($job->industry_id)->name . '</FL>
-                        <FL val="Number of Positions">' . $job->number_of_positions . '</FL>
-                        <FL val="Job Description">' . $job->description . '</FL>
-                    </row>
-                </JobOpenings>
-            ');
+            // // Create a new job into Zoho recruit first before saving into local database.
+            // ZohoRecruit::setModule('JobOpenings');
+            // ZohoRecruit::insertRecords('
+            //     <JobOpenings>
+            //         <row no="1">
+            //             <FL val="Posting Title">' . $job->title . '</FL>
+            //             <FL val="Date Opened">' . $job->published_date . '</FL>
+            //             <FL val="Target Date">' . $job->closing_date . '</FL>
+            //             <FL val="Job Type">' . JobType::find($job->job_type_id)->caption . '</FL>
+            //             <FL val="City">' . $job->city . '</FL>
+            //             <FL val="Province">' . Province::where('code', $job->province_code)->first()->name . '</FL>
+            //             <FL val="Salary">' . $job->salary . '</FL>
+            //             <FL val="Work Experience">' . $job->work_experience . '</FL>
+            //             <FL val="Industry">' . JobIndustry::find($job->industry_id)->name . '</FL>
+            //             <FL val="Number of Positions">' . $job->number_of_positions . '</FL>
+            //             <FL val="Job Description">' . $job->description . '</FL>
+            //         </row>
+            //     </JobOpenings>
+            // ');
         });
     }
 
@@ -85,6 +86,11 @@ class Job extends Model
     public function employees()
     {
         return $this->belongsToMany(Employee::class, 'employee_job_applies')->withPivot('applied_date');
+    }
+
+    public function jobAlerts()
+    {
+        return $this->hasMany(JobAlert::class, 'employee_id');
     }
 
 
