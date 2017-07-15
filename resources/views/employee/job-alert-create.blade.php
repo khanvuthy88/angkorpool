@@ -17,7 +17,7 @@
             <div class="form-group row {{ ! $errors->has('industry') ?: 'has-danger' }}">
                 <label for="industry" class="col-sm-12 col-md-3 col-form-label">Industry</label>
                 <div class="col-sm-12 col-md-9">
-                    <select class="form-control" name="industry" id="industry">
+                    <select class="form-control" name="industry_id" id="industry_id">
                         <option value="">--Select--</option>
                         @foreach($industries as $industry)
                             <option value="{{ $industry->id }}">
@@ -30,7 +30,7 @@
             <div class="form-group row {{ ! $errors->has('job_type') ?: 'has-danger' }}">
                 <label for="job_type" class="col-sm-12 col-md-3 col-form-label">Job type</label>
                 <div class="col-sm-12 col-md-9">
-                    <select class="form-control" name="job_type" id="job_type">
+                    <select class="form-control" name="job_type_id" id="job_type_id">
                         <option value="">--Select--</option>
                         @foreach($job_types as $job_type)
                             <option value="{{ $job_type->id }}">
@@ -43,7 +43,7 @@
             <div class="form-group row {{ ! $errors->has('province') ?: 'has-danger' }}">
                 <label for="province" class="col-sm-12 col-md-3 col-form-label">Location</label>
                 <div class="col-sm-12 col-md-9">
-                    <select class="form-control" name="province" id="province">
+                    <select class="form-control" name="province_code" id="province_code">
                         <option value="">--Select--</option>
                         @foreach($provinces as $province)
                             <option value="{{ $province->code }}">

@@ -17,9 +17,9 @@ class CreateJobAlertsTable extends Migration
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
             $table->string('keyword');
-            $table->integer('industry')->nullable();
-            $table->integer('job_type')->nullable();
-            $table->char('province', 3)->nullable();
+            $table->integer('industry_id')->nullable();
+            $table->integer('job_type_id')->nullable();
+            $table->char('province_code', 3)->nullable();
             $table->enum('mail_frequency', [ 'Daily', 'Weekly', 'Monthly'])->default('Daily');
             $table->boolean('is_paused')->default(false);
             $table->timestamps();

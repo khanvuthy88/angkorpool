@@ -26,7 +26,7 @@
                                     <a class="nav-link text-uppercase" href="{{ route('job.search')}}">Search Jobs</a>
                                 </li>
                                 <li class="nav-item mr-3">
-                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Job Alerts</a>
+                                    <a class="nav-link text-uppercase" href="{{ route('job.alert') }}">Job Alerts</a>
                                 </li>
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">CV</a>

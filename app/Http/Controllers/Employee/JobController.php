@@ -70,7 +70,9 @@ class JobController extends Controller
 
     public function alert()
     {
-        //return view
+        return view('employee.job-alert', [
+            'alerts' => auth()->user()->jobAlerts()->with(['job_type', 'industry'])->paginate(10)
+        ]);
     }
 
     public function alertCreate()
@@ -84,8 +86,8 @@ class JobController extends Controller
 
     public function alertSave(Request $request)
     {
-        JobAlert::create($request->all());
+        auth()->user()->jobAlerts()->create($request->all());
 
-        return direct()->back();
+        return redirect()->route('job.alert');
     }
 }

@@ -5,7 +5,7 @@
                 <a class="nav-link" href="{{ route('job.search') }}"><i class="fa fa-search"></i><span>Search Jobs</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Job alerts</span></a>
+                <a class="nav-link" href="{{ route('job.alert') }}"><i class="fa fa-newspaper-o"></i><span>Job alerts</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('employee.applied.jobs') }}"><i class="fa fa-file-o"></i><span>Application History</span></a>
@@ -38,7 +38,7 @@
                 <a class="nav-link" href="{{ route('job.search') }}"><i class="fa fa-search"></i><span>Search Jobs</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-newspaper-o"></i><span>Job alerts</span></a>
+                <a class="nav-link" href="{{ route('job.alert') }}"><i class="fa fa-newspaper-o"></i><span>Job alerts</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('employee.applied.jobs') }}"><i class="fa fa-file-o"></i><span>Application History</span></a>
