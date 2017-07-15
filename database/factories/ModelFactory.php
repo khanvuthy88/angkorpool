@@ -97,9 +97,9 @@ $factory->define(App\JobAlert::class, function (Faker\Generator $faker) {
     return [
         'employee_id' => function () { return factory(App\Employee::class)->create()->id; },
         'keyword' => $faker->word,
-        'industry' => null,
-        'job_type' => null,
-        'province' => null,
+        'industry_id' => $faker->randomElement([1, 2, 3]),
+        'job_type_id' => $faker->randomElement([1, 2, 3]),
+        'province_code' => 'PNP',
         'mail_frequency' => 'Daily',
         'is_paused' => false,
     ];
