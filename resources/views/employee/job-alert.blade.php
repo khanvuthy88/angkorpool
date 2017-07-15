@@ -25,7 +25,9 @@
 		      		<td>{{ $alert->industry->name }}</td>
 		      		<td>{{ $alert->job_type->caption }}</td>
 		      		<td>
-		      			<button type="button" class="btn btn-sm btn-danger" title="Delete"><i class="fa fa-trash-o"></i></button>
+		      			<a href="{{ route('job.alert.delete', [ 'id' => $alert->id ]) }}" class="btn btn-sm btn-danger" title="Delete">
+		      				<i class="fa fa-trash-o"></i>
+		      			</a>
 		      		</td>
 		    	</tr>
 		    @endforeach

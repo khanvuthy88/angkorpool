@@ -16,6 +16,7 @@ Route::group(['middleware' => 'auth:web.employees'], function(){
     Route::get('/job/alert', 'Employee\JobController@alert')->name('job.alert');
     Route::get('/job/alert/create', 'Employee\JobController@alertCreate')->name('job.alert.create');
     Route::post('/job/alert/create', 'Employee\JobController@alertSave');
+    Route::get('/job/alert/delete/{id}', 'Employee\JobController@alertDelete')->name('job.alert.delete');
 });
 
 Route::get('/jobs', 'JobController@index')->name('jobs');

@@ -90,4 +90,11 @@ class JobController extends Controller
 
         return redirect()->route('job.alert');
     }
+
+    public function alertDelete($id)
+    {
+        auth()->user()->jobAlerts()->find($id)->delete();
+
+        return redirect()->back();
+    }
 }
