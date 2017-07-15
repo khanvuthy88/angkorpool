@@ -71,7 +71,7 @@ class JobController extends Controller
     public function alert()
     {
         return view('employee.job-alert', [
-            'alerts' => auth()->user()->jobAlerts()->with(['job_type', 'industry'])->paginate(10)
+            'alerts' => auth()->user()->jobAlerts()->with(['job_type', 'industry'])->latest()->paginate(10)
         ]);
     }
 
