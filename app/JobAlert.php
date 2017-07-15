@@ -21,7 +21,7 @@ class JobAlert extends Model
         'is_paused',
     ];
 
-    // protected $appends = [ '' ];
+    protected $appends = [ 'industry_name', 'job_type_name' ];
 
     public function employee()
     {
@@ -36,5 +36,15 @@ class JobAlert extends Model
     public function job_type()
     {
         return $this->hasOne(JobType::class, 'id', 'job_type_id');
+    }
+
+    public function getIndustryNameAttribute()
+    {
+        return ! is_null($this->industry) ? $this->industry->name : '';
+    }
+
+    public function getJobTypeNameAttribute()
+    {
+        return ! is_null($this->job_type) ? $this->job_type->caption : '';
     }
 }
