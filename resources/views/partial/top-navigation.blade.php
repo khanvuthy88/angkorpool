@@ -29,7 +29,7 @@
                                     <a class="nav-link text-uppercase" href="{{ route('job.alert') }}">Job Alerts</a>
                                 </li>
                                 <li class="nav-item mr-3">
-                                    <a class="nav-link text-uppercase" href="{{ url('job/post') }}">CV</a>
+                                    <a class="nav-link text-uppercase" href="{{ route('employee.profile') }}">CV</a>
                                 </li>
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Message</a>
