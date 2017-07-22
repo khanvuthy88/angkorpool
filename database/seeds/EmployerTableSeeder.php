@@ -12,6 +12,9 @@ class EmployerTableSeeder extends Seeder
      */
     public function run()
     {
+        Employer::truncate();
+
+        factory(Employer::class)->create([ 'email' => 'employer@mail.com']);
         factory(Employer::class, 5)->create();
     }
 }
