@@ -8,6 +8,7 @@
     <title>Angkor Pool</title>
 
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="{{ url('css/font.css') }}">
     <link rel="stylesheet" href="{{ url('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url('css/bootstrap-datepicker.min.css') }}">

@@ -13,6 +13,7 @@ html{
 }
 
 body{
+    font-family: "Montserrat";
     min-height: 100%;
     overflow-x: hidden;
 }
@@ -54,7 +55,7 @@ body{
             }
 
             &:nth-child(3) {
-                margin-top: 7px;
+                margin-top: 8px;
             }
         }
     }
@@ -108,7 +109,7 @@ a.btn:focus.btn-secondary{
 
 #employee-search-job-dash{
     height: 200px;
-    background: url('storage/images/writing.jpg') no-repeat;
+    // background: url('images/writing.jpg') no-repeat;
     background-size: cover;
     background-position: 0 0;
     background-color: rgba(0,0,0,.1%);
