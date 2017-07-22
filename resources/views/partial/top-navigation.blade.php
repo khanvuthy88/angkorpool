@@ -4,7 +4,7 @@
             <div class="row full-width no-margin">
                 <div class="col-lg-2 col-md-12 pl-lg-0">
                     <a href="{{ url('/') }}" class="navbar-brand">
-                        <img src="{{ url('storage/logo/Angkor-Pool-logo-s-1.png') }}">
+                        <img src="{{ url('images/logo/Angkor-Pool-logo.png') }}">
                     </a>
                     <button class="navbar-toggler navbar-toggler-right mobile"
                         type="button"
