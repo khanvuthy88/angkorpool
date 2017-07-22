@@ -18,7 +18,7 @@
                         <span></span>
                     </button>
                 </div>
-                <div class="col-lg-7 hidden-md-down">
+                <div class="col-lg-7 hidden-md-down d-flex">
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav align-items-center">
                             @if(auth()->guard('web.employees')->check())
