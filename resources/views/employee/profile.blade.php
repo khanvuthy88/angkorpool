@@ -3,7 +3,7 @@
 @section('content')
 <section class="section profile">
 	<div class="card d-flex flex-row">
-		<img class="photo" src="{{ url('storage/images/64x64.png') }}">
+		<img class="photo" src="{{ url('storage/images/256x256.png') }}">
 		<div class="summary">
 			<h1 class="name">{{ $user->fullname }}</h1>
 			<span class="gender is-block {{ !is_null($user->gender) ?: 'hide' }}">
