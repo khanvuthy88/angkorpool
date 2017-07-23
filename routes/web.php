@@ -32,6 +32,8 @@ Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login')->name('user.login');
 Route::get('logout', 'Auth\LoginController@logout');
 
+Route::get('register/employer', 'Auth\RegisterEmployerController@create')->name('register.employer');
+Route::post('register/employer', 'Auth\RegisterEmployerController@store');
 
 Route::get('zoho', 'Test\ZohoController@fetchData');
 Route::get('zoho/insert', 'Test\ZohoController@insert');

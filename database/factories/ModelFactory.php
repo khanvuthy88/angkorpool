@@ -1,25 +1,39 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| Here you may define all of your model factories. Model factories give
-| you a convenient way to create models for testing and seeding your
-| database. Just tell the factory how a default model should look.
-|
-*/
-
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Employee::class, function (Faker\Generator $faker) {
+$factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'surname' => $faker->lastName,
-        'name' => $faker->firstName,
+        'username' => $faker->firstName,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = 'secret',
+        'user_type' => $faker->randomElement(['CAN', 'EMP', 'REC']),
+        'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Employer::class, function (Faker\Generator $faker) {
+    return [
+        'email' => function () { return factory(App\User::class)->create([ 'user_type' => 'EMP' ])->email; },
+        'name' => $faker->name,
+        'contact_number' => $faker->phoneNumber,
+        'fax' => $faker->phoneNumber,
+        'industry_id' => 1,
+        'website' => $faker->domainName,
+        'about' => $faker->paragraph,
+        'street' => $faker->streetAddress,
+        'city' => null,
+        'province' => 'Phnom Penh',
+        'post_code' => $faker->postcode,
+    ];
+});
+
+$factory->define(App\Employee::class, function (Faker\Generator $faker) {
+    return [
+        'surname' => $faker->lastName,
+        'name' => $faker->firstName,
+        'email' =>  function () { return factory(App\User::class)->create([ 'user_type' => 'CAN' ])->email; },
         'gender' => $faker->randomElement(['M', 'F']),
         'dob'=> $faker->dateTimeBetween('-30 years', '-20 years'),
         'marital_status' => null,
@@ -31,7 +45,7 @@ $factory->define(App\Employee::class, function (Faker\Generator $faker) {
 
 $factory->define(App\EmployeeExperience::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => function () { return factory(App\User::class)->create()->id; },
+        'employee_id' => function () { return factory(App\Employee::class)->create()->id; },
         'title' => $faker->jobTitle,
         'company_name' => $faker->company,
         'from_date' => $faker->dateTimeBetween('-10 years'),
@@ -43,7 +57,7 @@ $factory->define(App\EmployeeExperience::class, function (Faker\Generator $faker
 
 $factory->define(App\EmployeeEducation::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => function () { return factory(App\User::class)->create()->id; },
+        'employee_id' => function () { return factory(App\Employee::class)->create()->id; },
         'title' => $faker->sentence,
         'college' => $faker->randomElement(['Norton University', 'Panhasatra University']),
         'from_date' => $faker->dateTimeBetween('-10 years', '-5 years'),
@@ -54,7 +68,7 @@ $factory->define(App\EmployeeEducation::class, function (Faker\Generator $faker)
 
 $factory->define(App\Job::class, function (Faker\Generator $faker) {
     return [
-        'emp_id' => function () { return factory(App\Employer::class)->create()->id; },
+        'employer_id' => function () { return factory(App\Employer::class)->create()->id; },
         'title' => $faker->jobTitle,
         'description' => $faker->paragraph(100),
         'published_date' => Carbon\Carbon::now(),
@@ -73,23 +87,6 @@ $factory->define(App\Job::class, function (Faker\Generator $faker) {
 $factory->define(App\JobIndustry::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-    ];
-});
-
-$factory->define(App\Employer::class, function (Faker\Generator $faker) {
-    return [
-        'email' => $faker->unique()->safeEmail,
-        'password' => 'secret',
-        'name' => $faker->name,
-        'contact_number' => $faker->phoneNumber,
-        'fax' => $faker->phoneNumber,
-        'industry_id' => 1,
-        'website' => $faker->domainName,
-        'about' => $faker->paragraph,
-        'street' => $faker->streetAddress,
-        'city' => null,
-        'province' => 'Phnom Penh',
-        'post_code' => $faker->postcode,
     ];
 });
 
