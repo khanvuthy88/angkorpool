@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['guest:web.employers', 'guest:web.employees']);
+        //$this->middleware(['guest:web.employers', 'guest:web.employees']);
     }
 
     public function store(Request $request)
@@ -23,6 +23,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:employees',
             'password' => 'required|string|min:8',
             'password_confirmation' => 'same:password',
+            'user_type' => 'required',
         ]);
 
         Employee::create($request->all());

@@ -44,12 +44,12 @@ return [
 
             'employees' => [
                 'driver' => 'session',
-                'provider' => 'employees',
+                'provider' => 'users',
             ],
 
             'employers' => [
                 'driver' => 'session',
-                'provider' => 'employers',
+                'provider' => 'users',
             ],
         ],
 
@@ -82,16 +82,6 @@ return [
             'model' => App\User::class,
         ],
 
-        'employees' => [
-            'driver' => 'eloquent',
-            'model' => App\Employee::class,
-        ],
-
-        'employers' => [
-            'driver' => 'eloquent',
-            'model' => App\Employer::class,
-        ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -121,14 +111,14 @@ return [
         ],
 
         'employees' => [
-            'provider' => 'employees',
-            'table' => 'employee_password_resets',
+            'provider' => 'users',
+            'table' => 'password_resets',
             'expire' => 60,
         ],
 
         'employers' => [
-            'provider' => 'employers',
-            'table' => 'employer_password_resets',
+            'provider' => 'users',
+            'table' => 'password_resets',
             'expire' => 60,
         ],
 
