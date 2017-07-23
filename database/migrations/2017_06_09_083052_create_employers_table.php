@@ -26,7 +26,6 @@ class CreateEmployersTable extends Migration
             $table->string('city')->nullable();
             $table->string('province')->nullable();
             $table->string('post_code')->nullable();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

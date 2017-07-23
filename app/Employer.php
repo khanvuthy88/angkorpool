@@ -21,8 +21,4 @@ class Employer extends Model
         'province',
         'post_code',
     ];
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
 }

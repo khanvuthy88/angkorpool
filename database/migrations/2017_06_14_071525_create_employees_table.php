@@ -24,7 +24,6 @@ class CreateEmployeesTable extends Migration
             $table->string('phone_number')->nullable();
             $table->string('address')->nullable();
             $table->string('profile_photo')->nullable();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

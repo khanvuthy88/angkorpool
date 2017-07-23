@@ -39,7 +39,6 @@ $factory->define(App\Employee::class, function (Faker\Generator $faker) {
         'marital_status' => null,
         'phone_number' => $faker->phoneNumber,
         'address' => $faker->address,
-        'remember_token' => str_random(10),
     ];
 });
 
