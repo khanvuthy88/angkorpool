@@ -17,18 +17,8 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            switch ($guard)
-            {
-                case 'web.employers':
-                    return redirect('/employer/dashboard');
-                    break;
-
-                case 'web.employees':
-                    return redirect('/dashboard');
-                    break;
-            }
-        }
+        if (Auth::guard($guard)->check())
+            return redirect('/');
 
         return $next($request);
     }

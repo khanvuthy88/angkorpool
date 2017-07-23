@@ -1,4 +1,4 @@
-@if(auth()->guard('web.employees')->check())
+@employee
     <div class="page-sidebar collapse-menu desktop hidden-md-down open">
         <ul class="navbar-nav">
             <li class="nav-item active">
@@ -65,7 +65,8 @@
             </li>
         </ul>
     </div>
-@elseif(auth()->guard('web.employers')->check())
+@endemployee
+@employer
     <div class="page-sidebar collapse-menu desktop hidden-md-down">
         <ul class="navbar-nav">
             <li class="nav-item active">
@@ -104,4 +105,4 @@
             </li>
         </ul>
     </div>
-@endif
+@endemployer
