@@ -54,7 +54,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 hidden-md-down pr-lg-0">
+                <div class="col-lg-3 hidden-md-down pr-lg-0 d-flex">
                     <div class="collapse navbar-collapse justify-content-end">
                         @if(auth()->guard('web.employees')->check() ||
                             auth()->guard('web.employers')->check())
