@@ -1,14 +1,16 @@
 <?php
 
-Route::group(['prefix' => 'employer', 'middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth.employer'], function(){
     Route::get('/jobs', 'Employer\JobController@index')->name('employer.jobs');
     Route::get('/job/post', 'Employer\JobController@create')->name('employer.job.post');
     Route::post('/job/post', 'Employer\JobController@store');
     Route::get('/job/{id}', 'Employer\JobController@show')->name('employer.job.show');
     Route::get('/job/{id}/publish', 'Employer\JobController@publish')->name('employer.job.publish');
+
+    Route::get('/abc', function(){ return '123'; });
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth.employee'], function(){
 	Route::get('/profile', 'Employee\ProfileController@showProfile')->name('employee.profile');
     Route::get('/dashboard', 'Employee\DashboardController@index')->name('employee.dashboard');
     Route::post('/apply/{job}', 'Employee\JobController@apply')->name('employee.apply.job');
