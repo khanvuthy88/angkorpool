@@ -21,7 +21,7 @@
                 <div class="col-lg-7 hidden-md-down d-flex">
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav align-items-center">
-                            @if(auth()->guard('web.employees')->check())
+                            @employee
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ route('job.search')}}">Search Jobs</a>
                                 </li>
@@ -37,7 +37,8 @@
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Resources</a>
                                 </li>
-                            @elseif(auth()->guard('web.employers')->check())
+                            @endemployee
+                            @employer
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ route('employer.job.post') }}">Post Job</a>
                                 </li>
@@ -50,14 +51,13 @@
                                 <li class="nav-item mr-3">
                                     <a class="nav-link text-uppercase" href="{{ url('job/post') }}">Resources</a>
                                 </li>
-                            @endif
+                            @endemployer
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 hidden-md-down pr-lg-0">
+                <div class="col-lg-3 hidden-md-down pr-lg-0 d-flex">
                     <div class="collapse navbar-collapse justify-content-end">
-                        @if(auth()->guard('web.employees')->check() ||
-                            auth()->guard('web.employers')->check())
+                        @if(auth()->check())
                             <button class="navbar-toggler navbar-toggler-right desktop" style="display: block;"
                                 type="button"
                                 data-toggle="collapse"

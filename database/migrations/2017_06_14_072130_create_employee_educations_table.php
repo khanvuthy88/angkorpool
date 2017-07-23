@@ -15,7 +15,7 @@ class CreateEmployeeEducationsTable extends Migration
     {
         Schema::create('employee_educations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('employee_id')->unsigned();
             $table->string('title');
             $table->string('college');
             $table->date('from_date');

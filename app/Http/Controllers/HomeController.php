@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['guest:web.employers', 'guest:web.employees']);
+        // $this->middleware('guest');
     }
 
     public function index()

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 use App\Employee;
 use App\EmployeeEducation;
 use App\EmployeeExperience;
@@ -16,9 +17,11 @@ class EmployeeTableSeeder extends Seeder
     {
         Employee::truncate();
 
-        factory(Employee::class)->create([ 'email' => 'jobseeker@mail.com']);
-        factory(EmployeeEducation::class, 3)->create([ 'user_id' => 1 ]);
-        factory(EmployeeExperience::class, 6)->create([ 'user_id' => 1 ]);
+        $employee = factory(Employee::class)->create([
+            'email' => factory(User::class)->create([ 'email' => 'jobseeker@mail.com', 'user_type' => 'CAN' ] )->email
+        ]);
+        factory(EmployeeEducation::class, 3)->create([ 'employee_id' => $employee->id ]);
+        factory(EmployeeExperience::class, 6)->create([ 'employee_id' => $employee->id ]);
 
         factory(Employee::class, 5)->create();
     }

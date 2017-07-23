@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web.employees',
-        'passwords' => 'employees',
+        'guard' => 'users',
+        'passwords' => 'users',
     ],
 
     /*
@@ -36,21 +36,14 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'users' => [
-                'driver' => 'session',
-                'provider' => 'users',
-            ],
+        'users' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
 
-            'employees' => [
-                'driver' => 'session',
-                'provider' => 'employees',
-            ],
-
-            'employers' => [
-                'driver' => 'session',
-                'provider' => 'employers',
-            ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
         ],
 
         'api' => [
@@ -82,14 +75,9 @@ return [
             'model' => App\User::class,
         ],
 
-        'employees' => [
+        'admin' => [
             'driver' => 'eloquent',
-            'model' => App\Employee::class,
-        ],
-
-        'employers' => [
-            'driver' => 'eloquent',
-            'model' => App\Employer::class,
+            'model' => App\AdminUser::class,
         ],
 
         // 'users' => [
@@ -120,15 +108,9 @@ return [
             'expire' => 60,
         ],
 
-        'employees' => [
-            'provider' => 'employees',
-            'table' => 'employee_password_resets',
-            'expire' => 60,
-        ],
-
-        'employers' => [
-            'provider' => 'employers',
-            'table' => 'employer_password_resets',
+        'admin' => [
+            'provider' => 'admin',
+            'table' => 'admin_password_resets',
             'expire' => 60,
         ],
 

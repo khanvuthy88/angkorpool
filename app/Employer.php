@@ -2,19 +2,14 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
 
-class Employer extends Authenticatable
+class Employer extends Model
 {
-    use Notifiable; //HasRoles;
-
     protected $table = 'employers';
 
     protected $fillable = [
         'email',
-        'password',
         'name',
         'contact_number',
         'fax',
@@ -26,13 +21,4 @@ class Employer extends Authenticatable
         'province',
         'post_code',
     ];
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
-    }
 }

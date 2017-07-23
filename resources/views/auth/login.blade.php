@@ -31,26 +31,6 @@
                                 @endif
                               </div>
                             </div>
-                            <div class="form-group row {{ ! $errors->has('login_as') ?: 'has-danger' }}">
-                                <div class="col-sm-12 col-md-9 offset-md-3">
-                                    <div class="form-check form-check-inline">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input"
-                                                type="radio" name="login_as"
-                                                value="employees"
-                                                {{ old('login_as') == 'employees' || is_null(old('login_as')) ? 'checked' : '' }}> Job seeker
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input"
-                                                type="radio" name="login_as"
-                                                value="employers"
-                                                {{ old('login_as') == 'employers' ? 'checked' : '' }}> Employers
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-group row">
                                 <div class="col-sm-12 col-md-9 offset-md-3">
                                     <div class="form-check">

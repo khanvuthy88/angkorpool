@@ -2,37 +2,24 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
 use App\EmployeeExperience;
 use App\EmployeeEducation;
 use App\Job;
 use App\JobAlert;
 use ZohoRecruit;
 
-class Employee extends Authenticatable
+class Employee extends Model
 {
-    use Notifiable; //HasRoles;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'surname', 'name', 'email', 'password',
-        'gender', 'dob', 'marital_status', 'phone_number',
+        'surname', 'name', 'email', 'gender',
+        'dob', 'marital_status', 'phone_number',
         'address', 'profile_photo',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
     ];
 
     /**
@@ -64,11 +51,6 @@ class Employee extends Authenticatable
     }
 
     /** Attribute */
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
-    }
-
     public function getFullNameAttribute()
     {
         return $this->surname . ' ' . $this->name;
@@ -82,12 +64,12 @@ class Employee extends Authenticatable
     /** Relationship */
     public function experiences()
     {
-        return $this->hasMany(EmployeeExperience::class, 'user_id', 'id')->latest();
+        return $this->hasMany(EmployeeExperience::class, 'employee_id', 'id')->latest();
     }
 
     public function educations()
     {
-        return $this->hasMany(EmployeeEducation::class, 'user_id', 'id')->latest();
+        return $this->hasMany(EmployeeEducation::class, 'employee_id', 'id')->latest();
     }
 
     public function jobs()

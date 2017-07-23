@@ -15,7 +15,7 @@ class CreateEmployeeExperiencesTable extends Migration
     {
         Schema::create('employee_experiences', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('employee_id')->unsigned();
             $table->string('title');
             $table->integer('company_id')->unsigned()->nullable();
             $table->string('company_name')->nullable();

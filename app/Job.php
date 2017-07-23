@@ -16,7 +16,7 @@ class Job extends Model
     protected $table = 'jobs';
 
     protected $fillable = [
-    	'emp_id',
+    	'employer_id',
         'title',
         'description',
         'salary',
@@ -92,7 +92,6 @@ class Job extends Model
     {
         return $this->hasMany(JobAlert::class, 'employee_id');
     }
-
 
     public function scopePublished($query)
     {
