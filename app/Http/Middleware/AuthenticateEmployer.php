@@ -18,13 +18,11 @@ class AuthenticateEmployer extends Authenticate
 
     protected function authenticate(array $guards)
     {
-        parent::authenticate($guards);
-
-        $user = $this->auth->user();
-
-        if(is_null($user) || $user->user_type != 'EMP')
+        if(is_null($user = $this->auth->user()) || $user->user_type != 'EMP')
         {
             throw new AuthenticationException();
         }
+
+        parent::authenticate($guards);
     }
 }
