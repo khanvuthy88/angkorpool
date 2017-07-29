@@ -25,7 +25,7 @@
             "Zoho\\": "zoho/"
         },
         "files": [
-            "helpers.php"
+            "app/Helpers/helpers.php"
         ]
     },
     "autoload-dev": {

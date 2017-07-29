@@ -56,14 +56,14 @@ class JobController extends Controller
 
     public function apply(Job $job)
     {
-        auth()->user()->jobs()->attach($job->id);
+        employee()->jobs()->attach($job->id);
 
         return redirect()->route('employee.applied.jobs');
     }
 
     public function appliedJobs()
     {
-        $jobs = auth()->user()->jobs()->get();
+        $jobs = employee()->jobs()->get();
 
         return view('employee.applied-jobs', compact('jobs'));
     }
@@ -71,7 +71,7 @@ class JobController extends Controller
     public function alert()
     {
         return view('employee.job-alert', [
-            'alerts' => auth()->user()->jobAlerts()->with(['job_type', 'industry'])->latest()->paginate(10)
+            'alerts' => employee()->jobAlerts()->with(['job_type', 'industry'])->latest()->paginate(10)
         ]);
     }
 
@@ -86,17 +86,14 @@ class JobController extends Controller
 
     public function alertSave(Request $request)
     {
-        auth()->user()
-            ->employee
-            ->jobAlerts()
-            ->create($request->all());
+        employee()->jobAlerts()->create($request->all());
 
         return redirect()->route('job.alert');
     }
 
     public function alertDelete($id)
     {
-        auth()->user()->jobAlerts()->find($id)->delete();
+        employee()->jobAlerts()->find($id)->delete();
 
         return redirect()->back();
     }

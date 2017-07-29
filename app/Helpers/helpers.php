@@ -14,3 +14,27 @@ if (! function_exists('inputArrayExist')) {
                 && collect($input[$name])->search($search_value) !== false;
     }
 }
+
+if(! function_exists('authUser'))
+{
+    function authUser()
+    {
+        return auth()->user();
+    }
+}
+
+if(! function_exists('employee'))
+{
+    function employee()
+    {
+        return auth()->user()->employee;
+    }
+}
+
+if(! function_exists('employer'))
+{
+    function employer()
+    {
+        return auth()->user()->employee;
+    }
+}
