@@ -86,7 +86,10 @@ class JobController extends Controller
 
     public function alertSave(Request $request)
     {
-        auth()->user()->jobAlerts()->create($request->all());
+        auth()->user()
+            ->employee
+            ->jobAlerts()
+            ->create($request->all());
 
         return redirect()->route('job.alert');
     }

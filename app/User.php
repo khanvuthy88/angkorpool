@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use App\Employee;
+use App\JobAlert;
 
 class User extends Authenticatable
 {
@@ -30,4 +32,24 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class, 'email', 'email');
+    }
+
+    public function employer()
+    {
+        return $this->hasOne(Employer::class, 'email', 'email');
+    }
+
+
+    /**
+     * Get employee's job alerts.
+     */
+    public function jobAlerts()
+    {
+        return $this->hasManyThrough(JobAlert::class, Employee::class, 'email', 'employee_id', 'email');
+    }
+
 }
