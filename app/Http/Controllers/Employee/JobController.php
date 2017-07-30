@@ -53,18 +53,4 @@ class JobController extends Controller
 
         return view('employee.job-show', compact('job'));
     }
-
-    public function apply(Job $job)
-    {
-        employee()->jobs()->attach($job->id);
-
-        return redirect()->route('employee.applied.jobs');
-    }
-
-    public function appliedJobs()
-    {
-        $jobs = employee()->jobs()->get();
-
-        return view('employee.applied-jobs', compact('jobs'));
-    }
 }

@@ -12,8 +12,8 @@ Route::group(['middleware' => 'auth.employee'], function(){
 	Route::get('/profile', 'Employee\ProfileController@showProfile')->name('employee.profile');
     Route::get('/dashboard', 'Employee\DashboardController@index')->name('employee.dashboard');
 
-    Route::post('/apply/{job}', 'Employee\JobController@apply')->name('employee.apply.job');
-    Route::get('/applied/jobs', 'Employee\JobController@appliedJobs')->name('employee.applied.jobs');
+    Route::get('/applied/jobs', 'Employee\ApplyJobController@index')->name('employee.applied.jobs');
+    Route::post('/apply/{job}', 'Employee\ApplyJobController@save')->name('employee.apply.job');
 
     Route::get('/job/alert', 'Employee\JobAlertController@index')->name('job.alert');
     Route::get('/job/alert/create', 'Employee\JobAlertController@create')->name('job.alert.create');
