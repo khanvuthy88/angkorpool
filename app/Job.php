@@ -32,10 +32,14 @@ class Job extends Model
         'industry_id',
     ];
 
+    protected $appends = ['published'];
+
     protected $dates = [
         'published_date',
         'closing_date',
     ];
+
+    // protected $dateFormat = 'Y-m-d';
 
     /**
      * The "booting" method of the model.
@@ -117,9 +121,9 @@ class Job extends Model
         return ! is_null($industry) ? $industry->name : null;
     }
 
-    public function getIsPublishedAttribute()
+    public function getPublishedAttribute()
     {
-        return ! is_null($this->published_date);
+        return !is_null($this->published_date);
     }
 
     public function getLocationAttribute()

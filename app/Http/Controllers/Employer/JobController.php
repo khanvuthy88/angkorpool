@@ -15,7 +15,7 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = employer()->jobs()->latest()->paginate(4);
+        $jobs = employer()->jobs()->latest()->paginate(10);
 
         return view('employer.jobs-posted', compact('jobs'));
     }
@@ -53,7 +53,7 @@ class JobController extends Controller
     {
         $job = Job::with(['type', 'province'])
                     ->where('id', $id)
-                    ->where('emp_id', auth()->user()->id)
+                    ->where('employer_id', employer()->id)
                     ->firstOrFail();
 
         $job->published_date = Carbon::now();
