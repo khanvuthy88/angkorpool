@@ -126,7 +126,7 @@
                     @endif
                 </div>
             </div>
-            <input type="checkbox" name="publish" id="publish">
+            <input type="checkbox" name="publish" id="publish" class="hide">
             <div class="form-group row mb-0">
                 <div class="col-sm-12 col-md-9 offset-md-3 d-flex flex-column flex-md-row">
                     <button class="btn btn-secondary mb-1 mb-md-0 mr-md-1">Save</button>

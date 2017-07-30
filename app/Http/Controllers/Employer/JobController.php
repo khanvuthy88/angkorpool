@@ -34,9 +34,9 @@ class JobController extends Controller
     {
         $this->validateCreate($request);
 
-        $job = $this->saveJob($request);
+        $this->saveJob($request);
 
-        return view('employer.job-show', compact('job'));
+        return redirect()->route('employer.jobs');
     }
 
     public function show($id)
@@ -70,8 +70,10 @@ class JobController extends Controller
             'industry' => 'required',
             'job-opening-status' => 'required',
             'job-type' => 'required',
-            'number_of_positions' => 'required',
+            'number-of-position' => 'required',
             'closing-date' => 'required|date|after:today',
+        ], [
+            'required' => 'Field required.'
         ]);
     }
 

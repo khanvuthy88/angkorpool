@@ -10,6 +10,7 @@ use App\Province;
 use App\Employer;
 use App\Employee;
 use App\JobAlert;
+use App\JobOpeningStatus;
 use ZohoRecruit;
 
 class Job extends Model
@@ -103,6 +104,11 @@ class Job extends Model
         return $this->hasMany(JobAlert::class, 'employee_id');
     }
 
+    public function jobStatus()
+    {
+        return $this->hasOne(JobOpeningStatus::class, 'id', 'status');
+    }
+
     public function scopePublished($query)
     {
     	$query->where('published_date', '!=', null)
@@ -137,5 +143,10 @@ class Job extends Model
         if(is_null($this->province)) return null;
 
         return $this->province->name;
+    }
+
+    public function getStatusNameAttribute()
+    {
+        return $this->jobStatus->caption;
     }
 }

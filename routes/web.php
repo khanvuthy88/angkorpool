@@ -6,6 +6,7 @@ Route::group(['middleware' => 'auth.employer'], function(){
     Route::get('/job/post', 'Employer\JobController@create')->name('employer.job.post');
     Route::post('/job/post', 'Employer\JobController@save');
     Route::get('/job/{id}/publish', 'Employer\JobController@publish')->name('employer.job.publish');
+    Route::get('/job/{id}/delete', 'Employer\JobController@delete')->name('employer.job.delete');
 });
 
 Route::group(['middleware' => 'auth.employee'], function(){
