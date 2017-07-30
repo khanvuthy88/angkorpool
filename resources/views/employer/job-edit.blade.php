@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-block">
-        <form action="{{ route('employer.job.edit', [ 'id', $job->id ]) }}" method="POST">
+        <form action="{{ route('employer.job.edit', [ 'id' => $job->id ]) }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
             <div class="form-group row {{ ! $errors->has('title') ?: 'has-danger' }}">
