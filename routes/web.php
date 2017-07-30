@@ -5,6 +5,8 @@ Route::group(['middleware' => 'auth.employer'], function(){
     Route::get('/job/posted/{id}', 'Employer\JobController@show')->name('employer.job.show')->where('id', '[0-9]+');
     Route::get('/job/post', 'Employer\JobController@create')->name('employer.job.post');
     Route::post('/job/post', 'Employer\JobController@save');
+    Route::get('/job/post/{id}/edit', 'Employer\JobController@edit')->name('employer.job.edit');
+    Route::put('/job/post/{id}/edit', 'Employer\JobController@update');
     Route::get('/job/{id}/publish', 'Employer\JobController@publish')->name('employer.job.publish');
     Route::get('/job/{id}/delete', 'Employer\JobController@delete')->name('employer.job.delete');
 });

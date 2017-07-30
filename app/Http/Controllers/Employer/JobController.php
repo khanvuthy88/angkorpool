@@ -32,7 +32,7 @@ class JobController extends Controller
 
     public function save(Request $request)
     {
-        $this->validateCreate($request);
+        $this->validateInput($request);
 
         $this->saveJob($request);
 
@@ -47,6 +47,26 @@ class JobController extends Controller
                     ->firstOrFail();
 
         return view('employer.job-show', compact('job'));
+    }
+
+    public function edit($id)
+    {
+        $industries = JobIndustry::all();
+        $job_types = JobType::all();
+        $job_opening_statuses = JobOpeningStatus::all();
+        $provinces = Province::orderBy('name')->get();
+        $job = employer()->jobs()->whereId($id)->first();
+
+        return view('employer.job-edit', compact('job', 'industries', 'job_types', 'job_opening_statuses', 'provinces'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validateInput($request);
+
+        $this->saveJob($request, $id);
+
+        return redirect()->route('employer.jobs');
     }
 
     public function delete($id)
@@ -69,7 +89,7 @@ class JobController extends Controller
         return redirect()->back();
     }
 
-    private function validateCreate(Request $request)
+    private function validateInput(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -84,9 +104,9 @@ class JobController extends Controller
         ]);
     }
 
-    private function saveJob(Request $request)
+    private function saveJob(Request $request, $id = null)
     {
-        return employer()->jobs()->create([
+        return Job::updateOrCreate(['id' => $id ], [
             'employer_id' => employer()->id,
             'title' => $request->get('title'),
             'description' => $request->get('description'),

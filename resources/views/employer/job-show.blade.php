@@ -42,10 +42,14 @@
             </tbody>
         </table>
         <div class="pull-right">
-            @if(!$job->is_published)
-                <a href="{{ route('employer.job.publish', [ 'id' => $job->id ]) }}" class="btn btn-secondary text-uppercase mr-1">Publish</a>
+            @if(!$job->published)
+                <a href="{{ route('employer.job.publish', [ 'id' => $job->id ]) }}" class="btn btn-secondary text-uppercase mr-1">
+                    <span class="fa fa-bolt"></span> Publish
+                </a>
             @endif
-            <a href="#" class="btn btn-secondary text-uppercase">Edit</a>
+            <a href="{{ route('employer.job.edit', [ 'id' => $job->id ]) }}" class="btn btn-secondary text-uppercase">
+                <span class="fa fa-pencil"></span> Edit
+            </a>
         </div>
     </div>
 </div>
