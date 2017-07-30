@@ -49,6 +49,13 @@ class JobController extends Controller
         return view('employer.job-show', compact('job'));
     }
 
+    public function delete($id)
+    {
+        employer()->jobs()->whereId($id)->delete();
+
+        return redirect()->back();
+    }
+
     public function publish($id)
     {
         $job = Job::with(['type', 'province'])
