@@ -24,7 +24,7 @@
                     <td>{{ $job->job_type_name }}</td>
                     <td>{{ $job->closing_date->format('Y-m-d') }}</td>
                     <td>
-                        @if($job->published)
+                        @if(! $job->published)
                             <a href="{{ route('employer.job.publish', [ 'id' => $job->id ]) }}" class="btn btn-sm btn-primary" title="Publish">
                                 <span class="fa fa-secondary"></span> Publish
                             </a>

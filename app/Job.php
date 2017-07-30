@@ -39,7 +39,7 @@ class Job extends Model
         'closing_date',
     ];
 
-    // protected $dateFormat = 'Y-m-d';
+    // protected $dateFormat = 'U';
 
     /**
      * The "booting" method of the model.
@@ -119,6 +119,12 @@ class Job extends Model
     {
         $industry = $this->industry;
         return ! is_null($industry) ? $industry->name : null;
+    }
+
+    public function getJobTypeNameAttribute()
+    {
+        $type = $this->type;
+        return ! is_null($type) ? $type->caption : null;
     }
 
     public function getPublishedAttribute()

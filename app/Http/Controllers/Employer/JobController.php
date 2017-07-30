@@ -70,6 +70,7 @@ class JobController extends Controller
             'industry' => 'required',
             'job-opening-status' => 'required',
             'job-type' => 'required',
+            'number_of_positions' => 'required',
             'closing-date' => 'required|date|after:today',
         ]);
     }
