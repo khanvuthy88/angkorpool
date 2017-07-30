@@ -15,7 +15,7 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::where('emp_id', auth()->user()->id)->latest()->paginate(4);
+        $jobs = employer()->jobs()->latest()->paginate(4);
 
         return view('employer.jobs-posted', compact('jobs'));
     }
@@ -30,32 +30,11 @@ class JobController extends Controller
         return view('employer.job-create', compact('industries', 'job_types', 'job_opening_statuses', 'provinces'));
     }
 
-    public function store(Request $request)
+    public function save(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
-            'industry' => 'required',
-            'job-opening-status' => 'required',
-            'job-type' => 'required',
-            'closing-date' => 'required|date|after:today',
-        ]);
+        $this->validateCreate($request);
 
-        $job = Job::create([
-            'emp_id' => auth()->user()->id,
-            'title' => $request->get('title'),
-            'description' => $request->get('description'),
-            //'published_date' => $request->get('title'),
-            'closing_date' => $request->get('closing-date'),
-            'industry_id' => $request->get('industry'),
-            'salary' => $request->get('salary'),
-            'status' => $request->get('job-opening-status'),
-            'city' => $request->get('city'),
-            'province_code' => $request->get('location'),
-            'work_experience' => $request->get('work-experience'),
-            'job_type_id' => $request->get('job-type'),
-            'number_of_positions' => $request->get('number-of-position'),
-        ]);
+        $job = $this->saveJob($request);
 
         return view('employer.job-show', compact('job'));
     }
@@ -64,7 +43,7 @@ class JobController extends Controller
     {
         $job = Job::with('type')
                     ->where('id', $id)
-                    ->where('emp_id', auth()->user()->id)
+                    ->where('employer_id', employer()->id)
                     ->firstOrFail();
 
         return view('employer.job-show', compact('job'));
@@ -81,5 +60,36 @@ class JobController extends Controller
         $job->save();
 
         return redirect()->back();
+    }
+
+    private function validateCreate(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'industry' => 'required',
+            'job-opening-status' => 'required',
+            'job-type' => 'required',
+            'closing-date' => 'required|date|after:today',
+        ]);
+    }
+
+    private function saveJob(Request $request)
+    {
+        return employer()->jobs()->create([
+            'employer_id' => employer()->id,
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'published_date' => $request->get('publish') ? Carbon::now() : null,
+            'closing_date' => $request->get('closing-date'),
+            'industry_id' => $request->get('industry'),
+            'salary' => $request->get('salary'),
+            'status' => $request->get('job-opening-status'),
+            'city' => $request->get('city'),
+            'province_code' => $request->get('location'),
+            'work_experience' => $request->get('work-experience'),
+            'job_type_id' => $request->get('job-type'),
+            'number_of_positions' => $request->get('number-of-position'),
+        ]);
     }
 }

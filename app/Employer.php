@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Job;
 
 class Employer extends Model
 {
@@ -21,4 +22,9 @@ class Employer extends Model
         'province',
         'post_code',
     ];
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 }

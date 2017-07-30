@@ -18,7 +18,6 @@
                 <label for="job-opening-status" class="col-sm-12 col-md-3 col-form-label">Job Opening Status</label>
                 <div class="col-sm-12 col-md-9">
                     <select class="form-control" id="job-opening-status" name="job-opening-status">
-                        <option value="">--Select--</option>
                         @foreach($job_opening_statuses as $job_opening_status)
                             <option value="{{ $job_opening_status->id }}" {{ old('job-opening-status') == $job_opening_status->id ? 'selected' : '' }}>
                                 {{ $job_opening_status->caption }}
@@ -127,13 +126,24 @@
                     @endif
                 </div>
             </div>
+            <input type="checkbox" name="publish" id="publish">
             <div class="form-group row mb-0">
                 <div class="col-sm-12 col-md-9 offset-md-3 d-flex flex-column flex-md-row">
                     <button class="btn btn-secondary mb-1 mb-md-0 mr-md-1">Save</button>
-                    <button class="btn btn-secondary">Save & Publish</button>
+                    <button class="btn btn-secondary" id="btn-publish">Save & Publish</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+@stop
+
+@section('script')
+<script>
+    $('#btn-publish').click(function(e){
+        e.preventDefault();
+        $('#publish').prop('checked', true);
+        $('form').submit();
+    });
+</script>
 @stop

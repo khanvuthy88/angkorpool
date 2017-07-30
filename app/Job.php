@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\JobType;
 use App\JobIndustry;
 use App\Province;
+use App\Employer;
 use App\Employee;
 use App\JobAlert;
 use ZohoRecruit;
@@ -81,6 +82,11 @@ class Job extends Model
     public function province()
     {
         return $this->hasOne(Province::class, 'code', 'province_code');
+    }
+
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
     }
 
     public function employees()

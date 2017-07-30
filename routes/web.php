@@ -1,10 +1,10 @@
 <?php
 
 Route::group(['middleware' => 'auth.employer'], function(){
-    // Route::get('/jobs', 'Employer\JobController@index')->name('employer.jobs');
+    Route::get('/jobs/posted', 'Employer\JobController@index')->name('employer.jobs');
+    Route::get('/job/posted/{id}', 'Employer\JobController@show')->name('employer.job.show')->where('id', '[0-9]+');
     Route::get('/job/post', 'Employer\JobController@create')->name('employer.job.post');
-    Route::post('/job/post', 'Employer\JobController@store');
-    // Route::get('/job/{id}', 'Employer\JobController@show')->where('id', '[0-9]+')->name('employer.job.show');
+    Route::post('/job/post', 'Employer\JobController@save');
     Route::get('/job/{id}/publish', 'Employer\JobController@publish')->name('employer.job.publish');
 });
 
