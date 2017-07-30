@@ -11,12 +11,14 @@ Route::group(['middleware' => 'auth.employer'], function(){
 Route::group(['middleware' => 'auth.employee'], function(){
 	Route::get('/profile', 'Employee\ProfileController@showProfile')->name('employee.profile');
     Route::get('/dashboard', 'Employee\DashboardController@index')->name('employee.dashboard');
+
     Route::post('/apply/{job}', 'Employee\JobController@apply')->name('employee.apply.job');
     Route::get('/applied/jobs', 'Employee\JobController@appliedJobs')->name('employee.applied.jobs');
-    Route::get('/job/alert', 'Employee\JobController@alert')->name('job.alert');
-    Route::get('/job/alert/create', 'Employee\JobController@alertCreate')->name('job.alert.create');
-    Route::post('/job/alert/create', 'Employee\JobController@alertSave');
-    Route::get('/job/alert/delete/{id}', 'Employee\JobController@alertDelete')->name('job.alert.delete');
+
+    Route::get('/job/alert', 'Employee\JobAlertController@index')->name('job.alert');
+    Route::get('/job/alert/create', 'Employee\JobAlertController@create')->name('job.alert.create');
+    Route::post('/job/alert/create', 'Employee\JobAlertController@save');
+    Route::get('/job/alert/delete/{id}', 'Employee\JobAlertController@delete')->name('job.alert.delete');
 });
 
 Route::get('/jobs', 'JobController@index')->name('jobs');

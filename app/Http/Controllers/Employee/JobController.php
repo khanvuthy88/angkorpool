@@ -67,34 +67,4 @@ class JobController extends Controller
 
         return view('employee.applied-jobs', compact('jobs'));
     }
-
-    public function alert()
-    {
-        return view('employee.job-alert', [
-            'alerts' => employee()->jobAlerts()->with(['job_type', 'industry'])->latest()->paginate(10)
-        ]);
-    }
-
-    public function alertCreate()
-    {
-        $industries = JobIndustry::all();
-        $job_types = JobType::all();
-        $provinces = Province::all();
-
-        return view('employee.job-alert-create', compact('industries', 'job_types', 'provinces'));
-    }
-
-    public function alertSave(Request $request)
-    {
-        employee()->jobAlerts()->create($request->all());
-
-        return redirect()->route('job.alert');
-    }
-
-    public function alertDelete($id)
-    {
-        employee()->jobAlerts()->find($id)->delete();
-
-        return redirect()->back();
-    }
 }
