@@ -27,7 +27,12 @@ if(! function_exists('employee'))
 {
     function employee()
     {
-        return auth()->user()->employee;
+        if(! is_null($user = auth()->user()) && $user->user_type === 'CAN')
+        {
+            return $user->employee;
+        }
+
+        return null;
     }
 }
 
@@ -35,6 +40,11 @@ if(! function_exists('employer'))
 {
     function employer()
     {
-        return auth()->user()->employee;
+        if(! is_null($user = auth()->user()) && $user->user_type === 'EMP')
+        {
+            return $user->employer;
+        }
+
+        return null;
     }
 }
