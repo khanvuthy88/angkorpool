@@ -8,6 +8,9 @@
                 <div class="card">
                     <h5 class="card-header"><i class="fa fa-key mr-2"></i>Login</h5>
                     <div class="card-block">
+                        @if(session()->has('msg_success'))
+                            <div class="alert alert-success">{{ session('msg_success') }}</div>
+                        @endif
                         @if($errors->has('credential'))
                             <div class="alert alert-danger" id="alert">{{ $errors->first('credential') }}</div>
                         @endif
