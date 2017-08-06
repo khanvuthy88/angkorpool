@@ -42,12 +42,12 @@
                                 <div class="col-sm-12 col-md-9">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="user_type" value="CAN"> Applicant looking for jobs
-                                        </label>
+                                            <input type="radio" name="user_type" value="CAN" {{ old('user_type') == 'CAN' ? 'checked' : '' }}> Applicant looking for jobs
+                                        </label>:
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="user_type" value="EMP"> an organization
+                                            <input type="radio" name="user_type" value="EMP" {{ old('user_type') == 'EMP' ? 'checked' : '' }}> an organization
                                         </label>
                                     </div>
                                     @if ($errors->has('user_type'))
