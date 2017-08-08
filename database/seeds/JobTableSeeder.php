@@ -5,6 +5,7 @@ use App\Job;
 use App\JobType;
 use App\JobIndustry;
 use App\JobOpeningStatus;
+use App\Employer;
 
 class JobTableSeeder extends Seeder
 {
@@ -42,6 +43,8 @@ class JobTableSeeder extends Seeder
             [ 'name' => 'Manufacturing' ],
         ]);
 
-        factory(Job::class, 20)->create();
+        factory(Job::class, 1)->create([
+            'employer_id' => Employer::where('email', 'employer@mail.com')->first()->id
+        ]);
     }
 }
