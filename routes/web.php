@@ -1,6 +1,7 @@
 <?php
 
 Route::group(['middleware' => 'auth.employer'], function(){
+    Route::get('/admin','Employer\JobController@admin')->name('employer.index');
     Route::get('/jobs/posted', 'Employer\JobController@index')->name('employer.jobs');
     Route::get('/job/posted/{id}', 'Employer\JobController@show')->name('employer.job.show')->where('id', '[0-9]+');
     Route::get('/job/post', 'Employer\JobController@create')->name('employer.job.post');
@@ -35,7 +36,7 @@ Route::get('register', 'Auth\RegisterController@create');
 Route::post('register', 'Auth\RegisterController@store');
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login')->name('user.login');
-Route::get('logout', 'Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('zoho', 'Test\ZohoController@fetchData');
 Route::get('zoho/insert', 'Test\ZohoController@insert');

@@ -10,9 +10,14 @@ use App\JobIndustry;
 use App\JobType;
 use App\JobOpeningStatus;
 use App\Province;
+use Auth;
 
 class JobController extends Controller
 {
+    public function admin()
+    {
+        return view('employer.index');
+    }
     public function index()
     {
         $jobs = employer()->jobs()->latest()->paginate(10);

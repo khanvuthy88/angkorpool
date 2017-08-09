@@ -13,7 +13,7 @@ trait AuthRequest
 
     protected $guard;
 
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin/';
 
     /**
      * Validate the user login request.
@@ -64,7 +64,7 @@ trait AuthRequest
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
-
+        
         return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());
     }

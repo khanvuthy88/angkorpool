@@ -1,4 +1,6 @@
-@extends('layout.master')
+@extends('employer.layouts.admin')
+
+@section('body_class','nav-md')
 
 @section('content')
 <div class="card">
@@ -137,13 +139,19 @@
     </div>
 </div>
 @stop
+@section('styles')
+    {{ Html::style('assets/admin/css/admin.css') }}
+@endsection
 
-@section('script')
-<script>
+@section('scripts')
+    {{ Html::script('assets/admin/js/admin.js') }}
+    {{ Html::script('js/bootstrap-datepicker.min.js') }}
+    <script>
     $('#btn-publish').click(function(e){
         e.preventDefault();
         $('#publish').prop('checked', true);
         $('form').submit();
     });
 </script>
-@stop
+@endsection
+
