@@ -16,7 +16,7 @@ class CreateEmployersTable extends Migration
         Schema::create('employers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('contact_number')->nullable();
             $table->string('fax')->nullable();
             $table->integer('industry_id')->unsigned()->nullable();

@@ -5,7 +5,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'username' => $faker->firstName,
+        'username' => $faker->username,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = 'secret',
         'user_type' => $faker->randomElement(['CAN', 'EMP', 'REC']),
@@ -98,5 +98,15 @@ $factory->define(App\JobAlert::class, function (Faker\Generator $faker) {
         'province_code' => 'PNP',
         'mail_frequency' => 'Daily',
         'is_paused' => false,
+    ];
+});
+
+$factory->define(App\AdminUser::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'username' => $faker->username,
+        'password' => $password ?: $password = 'secret',
+        'remember_token' => str_random(10),
     ];
 });

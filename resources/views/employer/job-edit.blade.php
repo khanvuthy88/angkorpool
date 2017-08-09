@@ -137,7 +137,7 @@
                         type="text" id="closing-date"
                         name="closing-date"
                         placeholder="yyyy-mm-dd"
-                        value="{{ !$errors->isEmpty() ? old('closing-date') : $job->closing_date }}">
+                        value="{{ !$errors->isEmpty() ? old('closing-date') : $job->closing_date->format('Y-m-d') }}">
                     @if ($errors->has('closing-date'))
                         <div class="form-control-feedback"><small>{{ $errors->first('closing-date') }}</small></div>
                     @endif
