@@ -74,6 +74,7 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return redirect()->guest(route('user.login'));
+        return collect($exception->guards())->first() === 'admin' ?
+                    redirect()->guest(route('admin.login')) : redirect()->guest(route('user.login'));
     }
 }
