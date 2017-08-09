@@ -22,7 +22,5 @@ class EmployeeTableSeeder extends Seeder
         ]);
         factory(EmployeeEducation::class, 3)->create([ 'employee_id' => $employee->id ]);
         factory(EmployeeExperience::class, 6)->create([ 'employee_id' => $employee->id ]);
-
-        factory(Employee::class, 5)->create();
     }
 }

@@ -1,5 +1,15 @@
 <?php
 
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('/login', 'Admin\Auth\LoginController@index')->name('admin.login');
+    Route::post('/login', 'Admin\Auth\LoginController@login');
+    Route::get('/logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
+
+    Route::group([ 'middleware' => 'auth:admin' ], function(){
+        Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
+    });
+});
+
 Route::group(['middleware' => 'auth.employer'], function(){
     Route::get('/jobs/posted', 'Employer\JobController@index')->name('employer.jobs');
     Route::get('/job/posted/{id}', 'Employer\JobController@show')->name('employer.job.show')->where('id', '[0-9]+');

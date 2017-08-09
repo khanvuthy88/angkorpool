@@ -18,6 +18,5 @@ class EmployerTableSeeder extends Seeder
         factory(Employer::class)->create([
             'email' => factory(User::class)->create([ 'email' => 'employer@mail.com', 'user_type' => 'EMP' ])->email
         ]);
-        factory(Employer::class, 5)->create();
     }
 }
