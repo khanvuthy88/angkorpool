@@ -22,7 +22,7 @@
             </div>
 
             <footer>
-                @include('admin.sections.footer')
+                @include('employer.sections.footer')
             </footer>
         </div>
     </div>
