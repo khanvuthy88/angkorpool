@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('employer.layouts.admin')
 
 @section('body_class','nav-md')
 
@@ -6,8 +6,8 @@
     <div class="container body">
         <div class="main_container">
             @section('header')
-                @include('admin.sections.navigation')
-                @include('admin.sections.header')
+                @include('employer.sections.navigation')
+                @include('employer.sections.header')
             @show
 
             @yield('left-sidebar')
@@ -22,7 +22,7 @@
             </div>
 
             <footer>
-                @include('admin.sections.footer')
+                @include('employer.sections.footer')
             </footer>
         </div>
     </div>
