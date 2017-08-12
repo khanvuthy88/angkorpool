@@ -8,6 +8,14 @@ Route::group(['prefix' => 'admin'], function(){
     Route::group([ 'middleware' => 'auth:admin' ], function(){
         Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
         Route::get('/dashboard/{users}/user/','Admin\DashboardController@show')->name('admin.dashboard.user.show');
+
+        Route::get('/users', 'Admin\UserController@index')->name('admin.users');
+        Route::get('/user/{user}', 'Admin\UserController@show')->name('admin.user.show');
+        Route::get('/user/create', 'Admin\UserController@create')->name('admin.user.create');
+        Route::post('/user/create', 'Admin\UserController@store');
+        Route::get('/user/edit/{user}', 'Admin\UserController@edit')->name('admin.user.edit');
+        Route::put('/user/edit/{user}', 'Admin\UserController@update');
+        Route::delete('/user/delete/{user}', 'Admin\UserController@delete')->name('admin.user.delete');
     });
 });
 

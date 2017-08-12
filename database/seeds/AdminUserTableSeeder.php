@@ -32,7 +32,7 @@ class AdminUserTableSeeder extends Seeder
         Permission::create(['name' => 'delete users', 'guard_name' => 'admin']);
 
         // create roles and assign existing permissions
-        $role = Role::create(['name' => 'boss', 'guard_name' => 'admin']);
+        $role = Role::create(['name' => 'admin', 'guard_name' => 'admin']);
         $role->givePermissionTo('create users');
         $role->givePermissionTo('edit users');
         $role->givePermissionTo('delete users');
@@ -41,8 +41,15 @@ class AdminUserTableSeeder extends Seeder
         $role->givePermissionTo('edit users');
 
         // User
-        factory(AdminUser::class)->create([ 'username' => 'boss' ]);
-        factory(AdminUser::class)->create([ 'username' => 'staff' ]);
+        $user = factory(AdminUser::class)->create([ 'username' => 'boss' ]);
+        $user->assignRole('admin');
+
+        $user = factory(AdminUser::class)->create([ 'username' => 'manager' ]);
+        $user->assignRole('admin');
+        $user->assignRole('editor');
+
+        $user = factory(AdminUser::class)->create([ 'username' => 'staff' ]);
+        $user->assignRole('editor');
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
