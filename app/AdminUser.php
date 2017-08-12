@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AdminUser extends Authenticatable
 {
-    use Notifiable, HasRoles;
+    use Notifiable, HasRoles, SoftDeletes;
 
     protected $guard_name = 'admin';
 
@@ -17,6 +18,8 @@ class AdminUser extends Authenticatable
     protected $fillable = [ 'username', 'password' ];
 
     protected $hidden = [ 'password', 'remember_token' ];
+
+    protected $dates = ['deleted_at'];
 
     public function setPasswordAttribute($password)
     {
