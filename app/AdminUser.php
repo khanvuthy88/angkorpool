@@ -10,6 +10,8 @@ class AdminUser extends Authenticatable
 {
     use Notifiable, HasRoles;
 
+    protected $guard_name = 'admin';
+
     protected $table = 'admin_users';
 
     protected $fillable = [ 'username', 'password' ];
