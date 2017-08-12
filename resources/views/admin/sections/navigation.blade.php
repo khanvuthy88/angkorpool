@@ -20,12 +20,39 @@
                             Dashboard
                         </a>
                     </li>
-                    <li><a><i class="fa fa-edit"></i> Jobs <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-users" aria-hidden="true"></i> User <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="">
-                            <li><a href="{{ route('employer.jobs')}}">All jobs</a></li>
-                            <li><a href="{{ route('employer.job.post') }}">New Job</a></li>
+                            <li><a href="{{ route('employer.jobs')}}">All Users</a></li>
+                            <li><a href="{{ route('employer.job.post') }}">New User</a></li>
                         </ul>
                     </li>
+                    <li><a><i class="fa fa-briefcase" aria-hidden="true"></i> Role <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="">
+                            <li><a href="{{ route('employer.jobs')}}">All Roles</a></li>
+                            <li><a href="{{ route('employer.job.post') }}">New Role</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-address-card" aria-hidden="true"></i> Applicant <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="">
+                            <li><a href="{{ route('employer.jobs')}}">All Applicant</a></li>
+                            <li><a href="{{ route('employer.job.post') }}">New Applicant</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-building" aria-hidden="true"></i> Organization <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="">
+                            <li><a href="{{ route('employer.jobs')}}">All Organization</a></li>
+                            <li><a href="{{ route('employer.job.post') }}">New Organization</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-edit"></i> Recruiter <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="">
+                            <li><a href="{{ route('employer.jobs')}}">All Recruiter</a></li>
+                            <li><a href="{{ route('employer.job.post') }}">New Recruiter</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Messages</a></li>
+                    <li><a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> FAQ</a></li>
+                    <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
                 </ul>
             </div>
             
