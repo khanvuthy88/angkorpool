@@ -14,7 +14,7 @@
 
             <div class="right_col" role="main">
                 <div class="page-title">
-                
+
                     <div class="title_left">
                         <div class="create_object">
                             {{-- <h1 class="h3">@yield('title')</h1> --}}
@@ -33,7 +33,6 @@
                     </div>
 
                 </div>
-                {{-- {{ dd($model) }} --}}
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="x_panel">
@@ -56,19 +55,20 @@
                                  <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            @foreach($columns as $column)
-                                                <th>{{ $column }}</th>
-                                            @endforeach
-                                            <th>Actions</th>
+                                            <th>Username</th>
+                                            <th>Role</th>
+                                            <th>Created Date</th>
+                                            <th>Updated Date</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($model as $users)
-                                        <tr>                            
-                                            <td>{{ $users->username }}</td>
-                                            <td>{{ $users->email }}</td>
-                                            <td>@if($users->user_type=='EMP')Employer @else Applicant @endif</td>
-                                            <td>{{ $users->created_at }}</td>
+                                        @foreach($users as $user)
+                                        <tr>
+                                            <td>{{ $user->username }}</td>
+                                            <td>{{ $user->roles->implode('name', ', ')}}</td>
+                                            <td>{{ $user->created_at->format('Y-m-d') }}</td>
+                                            <td>{{ $user->updated_at->format('Y-m-d') }}</td>
                                             <td>
                                                 <a class="btn btn-xs btn-primary" href="#" data-toggle="tooltip" data-placement="top" data-title="View User">
                                                     <i class="fa fa-eye"></i>
@@ -76,10 +76,13 @@
                                                 <a class="btn btn-xs btn-info" href="#" data-toggle="tooltip" data-placement="top" data-title="Edit User">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
-                                                <button class="btn btn-xs btn-danger user_destroy"
-                                                        data-url="{{ route('admin.dashboard.user.show',$users) }}" data-toggle="tooltip" data-placement="top" data-title="Delete">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
+                                                <form method="post" action="{{ route('admin.user.delete', $user) }}">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                    <button class="btn btn-xs btn-danger user_destroy" data-toggle="tooltip" data-placement="top" data-title="Delete">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -89,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 @yield('content')
             </div>
 
@@ -99,33 +102,3 @@
         </div>
     </div>
 @stop
-
-@section('styles')
-    {{ Html::style('assets/admin/css/admin.css') }}
-@endsection
-
-@section('scripts')
-    {{ Html::script('assets/admin/js/admin.js') }}
-    <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('button').click(function(event) {
-                event.preventDefault();
-                console.log($(this).attr('data-url'));
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        var app5 = new Vue({
-          el: '#editor',
-          data: {
-            message: 'Hello Vue.js!'
-          },
-          methods: {
-            reverseMessage: function () {
-              this.message = this.message.split('').reverse().join('')
-            }
-          }
-        })
-    </script>
-@endsection
