@@ -24,7 +24,7 @@
                         <a href="{{ route('admin.users') }}"><i class="fa fa-users" aria-hidden="true"></i> User</a>
                     </li>
                     <li>
-                        <a><i class="fa fa-briefcase" aria-hidden="true"></i> Role</a>
+                        <a href="{{ route('admin.roles') }}"><i class="fa fa-briefcase" aria-hidden="true"></i> Role</a>
                     </li>
                     <li>
                         <a href="{{ route('admin.permissions') }}"><i class="fa fa-users" aria-hidden="true"></i> Permission</a>
