@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Validation\Rule;
 
 class PermissionController extends Controller
 {
@@ -15,52 +16,52 @@ class PermissionController extends Controller
         return view('admin.permission.all', compact('permissions'));
     }
 
-    public function delete(AdminUser $user)
+    public function show(Permission $permission)
     {
-        $user->delete();
-
-        return redirect()->back();
-    }
-
-    public function show(AdminUser $user)
-    {
-        return view('admin.user.show', compact('user'));
+        return view('admin.permission.show', compact('permission'));
     }
 
     public function create()
     {
-        $roles = Role::where('guard_name', 'admin')->get();
-
-        return view('admin.user.create', compact('roles'));
+        return view('admin.permission.create');
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|unique:admin_users',
-            'password' => 'required|min:8',
-            'password_again' => 'same:password',
+            'name' => 'required|unique:permissions',
+            'guard_name' => 'required',
         ]);
 
-        AdminUser::create($request->all());
+        Permission::create($request->only('name', 'guard_name'));
 
-        return redirect()->route('admin.users');
+        return redirect()->route('admin.permissions');
     }
 
-    public function edit(AdminUser $user)
+    public function edit(Permission $permission)
     {
-        return view('admin.user.edit', compact('user', 'roles'));
+        return view('admin.permission.edit', compact('permission'));
     }
 
-    public function update(AdminUser $user)
+    public function update(Request $request, Permission $permission)
     {
         $this->validate($request, [
-            'password' => 'required|min:8',
-            'password_again' => 'same:password',
+            'name' => [
+                'required',
+                Rule::unique('permissions')->ignore($permission->id),
+            ],
+            'guard_name' => 'required',
         ]);
 
-        $user->update($request->except('username'));
+        $permission->update($request->only('name', 'guard_name'));
 
-        return redirect()->route('admin.users');
+        return redirect()->route('admin.permissions');
+    }
+
+    public function delete(Permission $permission)
+    {
+        $permission->delete();
+
+        return redirect()->back();
     }
 }

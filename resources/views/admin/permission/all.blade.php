@@ -17,8 +17,7 @@
 
                     <div class="title_left">
                         <div class="create_object">
-                            {{-- <h1 class="h3">@yield('title')</h1> --}}
-                            <button class="btn btn-primary" type="button">New Permission</button>
+                            <a href="{{ route('admin.permission.create') }}" class="btn btn-primary">New Permission</a>
                         </div>
                     </div>
                     <div class="title_right">
@@ -70,10 +69,7 @@
                                             <td>{{ $permission->created_at->format('Y-m-d') }}</td>
                                             <td>{{ $permission->updated_at->format('Y-m-d') }}</td>
                                             <td>
-                                                <a class="btn btn-xs btn-primary" href="#" data-toggle="tooltip" data-placement="top" data-title="View User">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
-                                                <a class="btn btn-xs btn-info" href="#" data-toggle="tooltip" data-placement="top" data-title="Edit User">
+                                                <a class="btn btn-xs btn-info" href="{{ route('admin.permission.edit', $permission) }}" data-toggle="tooltip" data-placement="top" data-title="Edit User">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                                 <form method="post" action="{{ route('admin.permission.delete', $permission) }}" style="display: inline;">

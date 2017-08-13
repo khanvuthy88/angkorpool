@@ -10,20 +10,20 @@ Route::group([ 'prefix' => 'admin', 'namespace' => 'Admin' ], function(){
         Route::get('/dashboard/{users}/user/','DashboardController@show')->name('admin.dashboard.user.show');
 
         Route::get('/users', 'UserController@index')->name('admin.users');
-        Route::get('/user/{user}', 'UserController@show')->name('admin.user.show');
         Route::get('/user/create', 'UserController@create')->name('admin.user.create');
         Route::post('/user/create', 'UserController@store');
         Route::get('/user/edit/{user}', 'UserController@edit')->name('admin.user.edit');
         Route::put('/user/edit/{user}', 'UserController@update');
         Route::delete('/user/delete/{user}', 'UserController@delete')->name('admin.user.delete');
+        Route::get('/user/{user}', 'UserController@show')->name('admin.user.show');
 
         Route::get('/permissions', 'PermissionController@index')->name('admin.permissions');
-        Route::get('/permission/{permission}', 'PermissionController@show')->name('admin.permission.show');
         Route::get('/permission/create', 'PermissionController@create')->name('admin.permission.create');
         Route::post('/permission/create', 'PermissionController@store');
         Route::get('/permission/edit/{permission}', 'PermissionController@edit')->name('admin.permission.edit');
         Route::put('/permission/edit/{permission}', 'PermissionController@update');
         Route::delete('/permission/delete/{permission}', 'PermissionController@delete')->name('admin.permission.delete');
+        Route::get('/permission/{permission}', 'PermissionController@show')->name('admin.permission.show');
     });
 });
 
