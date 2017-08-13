@@ -76,7 +76,7 @@
                                                 <a class="btn btn-xs btn-info" href="#" data-toggle="tooltip" data-placement="top" data-title="Edit User">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
-                                                <form method="post" action="{{ route('admin.user.delete', $user) }}">
+                                                <form method="post" action="{{ route('admin.user.delete', $user) }}" style="display: inline;">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                     <button class="btn btn-xs btn-danger user_destroy" data-toggle="tooltip" data-placement="top" data-title="Delete">
