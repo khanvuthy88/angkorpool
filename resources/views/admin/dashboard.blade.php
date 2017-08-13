@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin._layouts.app')
 
 @section('body_class','nav-md')
 
@@ -6,15 +6,15 @@
     <div class="container body">
         <div class="main_container">
             @section('header')
-                @include('admin.sections.navigation')
-                @include('admin.sections.header')
+                @include('admin._sections.navigation')
+                @include('admin._sections.header')
             @show
 
             @yield('left-sidebar')
 
             <div class="right_col" role="main">
                 <div class="page-title">
-                
+
                     <div class="title_left">
                         <div class="create_object">
                             {{-- <h1 class="h3">@yield('title')</h1> --}}
@@ -56,15 +56,16 @@
                                  <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            @foreach($columns as $column)
-                                                <th>{{ $column }}</th>
-                                            @endforeach
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>User Type</th>
+                                            <th>Created Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($model as $users)
-                                        <tr>                            
+                                        <tr>
                                             <td>{{ $users->username }}</td>
                                             <td>{{ $users->email }}</td>
                                             <td>@if($users->user_type=='EMP')Employer @else Applicant @endif</td>
@@ -89,12 +90,12 @@
                         </div>
                     </div>
                 </div>
-                
+
                 @yield('content')
             </div>
 
             <footer>
-                @include('admin.sections.footer')
+                @include('admin._sections.footer')
             </footer>
         </div>
     </div>

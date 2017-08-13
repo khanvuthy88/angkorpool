@@ -10,9 +10,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-    	$model=User::paginate(3);
-    	$columns=User::$columns;
-        return view('admin.dashboard',compact('model','columns'));
+    	$model = User::paginate(20);
+
+        return view('admin.dashboard',compact('model'));
     }
     public function show(User $users)
     {
