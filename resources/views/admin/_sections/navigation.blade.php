@@ -47,6 +47,10 @@
                             <li><a href="{{ route('employer.job.post') }}">New Recruiter</a></li>
                         </ul>
                     </li>
+                    <li><a><i class="fa fa-briefcase" aria-hidden="true"></i> Role </a></li>
+                    <li><a><i class="fa fa-address-card" aria-hidden="true"></i> Applicant </a></li>
+                    <li><a><i class="fa fa-building" aria-hidden="true"></i> Organization </a></li>
+                    <li><a><i class="fa fa-edit"></i> Recruiter </a></li>
                     <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Messages</a></li>
                     <li><a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> FAQ</a></li>
                     <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>

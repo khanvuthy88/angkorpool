@@ -12,7 +12,7 @@
         <!--Common App Styles-->
         {{ Html::style('assets/app/css/app.css') }}
         {{ Html::style('assets/admin/css/admin.css') }}
-
+        {{ Html::style('assets/admin/css/custome.css') }}
         <!--Styles-->
         @yield('styles')
 
