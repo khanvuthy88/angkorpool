@@ -38,7 +38,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required',
+            'username' => 'required|unique:admin_users',
             'password' => 'required|min:8',
             'password_again' => 'same:password',
         ]);
@@ -53,16 +53,15 @@ class UserController extends Controller
         return view('admin.user.edit', compact('user', 'roles'));
     }
 
-    public function update(Request $request)
+    public function update(AdminUser $user)
     {
         $this->validate($request, [
-            'username' => 'required',
-            // 'password' => 'required|min:8',
-            // 'password_again' => 'same:password',
+            'password' => 'required|min:8',
+            'password_again' => 'same:password',
         ]);
 
-        AdminUser::update($request->all());
+        $user->update($request->except('username'));
 
-        return redirect()->route();
+        return redirect()->route('admin.users');
     }
 }
