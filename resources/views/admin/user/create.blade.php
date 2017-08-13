@@ -33,35 +33,41 @@
 
                 </div>
                 <div class="panel panel-default">
-                	<div class="panel-heading">Update User : {{ $user->username }}</div>
+                	<div class="panel-heading">New User </div>
                 	<div class="panel-body">
-                		<form action="{{ route('admin.user.update',$user) }}" method="POST">
+                		<form action="{{ route('admin.user.store') }}" method="POST">
                 			{{ csrf_field() }}
                 			{{ method_field('PUT') }}
-                    		<legend>Update user {{ $user->username }}</legend>
+                    		<legend>New User</legend>
                     	
                     		<div class="form-group">
                     			<label for="">User Name</label>
-                    			<input type="text" class="form-control" name="username" id="username" value="{{ !$errors->isEmpty() ? old('user') : $user->username }}" placeholder="Input field">
-                    			@if ($errors->has('title'))
-			                        <div class="form-control-feedback"><small>{{ $errors->first('title') }}</small></div>
+                    			<input type="text" class="form-control" name="username" id="username" placeholder="Input field">
+                    			@if ($errors->has('username'))
+			                        <div class="form-control-feedback"><small>{{ $errors->first('username') }}</small></div>
 			                    @endif
                     		</div>	
 
                     		<div class="form-group">
                     			<label>Password</label>
                     			<input type="Password" name="password" id="password" class="form-control">
+                                @if ($errors->has('password'))
+                                    <div class="form-control-feedback"><small>{{ $errors->first('password') }}</small></div>
+                                @endif
                     		</div>
 
                     		<div class="form-group">
                     			<label>Confirm Password</label>
                     			<input type="Password" name="password_again" id="password_again" class="form-control">
+                                @if ($errors->has('password_again'))
+                                    <div class="form-control-feedback"><small>{{ $errors->first('password_again') }}</small></div>
+                                @endif
                     		</div>
 
                     	
                     		<div class="form-group">
                     			<label>User role</label>
-                    			<select>
+                    			<select name="role" id="role">
                                     @foreach($roles as $role)         
                                         <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach

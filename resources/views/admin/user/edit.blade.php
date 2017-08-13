@@ -12,13 +12,13 @@
             @yield('left-sidebar')
 
             <div class="right_col" role="main">
-                <div class="page-password">
+                <div class="page-title">
 
                     <div class="title_left">
-                        <div class="create_object">
+                        
                             {{-- <h1 class="h3">@yield('title')</h1> --}}
                             <a href="{{ route('admin.user.create') }}"><button class="btn btn-primary"  type="button">New User</button></a>
-                        </div>
+                       
                     </div>
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
