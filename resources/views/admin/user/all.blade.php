@@ -18,7 +18,7 @@
                     <div class="title_left">
                         <div class="create_object">
                             {{-- <h1 class="h3">@yield('title')</h1> --}}
-                            <button class="btn btn-primary" type="button">New User</button>
+                            <a href="{{ route('admin.user.create') }}"><button class="btn btn-primary"  type="button">New User</button></a>
                         </div>
                     </div>
                     <div class="title_right">
@@ -70,13 +70,13 @@
                                             <td>{{ $user->created_at->format('Y-m-d') }}</td>
                                             <td>{{ $user->updated_at->format('Y-m-d') }}</td>
                                             <td>
-                                                <a class="btn btn-xs btn-primary" href="#" data-toggle="tooltip" data-placement="top" data-title="View User">
+                                                <a class="float_left btn btn-xs btn-primary" href="#" data-toggle="tooltip" data-placement="top" data-title="View User">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                                <a class="btn btn-xs btn-info" href="#" data-toggle="tooltip" data-placement="top" data-title="Edit User">
+                                                <a class="float_left btn btn-xs btn-info" href="{{ route('admin.user.edit',$user) }}" data-toggle="tooltip" data-placement="top" data-title="Edit User">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
-                                                <form method="post" action="{{ route('admin.user.delete', $user) }}">
+                                                <form class="float_left" method="post" action="{{ route('admin.user.delete', $user) }}">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                     <button class="btn btn-xs btn-danger user_destroy" data-toggle="tooltip" data-placement="top" data-title="Delete">

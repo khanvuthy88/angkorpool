@@ -53,12 +53,12 @@ class UserController extends Controller
         return view('admin.user.edit', compact('user', 'roles'));
     }
 
-    public function update()
+    public function update(Request $request)
     {
         $this->validate($request, [
             'username' => 'required',
-            'password' => 'required|min:8',
-            'password_again' => 'same:password',
+            // 'password' => 'required|min:8',
+            // 'password_again' => 'same:password',
         ]);
 
         AdminUser::update($request->all());

@@ -12,9 +12,9 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/users', 'Admin\UserController@index')->name('admin.users');
         Route::get('/user/{user}', 'Admin\UserController@show')->name('admin.user.show');
         Route::get('/user/create', 'Admin\UserController@create')->name('admin.user.create');
-        Route::post('/user/create', 'Admin\UserController@store');
+        Route::post('/user/create', 'Admin\UserController@store')->name('admin.user.store');
         Route::get('/user/edit/{user}', 'Admin\UserController@edit')->name('admin.user.edit');
-        Route::put('/user/edit/{user}', 'Admin\UserController@update');
+        Route::put('/user/edit/{user}', 'Admin\UserController@update')->name('admin.user.update');
         Route::delete('/user/delete/{user}', 'Admin\UserController@delete')->name('admin.user.delete');
     });
 });
