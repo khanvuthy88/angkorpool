@@ -21,17 +21,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.users') }}"><i class="fa fa-users" aria-hidden="true"></i> User <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ route('employer.jobs')}}">All Users</a></li>
-                            <li><a href="{{ route('employer.job.post') }}">New User</a></li>
-                        </ul>
+                        <a href="{{ route('admin.users') }}"><i class="fa fa-users" aria-hidden="true"></i> User</a>
                     </li>
-                    <li><a><i class="fa fa-briefcase" aria-hidden="true"></i> Role <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu" style="">
-                            <li><a href="{{ route('employer.jobs')}}">All Roles</a></li>
-                            <li><a href="{{ route('employer.job.post') }}">New Role</a></li>
-                        </ul>
+                    <li>
+                        <a><i class="fa fa-briefcase" aria-hidden="true"></i> Role</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.permissions') }}"><i class="fa fa-users" aria-hidden="true"></i> Permission</a>
                     </li>
                     <li><a><i class="fa fa-address-card" aria-hidden="true"></i> Applicant <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="">

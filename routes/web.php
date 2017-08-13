@@ -1,21 +1,29 @@
 <?php
 
-Route::group(['prefix' => 'admin'], function(){
-    Route::get('/login', 'Admin\Auth\LoginController@index')->name('admin.login');
-    Route::post('/login', 'Admin\Auth\LoginController@login');
-    Route::get('/logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
+Route::group([ 'prefix' => 'admin', 'namespace' => 'Admin' ], function(){
+    Route::get('/login', 'Auth\LoginController@index')->name('admin.login');
+    Route::post('/login', 'Auth\LoginController@login');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('admin.logout');
 
     Route::group([ 'middleware' => 'auth:admin' ], function(){
-        Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
-        Route::get('/dashboard/{users}/user/','Admin\DashboardController@show')->name('admin.dashboard.user.show');
+        Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
+        Route::get('/dashboard/{users}/user/','DashboardController@show')->name('admin.dashboard.user.show');
 
-        Route::get('/users', 'Admin\UserController@index')->name('admin.users');
-        Route::get('/user/{user}', 'Admin\UserController@show')->name('admin.user.show');
-        Route::get('/user/create', 'Admin\UserController@create')->name('admin.user.create');
-        Route::post('/user/create', 'Admin\UserController@store');
-        Route::get('/user/edit/{user}', 'Admin\UserController@edit')->name('admin.user.edit');
-        Route::put('/user/edit/{user}', 'Admin\UserController@update');
-        Route::delete('/user/delete/{user}', 'Admin\UserController@delete')->name('admin.user.delete');
+        Route::get('/users', 'UserController@index')->name('admin.users');
+        Route::get('/user/{user}', 'UserController@show')->name('admin.user.show');
+        Route::get('/user/create', 'UserController@create')->name('admin.user.create');
+        Route::post('/user/create', 'UserController@store');
+        Route::get('/user/edit/{user}', 'UserController@edit')->name('admin.user.edit');
+        Route::put('/user/edit/{user}', 'UserController@update');
+        Route::delete('/user/delete/{user}', 'UserController@delete')->name('admin.user.delete');
+
+        Route::get('/permissions', 'PermissionController@index')->name('admin.permissions');
+        Route::get('/permission/{permission}', 'PermissionController@show')->name('admin.permission.show');
+        Route::get('/permission/create', 'PermissionController@create')->name('admin.permission.create');
+        Route::post('/permission/create', 'PermissionController@store');
+        Route::get('/permission/edit/{permission}', 'PermissionController@edit')->name('admin.permission.edit');
+        Route::put('/permission/edit/{permission}', 'PermissionController@update');
+        Route::delete('/permission/delete/{permission}', 'PermissionController@delete')->name('admin.permission.delete');
     });
 });
 
