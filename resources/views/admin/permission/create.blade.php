@@ -25,7 +25,7 @@
                                 <form action="{{ route('admin.permission.create') }}" method="POST">
                                     {{ csrf_field() }}
                                     <div class="form-group row {{ ! $errors->has('name') ?: 'has-danger' }}">
-                                        <label for="name" class="col-sm-12 col-md-3 col-form-label">name</label>
+                                        <label for="name" class="col-sm-12 col-md-3 col-form-label">Name</label>
                                         <div class="col-sm-12 col-md-9">
                                             <input class="form-control" type="text" id="name" name="name" value="{{ old('name') }}">
                                             @if ($errors->has('name'))
@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row {{ ! $errors->has('guard_name') ?: 'has-danger' }}">
-                                        <label for="guard_name" class="col-sm-12 col-md-3 col-form-label">Guard name</label>
+                                        <label for="guard_name" class="col-sm-12 col-md-3 col-form-label">Guard</label>
                                         <div class="col-sm-12 col-md-9">
                                             <select class="form-control" type="text" id="guard_name" name="guard_name">
                                                 <option value=""></option>

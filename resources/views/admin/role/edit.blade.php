@@ -22,13 +22,13 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <form action="{{ route('admin.permission.edit', $permission) }}" method="POST">
+                                <form action="{{ route('admin.role.edit', $role) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('PUT') }}
                                     <div class="form-group row {{ ! $errors->has('name') ?: 'has-danger' }}">
                                         <label for="name" class="col-sm-12 col-md-3 col-form-label">Name</label>
                                         <div class="col-sm-12 col-md-9">
-                                            <input class="form-control" type="text" id="name" name="name" value="{{ old('name') ? old('name') : $permission->name }}">
+                                            <input class="form-control" type="text" id="name" name="name" value="{{ old('name') ? old('name') : $role->name }}">
                                             @if ($errors->has('name'))
                                                 <div class="form-control-feedback"><small>{{ $errors->first('name') }}</small></div>
                                             @endif
@@ -39,7 +39,7 @@
                                         <div class="col-sm-12 col-md-9">
                                             <select class="form-control" type="text" id="guard_name" name="guard_name">
                                                 <option value=""></option>
-                                                <option {{ old('guard_name') == 'admin' ? 'selected' : ($permission->guard_name == 'admin' ? 'selected' : '') }}>admin</option>
+                                                <option {{ old('guard_name') == 'admin' ? 'selected' : ($role->guard_name == 'admin' ? 'selected' : '') }}>admin</option>
                                             </select>
                                             @if ($errors->has('guard_name'))
                                                 <div class="form-control-feedback"><small>{{ $errors->first('guard_name') }}</small></div>
